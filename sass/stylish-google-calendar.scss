@@ -1,0 +1,175 @@
+$dark-gray: #2b2b2b;
+$light-gray: #595959;
+
+$link-color: #70a4ff;
+$link-visited-color: #5090ff;
+
+$text-color: white;
+
+/*===============================*/
+/*===========   MAIN   ==========*/
+
+#calcontent a {
+	color: $link-color;
+
+  &:visited {
+    color: $link-visited-color
+  }
+}
+
+#calcontent,
+#tgTable,
+#weekViewAllDaywk,
+#calmaster,
+#scrolltimedeventswk,
+#calcontent td,
+#gridcontainer .tg-time-pri,
+#nav > *,
+#nav .dpdiv,
+#nav tr,
+#mainnav,
+#vr-nav,
+.wk-weektop,
+.tg-times-pri ,
+.calList,
+.aplogo,
+.calHeader,
+.chromeColor,
+.wk-allday .st-bg-today,
+.dp-cell.dp-dayh,
+.wk-dummyth,
+.tg-col,
+.cgd-col,
+#gb .gb_ve,
+#gb .gb_re,
+#gb .gb_se,
+#gb .gb_ue
+{
+	background-color: $dark-gray;
+    color: $text-color;
+}
+
+/* A lighter gray column for Today */
+.tg-today,
+.wk-today.wk-dayname
+{
+	background-color: $light-gray;
+    color: $text-color;
+}
+
+.calListLabel,
+.calListLabel-sel,
+.date-top,
+.wk-daylink,
+.calHeaderSpace,
+.calListLabel,
+.calListLabel-sel span
+{
+	color: $text-color;
+}
+
+#calcontent table,
+#calcontent td,
+.tg-col,
+.tg-row
+{
+	border-color: gray;
+}
+
+
+
+/*===============================*/
+/*======   MINI CALENDAR   ======*/
+
+/* Gray out days not in this month */
+#calcontent td.dp-offmonth
+{
+	color: gray;
+}
+
+/* Highlight this week */
+#calcontent td
+{
+  &.dp-weekday-selected,
+  &.dp-weekend-selected {
+    background-color: $light-gray;
+  }
+}
+
+
+/*===============================*/
+/*=========   BUTTONS   =========*/
+
+/* Hide weird transition gradient image */
+.trans-strip.goog-inline-block 
+{
+	display: none;
+}
+
+
+/*===============================*/
+/*=======   AGENDA VIEW   =======*/
+#gridcontainer,
+#lv_listview .lv-datecell
+{
+	background-color: $dark-gray;
+}
+
+.lv-event-time,
+.lv-location
+{
+	color: white;
+}
+
+
+
+/*===============================*/
+/*=======   EDIT SCREEN   =======*/
+
+.ep-dp,
+.ep-dp-dt-th,
+.ep-go-label,
+#maincell
+{
+	background-color: $dark-gray;
+    color: white;
+}
+
+
+
+/*===============================*/
+/*====   SETTINGS SCREEN   ======*/
+
+/* Same dark color for table cells */
+#svalues tr ,
+#svalues tr > td,
+#svalues tr > td > div,
+#set,
+#coverinner .buttons,
+#sbody,
+#coverinner > .privacy-policy
+{
+	background-color: $dark-gray;
+	color: $text-color;
+}
+
+/* Lighter color for every other table cell */
+#svalues tr:nth-child(even),
+#svalues tr:nth-child(even) > td,
+#svalues tr:nth-child(even) > td > div
+{
+	background-color: $light-gray;
+	color: $text-color;
+}
+
+.stitle {
+  color: $text-color;
+}
+
+#svalues tr > td
+{
+  div, h1, h2, h3, h4, h5, h6 {
+    color: $text-color;
+  }
+}
+

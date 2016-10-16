@@ -1,0 +1,88 @@
+$dark-gray: #333333;
+$darker-gray: #212121;
+$light-gray: #5a5a5a;
+$text-color: white;
+$audible-highlight-color: orange;
+
+/*****************************************
+ * MAIN PAGE
+ *************8***************************/
+
+/* Background of page and even rows of table */
+#adbl_page_content,
+#center_2 > div.adbl-lib-tab-group > table,
+#adbl-footer,
+#adbl-footer .reg-footer-wide,
+.reg-footer-wide .col,
+html,
+body,
+.bottom-section
+{
+    background: $dark-gray!important;
+    color: $text-color;
+}
+
+/* Links in header and footer */
+#newHeader #nav
+#adbl-footer > div > div.columns-section
+#adbl-lib-content table,
+#adbl_pg_library #adbl_page_content
+#center_3 > div.adbl-series-link
+{
+  a, a.adbl-link {
+    color: $text-color!important;
+  }
+}
+
+/* Invert logo */
+#logo {
+    filter: invert(1);
+    -webkit-filter: invert(1);
+}
+
+
+/*****************************************
+ * LIBRARY TABLE
+ *************8***************************/
+
+/* Odd rows of table */
+#center_3 > div > div.adbl-lib-content > div > table > tbody > .odd {
+    background: $light-gray;
+    color: $text-color;
+}
+
+/* Header row */
+#center_3 .adbl-lib-content table th
+{
+    background: $darker-gray!important;
+    color: $text-color;
+}
+
+/* Library, pre-rders, and wish list buttons */
+#adbl_pg_library #adbl_page_content
+{
+  .dbl-lib-tab-group,
+  #center_2 > div.adbl-lib-tab-group {
+
+    td a {
+      color: $text-color;
+    }
+  }
+}
+
+
+/* Links in library table */
+#adbl_pg_library #adbl_page_content .dbl-lib-tab-group td,
+#adbl_pg_library #adbl_page_content #center_2 > div.adbl-lib-tab-group td,
+#adbl_page_content .adbl-lib-content,
+#adbl_wish_list_popup .adbl-lib-content,
+#center_3 > div > div.adbl-lib-content
+{
+  a, a.adbl-link {
+    color: $audible-highlight-color !important;
+
+    &:visited {
+      color: shade($audible-highlight-color, 20);
+    }
+  }
+}
