@@ -40,20 +40,12 @@ th .witState,
 .tbTile .witTitle,
 .field-container.assignedTo,
 .tbTile .witAssignedTo,
-table[aria-label="Second-level navigation"] .menu-item .text
+table[aria-label="Second-level navigation"] .menu-item .text,
+.vc-history-list .results-container .history-result a, 
+.vc-history-list .results-container .history-result a:link, 
+.vc-history-list .results-container .history-result a:visited
 {
     color: $gray-color!important;
-}
-
-div#header-row 
-{
-    background-color: $blue-color;
-}
-
-
-.left-hub-content .tree-children 
-{
-    color: $blue-color;
 }
 
 .splitter.horizontal > .handleBar,
@@ -68,6 +60,7 @@ div#header-row
 .agile-board .board-tile, 
 .board-tile.ui-draggable-dragging,
 .vsts-header .hub-bar .left-section,
+.hub-bar .header-table .right-section
 {
     background-color: $lighter-color;
 }
@@ -81,10 +74,48 @@ div#header-row
 .ui-droppable,
 .taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
 .hub-pivot-content,
-.vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static
+.vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
+.vc-pullrequest-create-panel,
 {
     background-color: $dark-color;
 }
+
+
+/***********************/
+/** PULL REQUEST */
+.vc-change-summary .changed-files-summary-header,
+.vc-change-summary > *,
+.vc-change-summary-files .files-container
+{
+    background-color: $dark-color;
+    border-color: $dark-color;
+}
+
+.vc-change-summary-files .file-container {
+    background-color: $lighter-color;
+    border-color: $lighter-color;
+}
+
+.vc-change-summary-files .file-cell .file-name-link {
+    color: $gray-color;
+}
+
+.vc-pullrequest-title-input,
+.vc-pullrequest-description-input,
+.identity-picker-input,
+.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input
+{
+    background-color: $lighter-color!important;
+    color: $gray-color!important;
+}
+
+/*.splitter.horizontal > .rightPane {
+    background-color: $dark-color;
+    color: $gray-color;
+}*/
+
+
+/********/
 
 .dashboard-landing .hub-content,
 .tree-drag-tile.folder > .node-link > .node-content, 
@@ -113,7 +144,16 @@ body[contenteditable]
     color: $gray-color;
 }
 
+div#header-row 
+{
+    background-color: $blue-color;
+}
 
+
+.left-hub-content .tree-children 
+{
+    color: $blue-color;
+}
 
 /********/
 
@@ -243,11 +283,6 @@ button, button.ui-state-default, button.ui-button {
     border: 1px solid $lighter-color;
 }
 
-.splitter.horizontal > .rightPane {
-    background-color: $dark-color;
-    color: $gray-color;
-}
-
 .filters a {
     color: $blue-color;
 }
@@ -264,11 +299,6 @@ button, button.ui-state-default, button.ui-button {
     border-bottom: 1px solid $dark-color;
 }
 
-
-.tbTile .tbTileContent {
-    background-color: $lighter-color;
-    border: 0;
-}
 
 .board-add-card {
     background-color: #3E3E3E;
@@ -292,7 +322,12 @@ button, button.ui-state-default, button.ui-button {
     border: 0;
 }
 
-.versioncontrol-explorer-view .source-path {
+.versioncontrol-explorer-view .source-path,
+.combo-drop-popup,
+.chart-hosts-list > .message-block.invalid,
+.query-type .pivot-filter li.selected,
+.tbTile .tbTileContent
+{
     background-color: $lighter-color;
     border: 0;
 }
@@ -314,34 +349,15 @@ body[contenteditable] td{
     border: 1px solid $lighter-color;
 }
 
-.vc-changes-list-filter .advanced-filter {
-    input, .combo
-    {
-        border: 1px solid $gray-color;
-    }
-}
-
-.combo-drop-popup,
-.chart-hosts-list > .message-block.invalid
-{
-    background-color: $lighter-color;
-    border: 0;
-}
-
 .witform-layout-header-color {
     padding-left: 0px!important;
 }
 
-.query-type {
-    border-bottom: 1px solid $gray-color;
-}
-
-.query-type .pivot-filter li.selected {
-    background-color: $lighter-color;
-    border: 0;
-}
-
-.query-editor .toolbar.work-item-list-toolbar {
+.query-type,
+.query-editor .toolbar.work-item-list-toolbar,
+.vc-changes-list-filter .advanced-filter input,
+.vc-changes-list-filter .advanced-filter .combo
+{
     border-bottom: 1px solid $gray-color;
 }
 
@@ -353,12 +369,9 @@ body[contenteditable] td{
     padding-bottom: 10px;
 }
 
-.ui-dialog {
-    background-color: $dark-color;
-    border: 0;
-}
-
-.ui-dialog-buttonpane {
+.ui-dialog,
+.ui-dialog-buttonpane
+{
     background-color: $dark-color;
     border: 0;
 }
@@ -371,6 +384,8 @@ body[contenteditable] td{
 }
 
 
-a {
-    color: white;
+a ,
+table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text
+{
+    color: white!important;
 }
