@@ -1,6 +1,6 @@
 $dark-color: #1e1e1e;
 $lighter-color: #2e2e2e;
-$gray-color: #bbbbbb;
+$gray-color: #ececec;//#bbbbbb;
 $text-color: white;
 $blue-color: #007acc;
 $other-dark-color: #2D2D30;
@@ -81,19 +81,30 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 }
 
 
-/***********************/
-/** PULL REQUEST */
+ /******************************************************************/
+/** PULL REQUEST PAGE ********************************************/
 .vc-change-summary .changed-files-summary-header,
 .vc-change-summary > *,
-.vc-change-summary-files .files-container
+.vc-change-summary-files .files-container,
+.vc-pullrequest-review-view .bowtie textarea,
+.vc-pullrequest-review-view .bowtie input[type=text],
+.vc-discussion-thread-inputtextbox
 {
-    background-color: $dark-color;
-    border-color: $dark-color;
+    background-color: $dark-color!important;
+    border-color: $dark-color!important;
+    color: $gray-color!important;
 }
 
-.vc-change-summary-files .file-container {
-    background-color: $lighter-color;
-    border-color: $lighter-color;
+.vc-change-summary-files .file-container,
+.vc-pullrequest-review-view .vc-pullrequest-activity-box,
+.vc-pullrequest-review-view .vc-pullrequest-activity-feed,
+.vc-pullrequest-review-view .vc-pullrequest-activity-header,
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.subdued,
+.vc-pullrequest-review-view .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment
+{
+    background-color: $lighter-color!important;
+    border-color: $lighter-color!important;
+    color: $gray-color!important;
 }
 
 .vc-change-summary-files .file-cell .file-name-link {
@@ -103,19 +114,67 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 .vc-pullrequest-title-input,
 .vc-pullrequest-description-input,
 .identity-picker-input,
-.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input
+.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input,
+.vc-discussion-thread-comment .vc-discussion-thread-renderarea
 {
     background-color: $lighter-color!important;
     color: $gray-color!important;
 }
 
-/*.splitter.horizontal > .rightPane {
-    background-color: $dark-color;
-    color: $gray-color;
-}*/
+
+ /******************************************************************/
+/** WORK VIEW *****************************************************/
+
+.grid .grid-row {
+    &.grid-row-selected, 
+    &.grid-row-hover, 
+    &.grid-row-current {
+        background-color: $lighter-color!important;
+
+        .grid-context-menu {
+            background-color: $lighter-color!important;
+        }
+    }
+}
+
+.grid-gutter {
+    .grid-gutter-row-current,
+    .grid-gutter-row-selected,
+    .grid-row-hover {
+        background-color: $lighter-color!important;
+    }
+
+    .grid-gutter-row-normal {
+        background-color: $dark-color;
+    }
+}
+
+// Right click menu
+ul.menu-popup {
+    .menu.sub-menu
+    {
+        .menu-item, .menu-item-container {
+            color: $gray-color;
+            background-color: $dark-color;
+
+            &.hover, &.focus {
+                background-color: $lighter-color!important;
+            }
+
+            .drop {
+                color: $gray-color;
+            }
+        }
+        border-color: $dark-color;
+    }
+    border-color: $dark-color;
+}
 
 
-/********/
+
+ /******************************************************************/
+/******************************************************************/
+
 
 .dashboard-landing .hub-content,
 .tree-drag-tile.folder > .node-link > .node-content, 
@@ -133,10 +192,8 @@ table[aria-label="Second-level navigation"] .menu-item .text,
     background-color: $other-dark-color;
 }
 
-
 .tags-add-button .tag-box-selectable,
 .tag-box, .tag-delete,
-.grid-row-selected-blur,
 input, textarea, select,
 body[contenteditable]
 {
@@ -337,7 +394,7 @@ body[contenteditable] td{
 }
 
 
-.grid-gutter-row-current,
+/*.grid-gutter-row-current,
 .grid-gutter-row-selected,
 .grid-gutter-row-normal
 {
@@ -347,7 +404,7 @@ body[contenteditable] td{
 
 .grid-row-current {
     border: 1px solid $lighter-color;
-}
+}*/
 
 .witform-layout-header-color {
     padding-left: 0px!important;
