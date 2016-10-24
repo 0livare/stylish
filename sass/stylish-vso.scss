@@ -121,6 +121,25 @@ table[aria-label="Second-level navigation"] .menu-item .text,
     color: $gray-color!important;
 }
 
+// Pull request list
+.vc-pullrequest-results-row {
+    background-color: $dark-color;
+    color: $gray-color;
+    border-bottom: 1px solid rgba(64, 64, 64, 0.7); // very light gray
+
+    &:hover {
+        background-color: $lighter-color;
+    }
+}
+
+.vc-pullrequest-results-row {
+    .primary-text {
+        &:link, &:visited {
+            color: $gray-color!important;
+        }
+    }
+}
+
 
  /******************************************************************/
 /** WORK VIEW *****************************************************/
@@ -168,6 +187,40 @@ ul.menu-popup {
         border-color: $dark-color;
     }
     border-color: $dark-color;
+}
+
+
+ /******************************************************************/
+/** TITLEBARS *****************************************************/
+
+ul.hubs-menubar {
+    .menu-item {
+        &.hover, &.currently-selected {
+            background-color: $dark-color!important;
+        }
+    }
+}
+
+.hub-selector .menu.sub-menu {
+
+    & > .menu-item-container > .menu-item,
+    .menu-item.second-level-menu
+    {
+        background-color: $dark-color!important;
+        color: $gray-color;
+
+        &.hover {
+            background-color: $lighter-color!important;
+        }
+
+        .icon, drop {
+            color: $gray-color;
+        }
+    }
+
+    .menu-item.menu-item-separator {
+        background-color: $dark-color!important;
+    }
 }
 
 
@@ -321,7 +374,7 @@ li.tree-drag-tile > a > div.node-content ,
 }
 
 .filtered-list-popup{
-    background-color: #off-white-color;
+    background-color: $off-white-color;
 }
 
 
