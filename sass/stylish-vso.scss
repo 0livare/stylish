@@ -1,0 +1,376 @@
+$dark-color: #1e1e1e;
+$lighter-color: #2e2e2e;
+$gray-color: #bbbbbb;
+$text-color: white;
+$blue-color: #007acc;
+$other-dark-color: #2D2D30;
+$orange-color: #dcb67a;
+$red-color: #f05133;
+$off-white-color: #e6e6e6;
+
+
+.left-hub-content .node-content .text,
+.node-link > .node-content, .grid-cell a,
+.watermark, 
+.bowtie-icon,
+.selected-item-text,
+.text-filter-box input,
+.grid-row,
+.ui-widget-content,
+.ui-dialog .ui-dialog-title,
+.query-type .pivot-filter li.selected .text,
+.query-type .pivot-filter li .text,
+.work-item-view legend,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a,
+.mapping-pane-title,
+.vc-history-basic-filter .selected-filter,
+.grid-header,
+label, legend,
+.board-tile .assignedTo,
+.tbPivotItem .witTitle,
+th .witState,
+.pivot-filter .title,
+.hub-title-right, .hub-title-right-secondary,
+.views a,
+.rendered-markdown,
+.rendered-markdown h2,
+.agile-board .member.header,
+.tbTile .clickableTitle,
+.parentTbTile .witState,
+.tbTile .witTitle,
+.field-container.assignedTo,
+.tbTile .witAssignedTo,
+table[aria-label="Second-level navigation"] .menu-item .text
+{
+    color: $gray-color!important;
+}
+
+div#header-row 
+{
+    background-color: $blue-color;
+}
+
+
+.left-hub-content .tree-children 
+{
+    color: $blue-color;
+}
+
+.splitter.horizontal > .handleBar,
+.menu-item.toggle-on,
+.combo > div.wrap > input.invalid, 
+.combo.invalid > div.wrap > input,
+.menu-item.toggle-on,
+.vc-history-list .results-container .history-result .result-details .change-link-container .more-comment-link,
+.vc-history-list .results-container .group-header,
+.ui-tabs .ui-tabs-nav,
+.splitter > .handleBar, .splitter > .handleBar-clone,
+.agile-board .board-tile, 
+.board-tile.ui-draggable-dragging,
+.vsts-header .hub-bar .left-section,
+{
+    background-color: $lighter-color;
+}
+
+.left-hub-content .ui-droppable,
+.workitem-header-bar,
+.text-filter-box,
+.vc-pullrequest-review-view .tabContent-two-pane>.with-background,
+.ui-dialog .ui-dialog-titlebar,
+.agile-board .horizontal > .agile-content-container > .content-container-innerDiv-class .horizontal-table,
+.ui-droppable,
+.taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
+.hub-pivot-content,
+.vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static
+{
+    background-color: $dark-color;
+}
+
+.dashboard-landing .hub-content,
+.tree-drag-tile.folder > .node-link > .node-content, 
+.tree-view .folder > .node-link > .node-content,
+.hub-content,
+.ui-dialog > *
+{
+    background-color: $dark-color!important;
+    color: $gray-color;
+}
+
+
+.add-panel,
+{
+    background-color: $other-dark-color;
+}
+
+
+.tags-add-button .tag-box-selectable,
+.tag-box, .tag-delete,
+.grid-row-selected-blur,
+input, textarea, select,
+body[contenteditable]
+{
+    background-color: $lighter-color;
+    color: $gray-color;
+}
+
+
+
+/********/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 60px rgba(50,50,50,0.7);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(200,200,200,1);
+}
+.work-item-form-main-header {
+    border-left-color: #2E2E2E;
+}
+.work-item-form-id a{
+    color: $text-color;
+}
+.work-item-form-main-core *, .witform-layout *{
+    color: #BBBBBB;
+    background-color: #2E2E2E;
+}
+.work-item-form-main-core, .witform-layout {
+    border: none;
+    padding-top:0px!important;
+}
+
+.witform-layout-content-container{
+    margin-top: 10px;
+}
+
+.work-item-form-tab{
+    background-color: $lighter-color!important;
+    border: none!important;
+}
+
+.control .wrap{
+    border: 1px solid #aaa;
+}
+.header-post11 #navWrapper, 
+.header-post11 #navWrapper *
+{
+    background-color: $lighter-color!important;
+}
+
+
+.header-post11 .header-search {
+    background-color: $lighter-color;
+    border: 1px solid $gray-color;
+}
+
+.left-hub-content {
+    background-color: $dark-color;
+    top: 0;
+}
+
+.hub-splitter.splitter.horizontal > .leftPane {
+    border-right: 0;
+}
+
+.toolbar {
+    border-bottom: 1px solid $gray-color;
+    border-top: 0;
+    color: $gray-color;
+}
+
+.source-explorer-tree.with-favorites .repository-node {
+    border-top: 0;
+}
+
+.query-folder-tree .folder.top-separator {
+    border: 0;
+}
+
+.responsive-grid .grid-cell .grid-cell-title {
+    border-bottom: 1px solid $gray-color;
+}
+
+
+.hub-title {
+    background-color: $dark-color;
+    color: $gray-color;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.tree-view > ul.tree-children li.selected > a > div.node-content, 
+.tree-view.focus > ul.tree-children li.selected > a > div.node-content, 
+li.tree-drag-tile > a > div.node-content ,
+.sidebar-search .search-input-wrapper
+{
+    background-color: $lighter-color;
+    border: 1px solid $lighter-color;
+}
+
+
+.bowtie-folder{
+    color: $orange-color!important;
+}
+
+.bowtie-git {
+    color: $red-color!important;;
+}
+
+.filtered-list-popup{
+    background-color: #off-white-color;
+}
+
+
+button, button.ui-state-default, button.ui-button {
+    background-color: $lighter-color;
+    border: 0;
+    color: $gray-color;
+}
+
+.tag-container {
+    border: 1px solid $lighter-color;
+}
+
+.combo, .mru-identity-picker {
+    background: $lighter-color;
+    border: 1px solid $lighter-color;
+}
+
+.splitter.horizontal > .rightPane {
+    background-color: $dark-color;
+    color: $gray-color;
+}
+
+.filters a {
+    color: $blue-color;
+}
+
+.taskboard-cell {
+    background-color: $lighter-color;
+    border-bottom: 1px solid $dark-color;
+    border-left: 1px solid $dark-color;
+    border-right: 1px solid #252525;
+}
+
+.taskboard-expander {
+    background-color: $dark-color;
+    border-bottom: 1px solid $dark-color;
+}
+
+
+.tbTile .tbTileContent {
+    background-color: $lighter-color;
+    border: 0;
+}
+
+.board-add-card {
+    background-color: #3E3E3E;
+    border: solid 1px $blue-color;
+}
+
+.agile-board .horizontal .horizontal-table > .row > .cell:first-of-type,
+.agile-board .horizontal .horizontal-table > .row > .cell {
+    border-bottom: 1px solid #252525;
+    border-left: 1px solid $dark-color;
+    border-right: 1px solid #252525;
+}
+
+.agile-board .horizontal .horizontal-table > .row.header > .cell {
+    background-color: $lighter-color;
+    border-bottom: 1px solid $dark-color;
+}
+
+
+.agile-board .board-tile .board-tile-content {
+    border: 0;
+}
+
+.versioncontrol-explorer-view .source-path {
+    background-color: $lighter-color;
+    border: 0;
+}
+
+body[contenteditable] td{
+    color: black;
+}
+
+
+.grid-gutter-row-current,
+.grid-gutter-row-selected,
+.grid-gutter-row-normal
+{
+    background-color: $dark-color;
+    border: 1px solid $dark-color;
+}
+
+.grid-row-current {
+    border: 1px solid $lighter-color;
+}
+
+.vc-changes-list-filter .advanced-filter {
+    input, .combo
+    {
+        border: 1px solid $gray-color;
+    }
+}
+
+.combo-drop-popup,
+.chart-hosts-list > .message-block.invalid
+{
+    background-color: $lighter-color;
+    border: 0;
+}
+
+.witform-layout-header-color {
+    padding-left: 0px!important;
+}
+
+.query-type {
+    border-bottom: 1px solid $gray-color;
+}
+
+.query-type .pivot-filter li.selected {
+    background-color: $lighter-color;
+    border: 0;
+}
+
+.query-editor .toolbar.work-item-list-toolbar {
+    border-bottom: 1px solid $gray-color;
+}
+
+.textbox, .input-text {
+    border: 0;
+}
+
+.query-editor .filters {
+    padding-bottom: 10px;
+}
+
+.ui-dialog {
+    background-color: $dark-color;
+    border: 0;
+}
+
+.ui-dialog-buttonpane {
+    background-color: $dark-color;
+    border: 0;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, 
+.ui-widget-header .ui-state-disabled {
+    background-color: $lighter-color;
+    border: 0;
+    color: $other-dark-color;
+}
+
+
+a {
+    color: white;
+}
