@@ -140,6 +140,36 @@ table[aria-label="Second-level navigation"] .menu-item .text,
     }
 }
 
+// Pull request comments
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box {
+    background-color: $dark-color;
+    border-color: $dark-color;
+
+    .vc-discussion-thread-comment {
+        background-color: $dark-color;
+        color: $gray-color;
+
+        .vc-discussion-thread-renderarea {
+            background-color: $dark-color!important;
+            color: $gray-color!important;
+
+            p {
+                color: $gray-color;
+
+                code {
+                    background-color: $lighter-color;
+                }
+            }
+        }
+
+        .vc-discussion-comment-header {
+            .vc-discussion-comment-author {
+                color: $gray-color;
+            }
+        }
+    }
+}
+
 
  /******************************************************************/
 /** WORK VIEW *****************************************************/
