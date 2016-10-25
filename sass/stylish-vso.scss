@@ -1,17 +1,30 @@
-$dark-color: #1e1e1e;
-$lighter-color: #2e2e2e;
-$gray-color: #ececec;//#bbbbbb;
-$text-color: white;
-$blue-color: #007acc;
-$other-dark-color: #2D2D30;
-$orange-color: #dcb67a;
-$red-color: #f05133;
-$off-white-color: #e6e6e6;
+@import "mixins";
 
+$dark: #1e1e1e;
+$light: #2e2e2e;
+$text: #ececec;
+
+$blue: #2196F3;
+$orange: #ff9800;
+$red: #F44336;
+
+@mixin setColors($backColor) {
+  @include colors($text, $backColor, $backColor);
+}
+
+@mixin setBg($backColor) {
+  @include bg($backColor);
+  @include fg($text);
+}
+
+// Main page content (at top for fast loading)
+.content-section {
+  @include setBg($dark);
+}
 
 .left-hub-content .node-content .text,
 .node-link > .node-content, .grid-cell a,
-.watermark, 
+.watermark,
 .bowtie-icon,
 .selected-item-text,
 .text-filter-box input,
@@ -41,491 +54,453 @@ th .witState,
 .field-container.assignedTo,
 .tbTile .witAssignedTo,
 table[aria-label="Second-level navigation"] .menu-item .text,
-.vc-history-list .results-container .history-result a, 
-.vc-history-list .results-container .history-result a:link, 
-.vc-history-list .results-container .history-result a:visited
-{
-    color: $gray-color!important;
+.vc-history-list .results-container .history-result a,
+.vc-history-list .results-container .history-result a:link,
+.vc-history-list .results-container .history-result a:visited {
+  color: $text !important;
 }
 
 .splitter.horizontal > .handleBar,
 .menu-item.toggle-on,
-.combo > div.wrap > input.invalid, 
+.combo > div.wrap > input.invalid,
 .combo.invalid > div.wrap > input,
 .menu-item.toggle-on,
 .vc-history-list .results-container .history-result .result-details .change-link-container .more-comment-link,
 .vc-history-list .results-container .group-header,
 .ui-tabs .ui-tabs-nav,
 .splitter > .handleBar, .splitter > .handleBar-clone,
-.agile-board .board-tile, 
+.agile-board .board-tile,
 .board-tile.ui-draggable-dragging,
 .vsts-header .hub-bar .left-section,
-.hub-bar .header-table .right-section
-{
-    background-color: $lighter-color;
+.hub-bar .header-table .right-section {
+  background-color: $light;
 }
 
 .left-hub-content .ui-droppable,
 .workitem-header-bar,
 .text-filter-box,
-.vc-pullrequest-review-view .tabContent-two-pane>.with-background,
+.vc-pullrequest-review-view .tabContent-two-pane > .with-background,
 .ui-dialog .ui-dialog-titlebar,
 .agile-board .horizontal > .agile-content-container > .content-container-innerDiv-class .horizontal-table,
 .ui-droppable,
 .taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
 .hub-pivot-content,
 .vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
-.vc-pullrequest-create-panel,
-{
-    background-color: $dark-color;
+.vc-pullrequest-create-panel {
+  background-color: $dark;
 }
 
+/******************************************************************/
+/********************** PULL REQUEST PAGE *************************/
 
- /******************************************************************/
-/** PULL REQUEST PAGE ********************************************/
 .vc-change-summary .changed-files-summary-header,
 .vc-change-summary > *,
 .vc-change-summary-files .files-container,
 .vc-pullrequest-review-view .bowtie textarea,
 .vc-pullrequest-review-view .bowtie input[type=text],
-.vc-discussion-thread-inputtextbox
-{
-    background-color: $dark-color!important;
-    border-color: $dark-color!important;
-    color: $gray-color!important;
+.vc-discussion-thread-inputtextbox {
+  @include setColors($dark);
 }
 
-.vc-change-summary-files .file-container,
-.vc-pullrequest-review-view .vc-pullrequest-activity-box,
-.vc-pullrequest-review-view .vc-pullrequest-activity-feed,
-.vc-pullrequest-review-view .vc-pullrequest-activity-header,
-.vc-pullrequest-review-view .vc-pullrequest-activity-box.subdued,
-.vc-pullrequest-review-view .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment
-{
-    background-color: $lighter-color!important;
-    border-color: $lighter-color!important;
-    color: $gray-color!important;
+.vc-change-summary-files .file-container {
+  @include setColors($light);
+}
+
+.vc-pullrequest-review-view {
+  .vc-pullrequest-activity-box,
+  .vc-pullrequest-activity-header,
+  .vc-pullrequest-activity-body,
+  .vc-pullrequest-activity-box.subdued,
+  .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment {
+    @include setColors($light);
+  }
+}
+
+.vc-pullrequest-review-view .vc-pullrequest-activity-feed {
+  @include setColors($dark);
 }
 
 .vc-change-summary-files .file-cell .file-name-link {
-    color: $gray-color;
+  color: $text;
 }
 
 .vc-pullrequest-title-input,
 .vc-pullrequest-description-input,
 .identity-picker-input,
 .vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input,
-.vc-discussion-thread-comment .vc-discussion-thread-renderarea
-{
-    background-color: $lighter-color!important;
-    color: $gray-color!important;
+.vc-discussion-thread-comment .vc-discussion-thread-renderarea {
+  background-color: $light !important;
+  color: $text !important;
 }
 
 // Pull request list
 .vc-pullrequest-results-row {
-    background-color: $dark-color;
-    color: $gray-color;
-    border-bottom: 1px solid rgba(64, 64, 64, 0.7); // very light gray
+  background-color: $dark;
+  color: $text;
+  border-bottom: 1px solid rgba(64, 64, 64, 0.7); // very light gray
 
-    &:hover {
-        background-color: $lighter-color;
-    }
+  &:hover {
+    background-color: $light;
+  }
 }
 
 .vc-pullrequest-results-row {
-    .primary-text {
-        &:link, &:visited {
-            color: $gray-color!important;
-        }
+  .primary-text {
+    &:link, &:visited {
+      color: $text !important;
     }
+  }
 }
 
 // Pull request comments
 .vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box {
-    background-color: $dark-color;
-    border-color: $dark-color;
+  background-color: $dark;
+  border-color: $dark;
 
-    .vc-discussion-thread-comment {
-        background-color: $dark-color;
-        color: $gray-color;
+  .vc-discussion-thread-comment {
+    @include setBg($dark);
 
-        .vc-discussion-thread-renderarea {
-            background-color: $dark-color!important;
-            color: $gray-color!important;
+    .vc-discussion-thread-renderarea {
+      @include setBg($dark);
 
-            p {
-                color: $gray-color;
+      p {
+        color: $text;
 
-                code {
-                    background-color: $lighter-color;
-                }
-            }
+        code {
+          background-color: $light;
         }
-
-        .vc-discussion-comment-header {
-            .vc-discussion-comment-author {
-                color: $gray-color;
-            }
-        }
+      }
     }
+
+    .vc-discussion-comment-header {
+      .vc-discussion-comment-author {
+        color: $text;
+      }
+    }
+  }
 }
 
+// Pull request completed box
+.callout.completed {
+  @include setBg($dark);
+}
 
- /******************************************************************/
-/** WORK VIEW *****************************************************/
+/******************************************************************/
+/************************* WORK VIEW ******************************/
 
 .grid .grid-row {
-    &.grid-row-selected, 
-    &.grid-row-hover, 
-    &.grid-row-current {
-        background-color: $lighter-color!important;
+  &.grid-row-selected,
+  &.grid-row-hover,
+  &.grid-row-current {
+    @include bg($light);
 
-        .grid-context-menu {
-            background-color: $lighter-color!important;
-        }
+    .grid-context-menu {
+      @include bg($light);
     }
+  }
 }
 
 .grid-gutter {
-    .grid-gutter-row-current,
-    .grid-gutter-row-selected,
-    .grid-row-hover {
-        background-color: $lighter-color!important;
-    }
+  .grid-gutter-row-current,
+  .grid-gutter-row-selected,
+  .grid-row-hover {
+    background-color: $light !important;
+  }
 
-    .grid-gutter-row-normal {
-        background-color: $dark-color;
-    }
+  .grid-gutter-row-normal {
+    background-color: $dark;
+  }
 }
 
 // Right click menu
 ul.menu-popup {
-    .menu.sub-menu
-    {
-        .menu-item, .menu-item-container {
-            color: $gray-color;
-            background-color: $dark-color;
+  .menu.sub-menu {
+    .menu-item, .menu-item-container {
+      @include setBg($dark);
 
-            &.hover, &.focus {
-                background-color: $lighter-color!important;
-            }
+      &.hover, &.focus {
+        background-color: $light !important;
+      }
 
-            .drop {
-                color: $gray-color;
-            }
-        }
-        border-color: $dark-color;
+      .drop {
+        color: $text;
+      }
     }
-    border-color: $dark-color;
+    border-color: $dark;
+  }
+  border-color: $dark;
 }
 
-
- /******************************************************************/
+/******************************************************************/
 /** TITLEBARS *****************************************************/
 
 ul.hubs-menubar {
-    .menu-item {
-        &.hover, &.currently-selected {
-            background-color: $dark-color!important;
-        }
+  .menu-item {
+    &.hover, &.currently-selected {
+      background-color: $dark !important;
     }
+  }
 }
 
 .hub-selector .menu.sub-menu {
 
-    & > .menu-item-container > .menu-item,
-    .menu-item.second-level-menu
-    {
-        background-color: $dark-color!important;
-        color: $gray-color;
+  & > .menu-item-container > .menu-item,
+  .menu-item.second-level-menu {
+    background-color: $dark !important;
+    color: $text;
 
-        &.hover {
-            background-color: $lighter-color!important;
-        }
-
-        .icon, drop {
-            color: $gray-color;
-        }
+    &.hover {
+      background-color: $light !important;
     }
 
-    .menu-item.menu-item-separator {
-        background-color: $dark-color!important;
+    .icon, .drop {
+      color: $text;
     }
+  }
+
+  .menu-item.menu-item-separator {
+    background-color: $dark !important;
+  }
 }
 
-
-
- /******************************************************************/
+/******************************************************************/
 /******************************************************************/
 
-
 .dashboard-landing .hub-content,
-.tree-drag-tile.folder > .node-link > .node-content, 
+.tree-drag-tile.folder > .node-link > .node-content,
 .tree-view .folder > .node-link > .node-content,
 .hub-content,
-.ui-dialog > *
-{
-    background-color: $dark-color!important;
-    color: $gray-color;
+.ui-dialog > * {
+  background-color: $dark !important;
+  color: $text;
 }
 
-
-.add-panel,
-{
-    background-color: $other-dark-color;
+.add-panel {
+  background-color: $light;
 }
 
 .tags-add-button .tag-box-selectable,
 .tag-box, .tag-delete,
 input, textarea, select,
-body[contenteditable]
-{
-    background-color: $lighter-color;
-    color: $gray-color;
+body[contenteditable] {
+  background-color: $light;
+  color: $text;
 }
 
-div#header-row 
-{
-    background-color: $blue-color;
+div#header-row {
+  background-color: $blue;
 }
 
-
-.left-hub-content .tree-children 
-{
-    color: $blue-color;
+.left-hub-content .tree-children {
+  color: $blue;
 }
 
 /********/
 
 ::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 60px rgba(50,50,50,0.7);
-    border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 60px rgba(50, 50, 50, 0.7);
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    -webkit-box-shadow: inset 0 0 6px rgba(200,200,200,1);
+  -webkit-box-shadow: inset 0 0 6px rgba(200, 200, 200, 1);
 }
+
 .work-item-form-main-header {
-    border-left-color: #2E2E2E;
+  border-left-color: #2E2E2E;
 }
-.work-item-form-id a{
-    color: $text-color;
+
+.work-item-form-id a {
+  color: $text;
 }
-.work-item-form-main-core *, .witform-layout *{
-    color: #BBBBBB;
-    background-color: #2E2E2E;
+
+.work-item-form-main-core *, .witform-layout * {
+  @include setBg($light);
 }
+
 .work-item-form-main-core, .witform-layout {
-    border: none;
-    padding-top:0px!important;
+  border: none;
+  padding-top: 0px !important;
 }
 
-.witform-layout-content-container{
-    margin-top: 10px;
+.witform-layout-content-container {
+  margin-top: 10px;
 }
 
-.work-item-form-tab{
-    background-color: $lighter-color!important;
-    border: none!important;
+.work-item-form-tab {
+  background-color: $light !important;
+  border: none !important;
 }
 
-.control .wrap{
-    border: 1px solid #aaa;
-}
-.header-post11 #navWrapper, 
-.header-post11 #navWrapper *
-{
-    background-color: $lighter-color!important;
+.control .wrap {
+  border: 1px solid #aaa;
 }
 
+.header-post11 #navWrapper,
+.header-post11 #navWrapper * {
+  background-color: $light !important;
+}
 
 .header-post11 .header-search {
-    background-color: $lighter-color;
-    border: 1px solid $gray-color;
+  background-color: $light;
+  border: 1px solid $text;
 }
 
 .left-hub-content {
-    background-color: $dark-color;
-    top: 0;
+  background-color: $dark;
+  top: 0;
 }
 
 .hub-splitter.splitter.horizontal > .leftPane {
-    border-right: 0;
+  border-right: 0;
 }
 
 .toolbar {
-    border-bottom: 1px solid $gray-color;
-    border-top: 0;
-    color: $gray-color;
+  border-bottom: 1px solid $text;
+  border-top: 0;
+  color: $text;
 }
 
 .source-explorer-tree.with-favorites .repository-node {
-    border-top: 0;
+  border-top: 0;
 }
 
 .query-folder-tree .folder.top-separator {
-    border: 0;
+  border: 0;
 }
 
 .responsive-grid .grid-cell .grid-cell-title {
-    border-bottom: 1px solid $gray-color;
+  border-bottom: 1px solid $text;
 }
-
 
 .hub-title {
-    background-color: $dark-color;
-    color: $gray-color;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 20px;
-    padding-right: 20px;
+  @include setBg($dark);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-.tree-view > ul.tree-children li.selected > a > div.node-content, 
-.tree-view.focus > ul.tree-children li.selected > a > div.node-content, 
-li.tree-drag-tile > a > div.node-content ,
-.sidebar-search .search-input-wrapper
-{
-    background-color: $lighter-color;
-    border: 1px solid $lighter-color;
+.tree-view > ul.tree-children li.selected > a > div.node-content,
+.tree-view.focus > ul.tree-children li.selected > a > div.node-content,
+li.tree-drag-tile > a > div.node-content,
+.sidebar-search .search-input-wrapper {
+  background-color: $light;
+  border: 1px solid $light;
 }
 
-
-.bowtie-folder{
-    color: $orange-color!important;
+.bowtie-folder {
+  color: $orange !important;
 }
 
 .bowtie-git {
-    color: $red-color!important;;
+  color: $red !important;;
 }
 
-.filtered-list-popup{
-    background-color: $off-white-color;
+.filtered-list-popup {
+  background-color: $text;
 }
-
 
 button, button.ui-state-default, button.ui-button {
-    background-color: $lighter-color;
-    border: 0;
-    color: $gray-color;
+  @include setBg($light);
+  border: 0;
 }
 
 .tag-container {
-    border: 1px solid $lighter-color;
+  border: 1px solid $light;
 }
 
 .combo, .mru-identity-picker {
-    background: $lighter-color;
-    border: 1px solid $lighter-color;
+  background: $light;
+  border: 1px solid $light;
 }
 
 .filters a {
-    color: $blue-color;
+  color: $blue;
 }
 
 .taskboard-cell {
-    background-color: $lighter-color;
-    border-bottom: 1px solid $dark-color;
-    border-left: 1px solid $dark-color;
-    border-right: 1px solid #252525;
+  background-color: $light;
+  border-bottom: 1px solid $dark;
+  border-left: 1px solid $dark;
+  border-right: 1px solid $dark;
 }
 
 .taskboard-expander {
-    background-color: $dark-color;
-    border-bottom: 1px solid $dark-color;
+  background-color: $dark;
+  border-bottom: 1px solid $dark;
 }
 
-
 .board-add-card {
-    background-color: #3E3E3E;
-    border: solid 1px $blue-color;
+  background-color: $light;
+  border: solid 1px $blue;
 }
 
 .agile-board .horizontal .horizontal-table > .row > .cell:first-of-type,
 .agile-board .horizontal .horizontal-table > .row > .cell {
-    border-bottom: 1px solid #252525;
-    border-left: 1px solid $dark-color;
-    border-right: 1px solid #252525;
+  border-bottom: 1px solid $light;
+  border-left: 1px solid $dark;
+  border-right: 1px solid $light;
 }
 
 .agile-board .horizontal .horizontal-table > .row.header > .cell {
-    background-color: $lighter-color;
-    border-bottom: 1px solid $dark-color;
+  background-color: $light;
+  border-bottom: 1px solid $dark;
 }
 
-
 .agile-board .board-tile .board-tile-content {
-    border: 0;
+  border: 0;
 }
 
 .versioncontrol-explorer-view .source-path,
 .combo-drop-popup,
 .chart-hosts-list > .message-block.invalid,
 .query-type .pivot-filter li.selected,
-.tbTile .tbTileContent
-{
-    background-color: $lighter-color;
-    border: 0;
+.tbTile .tbTileContent {
+  background-color: $light;
+  border: 0;
 }
 
-body[contenteditable] td{
-    color: black;
+body[contenteditable] td {
+  color: $dark;
 }
-
-
-/*.grid-gutter-row-current,
-.grid-gutter-row-selected,
-.grid-gutter-row-normal
-{
-    background-color: $dark-color;
-    border: 1px solid $dark-color;
-}
-
-.grid-row-current {
-    border: 1px solid $lighter-color;
-}*/
 
 .witform-layout-header-color {
-    padding-left: 0px!important;
+  padding-left: 0px !important;
 }
 
 .query-type,
 .query-editor .toolbar.work-item-list-toolbar,
 .vc-changes-list-filter .advanced-filter input,
-.vc-changes-list-filter .advanced-filter .combo
-{
-    border-bottom: 1px solid $gray-color;
+.vc-changes-list-filter .advanced-filter .combo {
+  border-bottom: 1px solid $text;
 }
 
 .textbox, .input-text {
-    border: 0;
+  border: 0;
 }
 
 .query-editor .filters {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .ui-dialog,
-.ui-dialog-buttonpane
-{
-    background-color: $dark-color;
-    border: 0;
+.ui-dialog-buttonpane {
+  background-color: $dark;
+  border: 0;
 }
 
-.ui-state-disabled, .ui-widget-content .ui-state-disabled, 
+.ui-state-disabled, .ui-widget-content .ui-state-disabled,
 .ui-widget-header .ui-state-disabled {
-    background-color: $lighter-color;
-    border: 0;
-    color: $other-dark-color;
+  @include setBg($light);
+  border: 0;
 }
 
-
-a ,
-table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text
-{
-    color: white!important;
+a,
+table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text {
+  color: $text !important;
 }
