@@ -38,7 +38,8 @@ $red: #F44336;
 .mapping-pane-title,
 .vc-history-basic-filter .selected-filter,
 .grid-header,
-label, legend,
+label, 
+legend,
 .board-tile .assignedTo,
 .tbPivotItem .witTitle,
 th .witState,
@@ -133,7 +134,18 @@ table[aria-label="Second-level navigation"] .menu-item .text,
   color: $text !important;
 }
 
-// Pull request list
+// Left file list pane
+.versioncontrol-pullrequests-content {
+  .grid {
+    @include br($dark);
+
+    .grid-canvas {
+      @include setColors($dark);
+    }
+  }
+}
+
+// List of pull requests
 .vc-pullrequest-results-row {
   background-color: $dark;
   color: $text;
@@ -153,31 +165,42 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 }
 
 // Pull request comments
-.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box {
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box,
+.vc-change-summary
+{
   background-color: $dark;
   border-color: $dark;
 
-  .vc-discussion-thread-comment {
-    @include setBg($dark);
+  .vc-discussion-thread-box {
+    @include setColors($dark);
 
-    .vc-discussion-thread-renderarea {
-      @include setBg($dark);
+    .vc-discussion-thread-comment {
+      @include setColors($dark);
 
-      p {
-        color: $text;
+      .vc-discussion-thread-renderarea {
+        @include setBg($dark);
 
-        code {
-          background-color: $light;
+        p {
+          color: $text;
+
+          code {
+            background-color: $light;
+          }
+        }
+      }
+
+      .vc-discussion-comment-header {
+        .vc-discussion-comment-author {
+          color: $text;
         }
       }
     }
-
-    .vc-discussion-comment-header {
-      .vc-discussion-comment-author {
-        color: $text;
-      }
-    }
   }
+}
+
+// Space between line numbers next to comment
+.vc-diff-viewer .text-diff-container .diff-lines .discussion-filler {
+  @include setBg($light);
 }
 
 // Pull request completed box
@@ -188,6 +211,7 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 /******************************************************************/
 /************************* WORK VIEW ******************************/
 
+// Main PBI Grid
 .grid .grid-row {
   &.grid-row-selected,
   &.grid-row-hover,
@@ -212,11 +236,11 @@ table[aria-label="Second-level navigation"] .menu-item .text,
   }
 }
 
-// Right click menu
+// Right click menu (and other popup menus throughout VSO)
 ul.menu-popup {
   .menu.sub-menu {
     .menu-item, .menu-item-container {
-      @include setBg($dark);
+      @include setColors($dark);
 
       &.hover, &.focus {
         background-color: $light !important;
@@ -229,6 +253,20 @@ ul.menu-popup {
     border-color: $dark;
   }
   border-color: $dark;
+}
+
+// PBI Info view
+.work-item-form-main-core {
+  @include setColors($dark);
+
+  .combo div.wrap > input[type=text] {
+    @include bg($dark);
+    @include br($dark);
+
+    &:hover, &:focus {
+      @include bg(light);
+    }
+  }
 }
 
 /******************************************************************/
@@ -319,7 +357,7 @@ div#header-row {
 }
 
 .work-item-form-main-core *, .witform-layout * {
-  @include setBg($light);
+  //@include setBg($light);
 }
 
 .work-item-form-main-core, .witform-layout {
