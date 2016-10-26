@@ -57,7 +57,9 @@ th .witState,
 table[aria-label="Second-level navigation"] .menu-item .text,
 .vc-history-list .results-container .history-result a,
 .vc-history-list .results-container .history-result a:link,
-.vc-history-list .results-container .history-result a:visited {
+.vc-history-list .results-container .history-result a:visited
+table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text
+{
   color: $text !important;
 }
 
@@ -94,8 +96,8 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 /******************************************************************/
 /********************** PULL REQUEST PAGE *************************/
 
-.vc-change-summary .changed-files-summary-header,
 .vc-change-summary > *,
+.vc-change-summary .changed-files-summary-header,
 .vc-change-summary-files .files-container,
 .vc-pullrequest-review-view .bowtie textarea,
 .vc-pullrequest-review-view .bowtie input[type=text],
@@ -103,6 +105,44 @@ table[aria-label="Second-level navigation"] .menu-item .text,
   @include setColors($dark);
 }
 
+// File header in file specific view
+.vc-pullrequest-file-bar,
+.vc-pullrequest-review-view .centerPane-no-full-page-scroll .vc-pullrequest-details-compare .diff-viewer-container,
+.file-contents-container
+{
+  @include setColors($dark);
+}
+
+// File contents in specific file view
+.lines-content.monaco-editor-background,
+.monaco-editor-background
+{
+  @include setColors($light);
+  // Pieces of code in editor
+  //.monaco-editor-background .token
+  //.monaco-editor.vs .token
+  .view-lines .token
+  {
+    color: $text; // was black
+
+    &.tag { color: #d67e7e; } // was maroon
+
+    &.attribute.name.xml {
+      color: #d15eff !important; // was red
+    }
+
+    &.keyword,
+    &.keyword.control,
+    &.attribute.value.html,
+    &.delimiter.xml,
+    &.string.html,
+    &.attribute.value.xml {
+      color: #59d3f9 !important; // was blue
+    }
+  }
+}
+
+// File contents in summary view
 .vc-change-summary-files .file-container {
   @include setColors($light);
 }
@@ -165,7 +205,7 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 }
 
 // Pull request comments
-.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box,
+.vc-discussion-thread-box,
 .vc-change-summary
 {
   background-color: $dark;
@@ -173,26 +213,27 @@ table[aria-label="Second-level navigation"] .menu-item .text,
 
   .vc-discussion-thread-box {
     @include setColors($dark);
+  }
 
-    .vc-discussion-thread-comment {
-      @include setColors($dark);
+  .vc-discussion-thread-comment {
+    @include setColors($dark);
 
-      .vc-discussion-thread-renderarea {
-        @include setBg($dark);
+    .vc-discussion-thread-renderarea {
+      @include setBg($dark);
 
-        p {
-          color: $text;
-
-          code {
-            background-color: $light;
-          }
-        }
+      p {
+        color: $text;
       }
 
-      .vc-discussion-comment-header {
-        .vc-discussion-comment-author {
-          color: $text;
-        }
+      code, pre {
+        background-color: $light;
+        color: $text;
+      }
+    }
+
+    .vc-discussion-comment-header {
+      .vc-discussion-comment-author {
+        color: $text;
       }
     }
   }
@@ -356,13 +397,9 @@ div#header-row {
   color: $text;
 }
 
-.work-item-form-main-core *, .witform-layout * {
-  //@include setBg($light);
-}
-
 .work-item-form-main-core, .witform-layout {
   border: none;
-  padding-top: 0px !important;
+  padding-top: 0 !important;
 }
 
 .witform-layout-content-container {
@@ -508,7 +545,7 @@ body[contenteditable] td {
 }
 
 .witform-layout-header-color {
-  padding-left: 0px !important;
+  padding-left: 0 !important;
 }
 
 .query-type,
@@ -536,9 +573,4 @@ body[contenteditable] td {
 .ui-widget-header .ui-state-disabled {
   @include setBg($light);
   border: 0;
-}
-
-a,
-table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text {
-  color: $text !important;
 }
