@@ -66,13 +66,14 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
 .combo.invalid > div.wrap > input,
 .menu-item.toggle-on,
 .vc-history-list .results-container .history-result .result-details .change-link-container .more-comment-link,
-.vc-history-list .results-container .group-header,
 .ui-tabs .ui-tabs-nav,
 .splitter > .handleBar, .splitter > .handleBar-clone,
 .agile-board .board-tile,
 .board-tile.ui-draggable-dragging,
 .vsts-header .hub-bar .left-section,
-.hub-bar .header-table .right-section {
+.hub-bar .header-table .right-section,
+a:hover
+{
   background-color: $light;
 }
 
@@ -156,6 +157,33 @@ table.\12 .header-td {
 .vc-pullrequest-review-view .bowtie input[type=text],
 .vc-discussion-thread-inputtextbox {
   @include setColors($dark);
+}
+
+// Pull request sections titlebar
+.views .selected {
+  &:hover {
+    
+  }
+}
+
+// Pull request commits
+.vc-history-list .results-container .group-header,
+.vc-pullrequest-review-view .pullrequest-commits-content .group-results,
+.vc-pullrequest-review-view .pullrequest-updates-content .group-results
+{
+  @include setColors($dark);
+}
+.vc-history-list .results-container .history-result {
+  @include br($very-light-grey);
+
+  &:hover {
+    @include bg($light);
+  }
+}
+
+// Pull request updates
+.vc-pullrequest-review-view .pullrequest-updates-content {
+  @include bg($dark);
 }
 
 // File header in file specific view
@@ -369,6 +397,11 @@ table.\12 .header-td {
   &:visited.stat-badge .stat-text {
     color: $text
   }
+}
+
+// Files on left
+.tree-view>ul.tree-children li.node.focus {
+  @include bg($light);
 }
 
 /******************************************************************/
