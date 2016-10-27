@@ -3,6 +3,7 @@
 $dark: #1e1e1e;
 $light: #2e2e2e;
 $text: #ececec;
+$very-light-grey: rgba(82, 82, 82, 0.31);
 
 $blue: #2196F3;
 $orange: #ff9800;
@@ -15,11 +16,6 @@ $red: #F44336;
 @mixin setBg($backColor) {
   @include bg($backColor);
   @include fg($text);
-}
-
-// Main page content (at top for fast loading)
-.content-section {
-  @include setBg($dark);
 }
 
 .left-hub-content .node-content .text,
@@ -55,9 +51,10 @@ th .witState,
 .field-container.assignedTo,
 .tbTile .witAssignedTo,
 table[aria-label="Second-level navigation"] .menu-item .text,
+a,
 .vc-history-list .results-container .history-result a,
 .vc-history-list .results-container .history-result a:link,
-.vc-history-list .results-container .history-result a:visited
+.vc-history-list .results-container .history-result a:visited,
 table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text
 {
   color: $text !important;
@@ -93,6 +90,62 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
   background-color: $dark;
 }
 
+/*****************************************************************/
+/************************ TITLEBARS ******************************/
+
+// Main page content (the color shown when the page is initially loading)
+.content-section {
+  @include setBg($dark);
+}
+
+// Second level title bar loading color
+table.\12 .header-td {
+  @include setBg($light);
+}
+.vsts-header .hub-bar {
+  @include setBg($light);
+}
+
+// Top Home, Code, Work menubar
+.hub-selector .menu.sub-menu {
+  @include setColors($light);
+
+  & > .menu-item-container > .menu-item,
+  .menu-item.second-level-menu {
+    background-color: $light !important;
+    color: $text;
+
+    &.hover {
+      background-color: $light !important;
+    }
+
+    .icon, .drop {
+      color: $text;
+    }
+  }
+  .menu-item.menu-item-separator {
+    background-color: $light !important;
+  }
+}
+
+// Little triangle at the bottom of the top menubar item
+.vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item.selected::after,
+.vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item-container>.menu-item.selected::after {
+  border-bottom: 6px solid $light !important;
+}
+
+
+// Second level title bar
+.vsts-header .hub-list .l2-menubar {
+  & > .menu-item,
+  & > .menu-item-container > .menu-item
+  {
+    &.focus, &.hover {
+      @include setColors($dark);
+    }
+  }
+}
+
 /******************************************************************/
 /********************** PULL REQUEST PAGE *************************/
 
@@ -119,8 +172,6 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
 {
   @include setColors($light);
   // Pieces of code in editor
-  //.monaco-editor-background .token
-  //.monaco-editor.vs .token
   .view-lines .token
   {
     color: $text; // was black
@@ -249,6 +300,77 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
   @include setBg($dark);
 }
 
+
+/******************************************************************/
+/*********************** BRANCHES PAGE ***************************/
+
+.vc-newbranches-view .hub-pivot {
+  @include setColors($dark)
+}
+
+.vc-branches-list-row {
+  &:hover {
+    @include setColors($light);
+  }
+
+  .vc-branch-name--emphasized {
+    @include fg($text);
+  }
+}
+
+// Page title
+.vc-newbranches-title {
+  color: $text;
+}
+
+.vc-ellipsis-menu>.action-icon>.bowtie-icon,
+.vc-column.vc-ellipsis-menu
+{
+  &:hover {
+    @include setBg($dark);
+  }
+}
+
+
+/******************************************************************/
+/*********************** HISTORY PAGE ***************************/
+
+.vc-filter-button {
+  @include setBg($dark);
+}
+
+// Filter text boxes
+.vc-filter-control .combo.input-text-box {
+  @include br($light);
+
+  input::-webkit-input-placeholder {
+    color: $text;
+  }
+}
+
+.vc-history-detailsList.ms-DetailsList .ms-List-cell:hover {
+  @include setColors($light);
+}
+
+// Commit history hover color
+.vc-history-detailsList.ms-DetailsList .ms-List-cell,
+.ms-DetailsRow-fields,
+.vc-history-detailsList.ms-DetailsList .ms-List-cell
+{
+  & :hover {
+    @include setColors($light);
+  }
+}
+
+// Pull request number column text
+.vc-history-detailsList .ms-List-cell a {
+  &.stat-badge .stat-text,
+  &:link.stat-badge .stat-text,
+  &:visited.stat-badge .stat-text {
+    color: $text
+  }
+}
+
 /******************************************************************/
 /************************* WORK VIEW ******************************/
 
@@ -279,21 +401,23 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
 
 // Right click menu (and other popup menus throughout VSO)
 ul.menu-popup {
-  .menu.sub-menu {
-    .menu-item, .menu-item-container {
-      @include setColors($dark);
+  @include br($light);
 
-      &.hover, &.focus {
-        background-color: $light !important;
+  .menu.sub-menu {
+    @include setColors($light);
+
+    .menu-item, .menu-item-container {
+      @include setColors($light);
+
+      &.hover, &.focus, &:hover, &:focus {
+        background-color: $dark !important;
       }
 
       .drop {
         color: $text;
       }
     }
-    border-color: $dark;
   }
-  border-color: $dark;
 }
 
 // PBI Info view
@@ -301,8 +425,8 @@ ul.menu-popup {
   @include setColors($dark);
 
   .combo div.wrap > input[type=text] {
-    @include bg($dark);
-    @include br($dark);
+    @include bg($light);
+    @include br($light);
 
     &:hover, &:focus {
       @include bg(light);
@@ -310,35 +434,69 @@ ul.menu-popup {
   }
 }
 
-/******************************************************************/
-/** TITLEBARS *****************************************************/
-
-ul.hubs-menubar {
-  .menu-item {
-    &.hover, &.currently-selected {
-      background-color: $dark !important;
-    }
-  }
+// All popup dialogs (New Task Dialog specifically)
+.ui-dialog:not(.ui-dialog-legacy) {
+  @include setColors($dark);
 }
 
-.hub-selector .menu.sub-menu {
+// Work item details
+.work-item-form-main .combo.drop .wrap,
+.form-grid .combo.emptyBorder,
+.richeditor-container
+{
+  @include br($light);
+}
 
-  & > .menu-item-container > .menu-item,
-  .menu-item.second-level-menu {
-    background-color: $dark !important;
-    color: $text;
+.witform-layout .combo > div.wrap.disabled,
+.combo > div.wrap,
+.work-item-form-coreContent .combo
+{
+  @include setColors($light);
+}
 
-    &.hover {
-      background-color: $light !important;
-    }
+/***** Work Item Detail ******/
 
-    .icon, .drop {
-      color: $text;
-    }
-  }
+// Copy title button
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .copy-workitem-title-container {
+  @include setBg($light);
+}
+// Copy title button hover
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .work-item-form-title.copy-hover~.copy-workitem-title-container {
+  @include setColors($light);
+}
 
-  .menu-item.menu-item-separator {
-    background-color: $dark !important;
+// Work item detail titles
+.form-grid .tfs-collapsible-header {
+  @include fg($text);
+}
+
+// Work item deatail title underlines
+.form-grid .tfs-collapsible-header {
+  border-bottom: 1px solid $very-light-grey;
+}
+
+// Work item detail save, follow, and details buttons
+.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar .menu-item {
+  @include setColors($light);
+}
+
+// Work item detail Details, Planning, Time, Link, and Attachment buttons
+.witform-layout .work-item-form-tabs > ul {
+  border-left: 2px solid $very-light-grey;
+  border-top: 1px solid $very-light-grey;
+}
+
+// Work item detail Details, Planning, Time, Link, and Attachment SELECTED button
+.witform-layout .work-item-form-tab.selected-tab {
+  @include setColors($dark);
+}
+
+.work-item-form-tab {
+  background-color: $light !important;
+  border: none !important;
+
+  &:hover {
+    @include setBg($dark);
   }
 }
 
@@ -362,8 +520,7 @@ ul.hubs-menubar {
 .tag-box, .tag-delete,
 input, textarea, select,
 body[contenteditable] {
-  background-color: $light;
-  color: $text;
+  @include setColors($light);
 }
 
 div#header-row {
@@ -404,11 +561,6 @@ div#header-row {
 
 .witform-layout-content-container {
   margin-top: 10px;
-}
-
-.work-item-form-tab {
-  background-color: $light !important;
-  border: none !important;
 }
 
 .control .wrap {
