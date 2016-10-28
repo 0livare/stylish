@@ -87,8 +87,9 @@ a:hover
 .taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
 .hub-pivot-content,
 .vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
-.vc-pullrequest-create-panel {
-  background-color: $dark;
+.vc-pullrequest-create-panel
+{
+  @include bg($dark);
 }
 
 /*****************************************************************/
@@ -129,6 +130,11 @@ table.\12 .header-td {
   }
 }
 
+// Search code box
+#\31 > table.header-table.l1 #searchbox {
+  @include setBg(#0069b2);
+}
+
 // Little triangle at the bottom of the top menubar item
 .vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item.selected::after,
 .vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item-container>.menu-item.selected::after {
@@ -147,6 +153,59 @@ table.\12 .header-td {
   }
 }
 
+// Repo selector button and list
+.filtered-list-dropdown-menu.vc-git-selector-menu {
+  @include setBg($light);
+
+  &:hover, &.menu-opened {
+    @include setBg($dark);
+  }
+}
+
+// Current repo link
+.path-explorer-container .repo-name {
+  &:hover {
+    @include setBg($light);
+  }
+}
+
+
+// Upper left section selector
+.vsts-header .l1-project-selector.menu-bar .sub-menu {
+  @include setColors($dark);
+
+  li:hover {
+    @include setBg($light);
+  }
+}
+
+//.botwie-menus .menu.sub-menu > .menu-item-container > .menu-item,
+//.bowtie-menus .menu.sub-menu > .menu-item
+//{
+//  @include setColors($dark);
+//
+//  &.hover {
+//    @include setBg($light);
+//  }
+//}
+
+//.bowtie-menus .menu.sub-menu>.menu-item.hover,
+//.bowtie-menus .menu.sub-menu>.menu-item-container>.menu-item.hover
+//{
+//  @include setBg($light);
+//}
+
+.bowtie-menus .menu.sub-menu {
+  .menu-item, .menu-item-container > .menu-item {
+    @include setColors($dark);
+
+    &.hover {
+      @include setColors($light);
+    }
+  }
+}
+
+
 /******************************************************************/
 /********************** PULL REQUEST PAGE *************************/
 
@@ -162,7 +221,7 @@ table.\12 .header-td {
 // Pull request sections titlebar
 .views .selected {
   &:hover {
-    
+
   }
 }
 
@@ -404,6 +463,63 @@ table.\12 .header-td {
   @include bg($light);
 }
 
+// Branch dropdown
+.versioncontrol-git-history-view.git-repositories-view .vc-branches-container .filtered-list-dropdown-menu {
+  &:hover {
+    @include setBg($light);
+  }
+
+  &.menu-opened {
+    @include setBg($light);
+  }
+}
+// Branch popup menu
+.filtered-list-popup .filtered-list-control {
+  &.vc-git-version-selector-control,
+  &.vc-git-repository-selector-control {
+    @include setColors($light);
+  }
+}
+// Selected branch
+.filtered-list-popup .filtered-list-control.vc-git-selector {
+  .filtered-list-tab-content .filtered-list>li.current-item {
+    @include setBg($dark);
+  }
+
+  .toolbar .menu-item.hover {
+    @include setBg($dark);
+  }
+
+  // All branch list
+  .filtered-list>li {
+    @include fg($text);
+
+    &.new-selection {
+      @include setBg($dark);
+    }
+  }
+}
+
+//.tree-view>ul.tree-children li.node {
+//  &:hover, &.focus {
+//    @include setBg($light);
+//  }
+//}
+
+//#tfs_tnli6 > a {
+//  &:hover {
+//    @include setBg(blue);
+//  }
+//}
+
+.tree-view>ul.tree-children li.node {
+  @include setBg($dark);
+
+  &:hover {
+    @include setBg($light);
+  }
+}
+
 /******************************************************************/
 /************************* WORK VIEW ******************************/
 
@@ -530,6 +646,18 @@ ul.menu-popup {
 
   &:hover {
     @include setBg($dark);
+  }
+}
+
+// New, create query, column options button row hover
+.toolbar .menu-bar>.menu-item~.menu-item,
+.toolbar .menu-bar>.menu-item-container>.menu-item~.menu-item,
+.workitemcontrol .menu-bar>.menu-item~.menu-item,
+.workitemcontrol .menu-bar>.menu-item-container>.menu-item~.menu-item,
+.toolbar .menu-bar>.menu-item
+{
+  &.hover, &:hover {
+    @include setBg($light);
   }
 }
 
