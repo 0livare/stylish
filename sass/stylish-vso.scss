@@ -523,7 +523,36 @@ table.\12 .header-td {
 /******************************************************************/
 /************************* WORK VIEW ******************************/
 
-// Main PBI Grid
+// Selected scope on left
+.tree-view.bowtie-tree>ul.tree-children li.selected>a>div.node-content,
+.tree-view.bowtie-tree.focus>ul.tree-children li.selected>a>div.node-content,
+li.tree-drag-tile.bowtie-tree>a>div.node-content
+{
+  @include setColors($light);
+
+}
+
+//// Hovering over some scopes on left
+//.tree-view.bowtie-tree,
+//.tree-view.bowtie-tree.focus
+//{
+//  & > ul.tree-children li:hover {
+//    @include setColors($light);
+//  }
+//}
+//// Hovering over other scopes on left
+//.tree-view-bowtie-tree > ul.tree-children li.focus > a > div.node-content,
+//.tree-view.bowtie-tree > ul.tree-children li.hover > a > div.node-content
+//.tree-view.bowtie-tree > ul.tree-children li.context-menu-active > a > div.node-content
+//{
+//  @include setColors($light);
+//  &:hover {
+//    @include setColors($light);
+//  }
+//}
+
+
+  // Main PBI Grid
 .grid .grid-row {
   &.grid-row-selected,
   &.grid-row-hover,
