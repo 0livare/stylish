@@ -8,6 +8,7 @@ $very-light-grey: rgba(82, 82, 82, 0.31);
 $blue: #2196F3;
 $orange: #ff9800;
 $red: #F44336;
+$green: #393;
 
 @mixin setColors($backColor) {
   @include colors($text, $backColor, $backColor);
@@ -34,7 +35,7 @@ $red: #F44336;
 .mapping-pane-title,
 .vc-history-basic-filter .selected-filter,
 .grid-header,
-label, 
+label,
 legend,
 .board-tile .assignedTo,
 .tbPivotItem .witTitle,
@@ -55,8 +56,7 @@ a,
 .vc-history-list .results-container .history-result a,
 .vc-history-list .results-container .history-result a:link,
 .vc-history-list .results-container .history-result a:visited,
-table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text
-{
+table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text {
   color: $text !important;
 }
 
@@ -72,8 +72,7 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
 .board-tile.ui-draggable-dragging,
 .vsts-header .hub-bar .left-section,
 .hub-bar .header-table .right-section,
-a:hover
-{
+a:hover {
   background-color: $light;
 }
 
@@ -87,8 +86,7 @@ a:hover
 .taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
 .hub-pivot-content,
 .vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
-.vc-pullrequest-create-panel
-{
+.vc-pullrequest-create-panel {
   @include bg($dark);
 }
 
@@ -104,6 +102,7 @@ a:hover
 table.\12 .header-td {
   @include setBg($light);
 }
+
 .vsts-header .hub-bar {
   @include setBg($light);
 }
@@ -136,17 +135,15 @@ table.\12 .header-td {
 }
 
 // Little triangle at the bottom of the top menubar item
-.vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item.selected::after,
-.vsts-header .hub-selector .hubs-menubar.menu-bar>.menu-item-container>.menu-item.selected::after {
+.vsts-header .hub-selector .hubs-menubar.menu-bar > .menu-item.selected::after,
+.vsts-header .hub-selector .hubs-menubar.menu-bar > .menu-item-container > .menu-item.selected::after {
   border-bottom: 6px solid $light !important;
 }
-
 
 // Second level title bar
 .vsts-header .hub-list .l2-menubar {
   & > .menu-item,
-  & > .menu-item-container > .menu-item
-  {
+  & > .menu-item-container > .menu-item {
     &.focus, &.hover {
       @include setColors($dark);
     }
@@ -168,7 +165,6 @@ table.\12 .header-td {
     @include setBg($light);
   }
 }
-
 
 // Upper left section selector
 .vsts-header .l1-project-selector.menu-bar .sub-menu {
@@ -205,33 +201,28 @@ table.\12 .header-td {
   }
 }
 
-
 /******************************************************************/
 /********************** PULL REQUEST PAGE *************************/
 
 .vc-change-summary > *,
 .vc-change-summary .changed-files-summary-header,
 .vc-change-summary-files .files-container,
-.vc-pullrequest-review-view .bowtie textarea,
 .vc-pullrequest-review-view .bowtie input[type=text],
 .vc-discussion-thread-inputtextbox {
   @include setColors($dark);
 }
 
-// Pull request sections titlebar
-.views .selected {
-  &:hover {
-
-  }
+.vc-pullrequest-review-view .bowtie textarea {
+  @include setColors($light);
 }
 
 // Pull request commits
 .vc-history-list .results-container .group-header,
 .vc-pullrequest-review-view .pullrequest-commits-content .group-results,
-.vc-pullrequest-review-view .pullrequest-updates-content .group-results
-{
+.vc-pullrequest-review-view .pullrequest-updates-content .group-results {
   @include setColors($dark);
 }
+
 .vc-history-list .results-container .history-result {
   @include br($very-light-grey);
 
@@ -248,22 +239,22 @@ table.\12 .header-td {
 // File header in file specific view
 .vc-pullrequest-file-bar,
 .vc-pullrequest-review-view .centerPane-no-full-page-scroll .vc-pullrequest-details-compare .diff-viewer-container,
-.file-contents-container
-{
+.file-contents-container {
   @include setColors($dark);
 }
 
 // File contents in specific file view
 .lines-content.monaco-editor-background,
-.monaco-editor-background
-{
+.monaco-editor-background {
   @include setColors($light);
   // Pieces of code in editor
-  .view-lines .token
-  {
+  .view-lines .token {
     color: $text; // was black
 
-    &.tag { color: #d67e7e; } // was maroon
+    &.tag {
+      color: #d67e7e;
+    }
+    // was maroon
 
     &.attribute.name.xml {
       color: #d15eff !important; // was red
@@ -343,9 +334,8 @@ table.\12 .header-td {
 }
 
 // Pull request comments
-.vc-discussion-thread-box,
-.vc-change-summary
-{
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box,
+.vc-change-summary {
   background-color: $dark;
   border-color: $dark;
 
@@ -387,6 +377,17 @@ table.\12 .header-td {
   @include setBg($dark);
 }
 
+// Main PR container that is beneath everything else
+.vc-pullrequest-review-view .files-main-viewer-container {
+  @include setBg($dark);
+}
+
+// Approval checkmarks
+.reviewer-image-with-vote, .vc-pr-reviewer-preview-container {
+  .vote-overlay.bowtie-status-success {
+    @include fg($green);
+  }
+}
 
 /******************************************************************/
 /*********************** BRANCHES PAGE ***************************/
@@ -410,14 +411,12 @@ table.\12 .header-td {
   color: $text;
 }
 
-.vc-ellipsis-menu>.action-icon>.bowtie-icon,
-.vc-column.vc-ellipsis-menu
-{
+.vc-ellipsis-menu > .action-icon > .bowtie-icon,
+.vc-column.vc-ellipsis-menu {
   &:hover {
     @include setBg($dark);
   }
 }
-
 
 /******************************************************************/
 /*********************** HISTORY PAGE ***************************/
@@ -442,8 +441,7 @@ table.\12 .header-td {
 // Commit history hover color
 .vc-history-detailsList.ms-DetailsList .ms-List-cell,
 .ms-DetailsRow-fields,
-.vc-history-detailsList.ms-DetailsList .ms-List-cell
-{
+.vc-history-detailsList.ms-DetailsList .ms-List-cell {
   & :hover {
     @include setColors($light);
   }
@@ -459,7 +457,7 @@ table.\12 .header-td {
 }
 
 // Files on left
-.tree-view>ul.tree-children li.node.focus {
+.tree-view > ul.tree-children li.node.focus {
   @include bg($light);
 }
 
@@ -473,6 +471,7 @@ table.\12 .header-td {
     @include setBg($light);
   }
 }
+
 // Branch popup menu
 .filtered-list-popup .filtered-list-control {
   &.vc-git-version-selector-control,
@@ -480,9 +479,10 @@ table.\12 .header-td {
     @include setColors($light);
   }
 }
+
 // Selected branch
 .filtered-list-popup .filtered-list-control.vc-git-selector {
-  .filtered-list-tab-content .filtered-list>li.current-item {
+  .filtered-list-tab-content .filtered-list > li.current-item {
     @include setBg($dark);
   }
 
@@ -491,7 +491,7 @@ table.\12 .header-td {
   }
 
   // All branch list
-  .filtered-list>li {
+  .filtered-list > li {
     @include fg($text);
 
     &.new-selection {
@@ -500,19 +500,7 @@ table.\12 .header-td {
   }
 }
 
-//.tree-view>ul.tree-children li.node {
-//  &:hover, &.focus {
-//    @include setBg($light);
-//  }
-//}
-
-//#tfs_tnli6 > a {
-//  &:hover {
-//    @include setBg(blue);
-//  }
-//}
-
-.tree-view>ul.tree-children li.node {
+.tree-view > ul.tree-children li.node {
   @include setBg($dark);
 
   &:hover {
@@ -524,35 +512,14 @@ table.\12 .header-td {
 /************************* WORK VIEW ******************************/
 
 // Selected scope on left
-.tree-view.bowtie-tree>ul.tree-children li.selected>a>div.node-content,
-.tree-view.bowtie-tree.focus>ul.tree-children li.selected>a>div.node-content,
-li.tree-drag-tile.bowtie-tree>a>div.node-content
-{
+.tree-view.bowtie-tree > ul.tree-children li.selected > a > div.node-content,
+.tree-view.bowtie-tree.focus > ul.tree-children li.selected > a > div.node-content,
+li.tree-drag-tile.bowtie-tree > a > div.node-content {
   @include setColors($light);
 
 }
 
-//// Hovering over some scopes on left
-//.tree-view.bowtie-tree,
-//.tree-view.bowtie-tree.focus
-//{
-//  & > ul.tree-children li:hover {
-//    @include setColors($light);
-//  }
-//}
-//// Hovering over other scopes on left
-//.tree-view-bowtie-tree > ul.tree-children li.focus > a > div.node-content,
-//.tree-view.bowtie-tree > ul.tree-children li.hover > a > div.node-content
-//.tree-view.bowtie-tree > ul.tree-children li.context-menu-active > a > div.node-content
-//{
-//  @include setColors($light);
-//  &:hover {
-//    @include setColors($light);
-//  }
-//}
-
-
-  // Main PBI Grid
+// Main PBI Grid
 .grid .grid-row {
   &.grid-row-selected,
   &.grid-row-hover,
@@ -620,15 +587,13 @@ ul.menu-popup {
 // Work item details
 .work-item-form-main .combo.drop .wrap,
 .form-grid .combo.emptyBorder,
-.richeditor-container
-{
+.richeditor-container {
   @include br($light);
 }
 
 .witform-layout .combo > div.wrap.disabled,
 .combo > div.wrap,
-.work-item-form-coreContent .combo
-{
+.work-item-form-coreContent .combo {
   @include setColors($light);
 }
 
@@ -638,8 +603,9 @@ ul.menu-popup {
 .work-item-form-main .work-item-form-main-header .work-item-form-headerContent .copy-workitem-title-container {
   @include setBg($light);
 }
+
 // Copy title button hover
-.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .work-item-form-title.copy-hover~.copy-workitem-title-container {
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .work-item-form-title.copy-hover ~ .copy-workitem-title-container {
   @include setColors($light);
 }
 
@@ -679,12 +645,11 @@ ul.menu-popup {
 }
 
 // New, create query, column options button row hover
-.toolbar .menu-bar>.menu-item~.menu-item,
-.toolbar .menu-bar>.menu-item-container>.menu-item~.menu-item,
-.workitemcontrol .menu-bar>.menu-item~.menu-item,
-.workitemcontrol .menu-bar>.menu-item-container>.menu-item~.menu-item,
-.toolbar .menu-bar>.menu-item
-{
+.toolbar .menu-bar > .menu-item ~ .menu-item,
+.toolbar .menu-bar > .menu-item-container > .menu-item ~ .menu-item,
+.workitemcontrol .menu-bar > .menu-item ~ .menu-item,
+.workitemcontrol .menu-bar > .menu-item-container > .menu-item ~ .menu-item,
+.toolbar .menu-bar > .menu-item {
   &.hover, &:hover {
     @include setBg($light);
   }
