@@ -1,19 +1,28 @@
-$dark-gray: #2b2b2b;
-$light-gray: #595959;
+@import "mixins";
 
-$link-color: #70a4ff;
-$link-visited-color: #5090ff;
+$dark: #2b2b2b;
+$light: #595959;
+$link: #70a4ff;
+$link-visited: #5090ff;
+$text: white;
 
-$text-color: white;
+@mixin setBg($backColor) {
+  @include bg($backColor);
+  @include fg($text);
+}
+
+@mixin setFg() {
+  @include fg($text);
+}
 
 /*===============================*/
 /*===========   MAIN   ==========*/
 
 #calcontent a {
-	color: $link-color;
+  color: $link;
 
   &:visited {
-    color: $link-visited-color
+    color: $link-visited
   }
 }
 
@@ -30,7 +39,7 @@ $text-color: white;
 #mainnav,
 #vr-nav,
 .wk-weektop,
-.tg-times-pri ,
+.tg-times-pri,
 .calList,
 .aplogo,
 .calHeader,
@@ -43,18 +52,17 @@ $text-color: white;
 #gb .gb_ve,
 #gb .gb_re,
 #gb .gb_se,
-#gb .gb_ue
-{
-	background-color: $dark-gray;
-    color: $text-color;
+#gb .gb_ue,
+#gb .gb_wf,
+#gb .gb-we {
+  @include setBg($dark);
 }
 
 /* A lighter gray column for Today */
 .tg-today,
-.wk-today.wk-dayname
-{
-	background-color: $light-gray;
-    color: $text-color;
+.wk-today.wk-dayname {
+  @include setBg($light);
+
 }
 
 .calListLabel,
@@ -63,65 +71,52 @@ $text-color: white;
 .wk-daylink,
 .calHeaderSpace,
 .calListLabel,
-.calListLabel-sel span
-{
-	color: $text-color;
+.calListLabel-sel span {
+  @include setFg();
 }
 
 #calcontent table,
 #calcontent td,
 .tg-col,
-.tg-row
-{
-	border-color: gray;
+.tg-row {
+  @include br(gray);
 }
-
-
 
 /*===============================*/
 /*======   MINI CALENDAR   ======*/
 
 /* Gray out days not in this month */
-#calcontent td.dp-offmonth
-{
-	color: gray;
+#calcontent td.dp-offmonth {
+  @include fg(gray);
 }
 
 /* Highlight this week */
-#calcontent td
-{
+#calcontent td {
   &.dp-weekday-selected,
   &.dp-weekend-selected {
-    background-color: $light-gray;
+    @include bg($light);
   }
 }
-
 
 /*===============================*/
 /*=========   BUTTONS   =========*/
 
 /* Hide weird transition gradient image */
-.trans-strip.goog-inline-block 
-{
-	display: none;
+.trans-strip.goog-inline-block {
+  display: none;
 }
-
 
 /*===============================*/
 /*=======   AGENDA VIEW   =======*/
 #gridcontainer,
-#lv_listview .lv-datecell
-{
-	background-color: $dark-gray;
+#lv_listview .lv-datecell {
+  background-color: $dark;
 }
 
 .lv-event-time,
-.lv-location
-{
-	color: white;
+.lv-location {
+  @include setFg();
 }
-
-
 
 /*===============================*/
 /*=======   EDIT SCREEN   =======*/
@@ -129,47 +124,38 @@ $text-color: white;
 .ep-dp,
 .ep-dp-dt-th,
 .ep-go-label,
-#maincell
-{
-	background-color: $dark-gray;
-    color: white;
+#maincell {
+  @include setBg($dark);
 }
-
-
 
 /*===============================*/
 /*====   SETTINGS SCREEN   ======*/
 
 /* Same dark color for table cells */
-#svalues tr ,
+#svalues tr,
 #svalues tr > td,
 #svalues tr > td > div,
 #set,
 #coverinner .buttons,
 #sbody,
-#coverinner > .privacy-policy
-{
-	background-color: $dark-gray;
-	color: $text-color;
+#coverinner > .privacy-policy {
+  @include setBg($dark);
 }
 
 /* Lighter color for every other table cell */
-#svalues tr:nth-child(even),
-#svalues tr:nth-child(even) > td,
-#svalues tr:nth-child(even) > td > div
-{
-	background-color: $light-gray;
-	color: $text-color;
+#svalues tr:nth-child(even) {
+  &, & > td, & > td > div {
+    @include setBg($light);
+  }
 }
 
 .stitle {
-  color: $text-color;
+  @include setFg();
 }
 
-#svalues tr > td
-{
+#svalues tr > td {
   div, h1, h2, h3, h4, h5, h6 {
-    color: $text-color;
+    @include setFg();
   }
 }
 
