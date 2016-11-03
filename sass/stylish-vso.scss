@@ -373,8 +373,13 @@ table.\12 .header-td {
 }
 
 // Pull request completed box
-.callout.completed {
+.callout {
   @include setBg($dark);
+  @include br($red);
+
+  &.completed {
+    @include br($green);
+  }
 }
 
 // Main PR container that is beneath everything else
@@ -384,10 +389,17 @@ table.\12 .header-td {
 
 // Approval checkmarks
 .reviewer-image-with-vote, .vc-pr-reviewer-preview-container {
-  .vote-overlay.bowtie-status-success {
-    @include fg($green);
+  .vote-overlay {
+    &.bowtie-status-success {
+      @include fg($green);
+    }
+
+    &.bowtie-status-failure {
+      @include fg($red);
+    }
   }
 }
+
 
 /******************************************************************/
 /*********************** BRANCHES PAGE ***************************/
@@ -511,7 +523,7 @@ table.\12 .header-td {
 /******************************************************************/
 /************************* WORK VIEW ******************************/
 
-// Selected scope on left
+// Selected scope on left (sprints, queries, etc.)
 .tree-view.bowtie-tree > ul.tree-children li.selected > a > div.node-content,
 .tree-view.bowtie-tree.focus > ul.tree-children li.selected > a > div.node-content,
 li.tree-drag-tile.bowtie-tree > a > div.node-content {
@@ -574,64 +586,13 @@ ul.menu-popup {
     @include br($light);
 
     &:hover, &:focus {
-      @include bg(light);
+      @include bg($light);
     }
   }
 }
 
 // All popup dialogs (New Task Dialog specifically)
 .ui-dialog:not(.ui-dialog-legacy) {
-  @include setColors($dark);
-}
-
-// Work item details
-.work-item-form-main .combo.drop .wrap,
-.form-grid .combo.emptyBorder,
-.richeditor-container {
-  @include br($light);
-}
-
-.witform-layout .combo > div.wrap.disabled,
-.combo > div.wrap,
-.work-item-form-coreContent .combo {
-  @include setColors($light);
-}
-
-/***** Work Item Detail ******/
-
-// Copy title button
-.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .copy-workitem-title-container {
-  @include setBg($light);
-}
-
-// Copy title button hover
-.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .work-item-form-title.copy-hover ~ .copy-workitem-title-container {
-  @include setColors($light);
-}
-
-// Work item detail titles
-.form-grid .tfs-collapsible-header {
-  @include fg($text);
-}
-
-// Work item deatail title underlines
-.form-grid .tfs-collapsible-header {
-  border-bottom: 1px solid $very-light-grey;
-}
-
-// Work item detail save, follow, and details buttons
-.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar .menu-item {
-  @include setColors($light);
-}
-
-// Work item detail Details, Planning, Time, Link, and Attachment buttons
-.witform-layout .work-item-form-tabs > ul {
-  border-left: 2px solid $very-light-grey;
-  border-top: 1px solid $very-light-grey;
-}
-
-// Work item detail Details, Planning, Time, Link, and Attachment SELECTED button
-.witform-layout .work-item-form-tab.selected-tab {
   @include setColors($dark);
 }
 
@@ -653,6 +614,85 @@ ul.menu-popup {
   &.hover, &:hover {
     @include setBg($light);
   }
+}
+
+/***** Work Item Detail ******/
+
+// Work item detail main form
+.work-item-form-main .combo.drop .wrap,
+.form-grid .combo.emptyBorder,
+.richeditor-container {
+  @include br($light);
+}
+
+// Work item detail combo boxes
+.witform-layout .combo > div.wrap.disabled,
+.combo > div.wrap,
+.work-item-form-coreContent .combo {
+  @include setColors($light);
+}
+
+// Copy title button
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .copy-workitem-title-container {
+  @include setBg($light);
+}
+
+// Copy title button hover
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .work-item-form-title.copy-hover ~ .copy-workitem-title-container {
+  @include setColors($light);
+}
+
+// Work item detail titles
+.form-grid .tfs-collapsible-header {
+  @include fg($text);
+}
+
+// Work item detail title underlines
+.form-grid .tfs-collapsible-header {
+  border-bottom: 1px solid $very-light-grey;
+}
+
+// Work item detail save, follow, and details buttons
+.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar .menu-item {
+  @include setColors($light);
+}
+
+// Work item detail Details, Planning, Time, Link, and Attachment buttons
+.witform-layout .work-item-form-tabs > ul {
+  border-left: 2px solid $very-light-grey;
+  border-top: 1px solid $very-light-grey;
+}
+
+// Work item detail Details, Planning, Time, Link, and Attachment SELECTED button
+.witform-layout .work-item-form-tab.selected-tab {
+  @include setColors($dark);
+}
+
+// Work item detail property dropdown comboboxes hover
+.virtualizing-list-view > .items > li.selected {
+  @include setColors($dark);
+}
+
+// Work item detail save&close button
+.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar {
+  .disabled {
+    &.drop-down-chevron, &.drop-down-save {
+      &.menu-item {
+        @include setColors($dark)
+      }
+    }
+  }
+
+  .drop-down-chevron, .drop-down-save {
+    &.menu-item {
+      @include setColors($blue);
+    }
+  }
+}
+
+// Work item detail dialog background
+.workitem-dialog.ui-dialog {
+  @include setBg($dark);
 }
 
 /******************************************************************/
