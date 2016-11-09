@@ -99,8 +99,10 @@ a:hover {
 }
 
 // Second level title bar loading color
-table.\12 .header-td {
-  @include setBg($light);
+table.\12 .header-td, #\31 > table.header-table.l2 {
+  &, tbody > tr > td {
+    @include setBg($light);
+  }
 }
 
 .vsts-header .hub-bar {
@@ -133,6 +135,7 @@ table.\12 .header-td {
 #\31 > table.header-table.l1 #searchbox {
   @include setBg(#0069b2);
 }
+
 
 // Little triangle at the bottom of the top menubar item
 .vsts-header .hub-selector .hubs-menubar.menu-bar > .menu-item.selected::after,
@@ -297,10 +300,9 @@ table.\12 .header-td {
 .vc-pullrequest-title-input,
 .vc-pullrequest-description-input,
 .identity-picker-input,
-.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input,
-.vc-discussion-thread-comment .vc-discussion-thread-renderarea {
-  background-color: $light !important;
-  color: $text !important;
+.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input
+{
+  @include setColors($light);
 }
 
 // Left file list pane
@@ -334,38 +336,33 @@ table.\12 .header-td {
 }
 
 // Pull request comments
-.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-discussion-thread-box,
-.vc-change-summary {
-  background-color: $dark;
-  border-color: $dark;
+.vc-discussion-thread-box,
+.vc-discussion-thread-comment
+{
+  @include setColors($dark);
 
-  .vc-discussion-thread-box {
-    @include setColors($dark);
+  .vc-discussion-comment-header {
+    .vc-discussion-comment-author {
+      @include fg($text);
+    }
   }
 
-  .vc-discussion-thread-comment {
-    @include setColors($dark);
+  .vc-discussion-thread-renderarea {
+    @include setBg($dark);
 
-    .vc-discussion-thread-renderarea {
-      @include setBg($dark);
-
-      p {
-        color: $text;
-      }
-
-      code, pre {
-        background-color: $light;
-        color: $text;
-      }
+    p {
+      color: $text;
     }
 
-    .vc-discussion-comment-header {
-      .vc-discussion-comment-author {
-        color: $text;
-      }
+    code, pre {
+      @include setBg($light);
     }
   }
 }
+.vc-change-summary {
+  @include setColors($dark);
+}
+
 
 // Space between line numbers next to comment
 .vc-diff-viewer .text-diff-container .diff-lines .discussion-filler {
@@ -398,6 +395,41 @@ table.\12 .header-td {
       @include fg($red);
     }
   }
+}
+
+// PR Reviewer tag
+.identity-picker-resolved-bg {
+  @include setColors($dark);
+}
+// PR Reviewer auto complete dropdown
+.identity-picker-fixed-position,
+.vc-pullrequest-create-reviewers-container {
+  @include setColors($dark);
+}
+// PR Reviewer dropdown arrow
+.identity-picker-search-box {
+  @include setColors($light);
+}
+// Hover over item in PR reviewer dropdown
+.identity-picker-dropdown>ul.items>li:hover,
+.identity-picker-dropdown .search:hover {
+  @include setColors($light);
+}
+
+// Task auto complete list dropdown
+.mention-autocomplete-menu {
+  &, & li.ui-state-focus {
+    @include setColors($dark);
+  }
+}
+// Footer of auto complete list
+.mention-autocomplete-footer {
+  @include setColors($light);
+}
+
+// Hover over chosen work items
+.ra-item:hover, .ra-item-focus {
+  @include setColors($light);
 }
 
 
@@ -469,8 +501,18 @@ table.\12 .header-td {
 }
 
 // Files on left
-.tree-view > ul.tree-children li.node.focus {
-  @include bg($light);
+.tree-view > ul.tree-children li {
+  &, &.node {
+    @include setColors($dark);
+
+    &.hover, &.focus, &:hover {
+      @include setColors($light);
+
+      div.node-context-menu-container {
+        @include setColors($light);
+      }
+    }
+  }
 }
 
 // Branch dropdown
@@ -512,13 +554,7 @@ table.\12 .header-td {
   }
 }
 
-.tree-view > ul.tree-children li.node {
-  @include setBg($dark);
 
-  &:hover {
-    @include setBg($light);
-  }
-}
 
 /******************************************************************/
 /************************* WORK VIEW ******************************/
