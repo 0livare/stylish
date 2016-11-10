@@ -178,22 +178,6 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   }
 }
 
-//.botwie-menus .menu.sub-menu > .menu-item-container > .menu-item,
-//.bowtie-menus .menu.sub-menu > .menu-item
-//{
-//  @include setColors($dark);
-//
-//  &.hover {
-//    @include setBg($light);
-//  }
-//}
-
-//.bowtie-menus .menu.sub-menu>.menu-item.hover,
-//.bowtie-menus .menu.sub-menu>.menu-item-container>.menu-item.hover
-//{
-//  @include setBg($light);
-//}
-
 .bowtie-menus .menu.sub-menu {
   .menu-item, .menu-item-container > .menu-item {
     @include setColors($dark);
@@ -202,6 +186,66 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
       @include setColors($light);
     }
   }
+}
+
+/*****************************************************************/
+/********************* LEFT PANE MENU ***************************/
+
+// Selected scope on left (sprints, queries, etc.)
+.tree-view.bowtie-tree {
+  &, &.focus {
+    ul.tree-children li {
+      &.selected, &.focus {
+        & > a > div.node-content {
+          @include setColors($light);
+        }
+      }
+    }
+  }
+}
+li.tree-drag-tile.bowtie-tree > a > div.node-content {
+  @include setColors($light);
+}
+.tree-view > ul.tree-children li.node {
+  &.selected, &.focus, &.hover, &.context-menu-active {
+    & > a > div.node-content {
+      @include setColors($light);
+    }
+
+    & > .node-context-menu-container, & > .node-context-menu {
+      @include setColors($light);
+    }
+  }
+}
+
+
+/*****************************************************************/
+/********************** POP UP MENUS ****************************/
+
+// At least the context menu in the work view
+ul.menu-popup {
+  @include br($light);
+
+  .menu.sub-menu {
+    @include setColors($light);
+
+    .menu-item, .menu-item-container {
+      @include setColors($light);
+
+      &.hover, &.focus, &:hover, &:focus {
+        background-color: $dark !important;
+      }
+
+      .drop {
+        color: $text;
+      }
+    }
+  }
+}
+
+// All popup dialogs (New Task Dialog specifically)
+.ui-dialog:not(.ui-dialog-legacy) {
+  @include setColors($dark);
 }
 
 /******************************************************************/
@@ -323,14 +367,14 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   border-bottom: 1px solid rgba(64, 64, 64, 0.7); // very light gray
 
   &:hover {
-    background-color: $light;
+    @include bg($light);
   }
 }
 
 .vc-pullrequest-results-row {
   .primary-text {
     &:link, &:visited {
-      color: $text !important;
+      @include fg($text);
     }
   }
 }
@@ -500,21 +544,6 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   }
 }
 
-// Files on left
-.tree-view > ul.tree-children li {
-  &, &.node {
-    @include setColors($dark);
-
-    &.hover, &.focus, &:hover {
-      @include setColors($light);
-
-      div.node-context-menu-container {
-        @include setColors($light);
-      }
-    }
-  }
-}
-
 // Branch dropdown
 .versioncontrol-git-history-view.git-repositories-view .vc-branches-container .filtered-list-dropdown-menu {
   &:hover {
@@ -559,14 +588,6 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 /******************************************************************/
 /************************* WORK VIEW ******************************/
 
-// Selected scope on left (sprints, queries, etc.)
-.tree-view.bowtie-tree > ul.tree-children li.selected > a > div.node-content,
-.tree-view.bowtie-tree.focus > ul.tree-children li.selected > a > div.node-content,
-li.tree-drag-tile.bowtie-tree > a > div.node-content {
-  @include setColors($light);
-
-}
-
 // Main PBI Grid
 .grid .grid-row {
   &.grid-row-selected,
@@ -592,27 +613,6 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
   }
 }
 
-// Right click menu (and other popup menus throughout VSO)
-ul.menu-popup {
-  @include br($light);
-
-  .menu.sub-menu {
-    @include setColors($light);
-
-    .menu-item, .menu-item-container {
-      @include setColors($light);
-
-      &.hover, &.focus, &:hover, &:focus {
-        background-color: $dark !important;
-      }
-
-      .drop {
-        color: $text;
-      }
-    }
-  }
-}
-
 // PBI Info view
 .work-item-form-main-core {
   @include setColors($dark);
@@ -625,11 +625,6 @@ ul.menu-popup {
       @include bg($light);
     }
   }
-}
-
-// All popup dialogs (New Task Dialog specifically)
-.ui-dialog:not(.ui-dialog-legacy) {
-  @include setColors($dark);
 }
 
 .work-item-form-tab {
@@ -669,28 +664,38 @@ ul.menu-popup {
 }
 
 // Copy title button
-.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .copy-workitem-title-container {
-  @include setBg($light);
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent {
+  .work-item-form-title.copy-hover ~ .copy-workitem-title-container,
+  .copy-workitem-title-container {
+    @include setBg($light);
+  }
 }
 
-// Copy title button hover
-.work-item-form-main .work-item-form-main-header .work-item-form-headerContent .work-item-form-title.copy-hover ~ .copy-workitem-title-container {
-  @include setColors($light);
-}
-
-// Work item detail titles
+// Work item detail titles and underlines
 .form-grid .tfs-collapsible-header {
   @include fg($text);
-}
-
-// Work item detail title underlines
-.form-grid .tfs-collapsible-header {
   border-bottom: 1px solid $very-light-grey;
 }
 
 // Work item detail save, follow, and details buttons
-.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar .menu-item {
-  @include setColors($light);
+.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar  {
+  .menu-item {
+    @include setColors($light);
+  }
+
+  // Save and close button - Blue when active, dark when disabled
+  .disabled {
+    &.drop-down-chevron, &.drop-down-save {
+      &.menu-item {
+        @include setColors($dark)
+      }
+    }
+  }
+  .drop-down-chevron, .drop-down-save {
+    &.menu-item {
+      @include setColors($blue);
+    }
+  }
 }
 
 // Work item detail Details, Planning, Time, Link, and Attachment buttons
@@ -707,23 +712,6 @@ ul.menu-popup {
 // Work item detail property dropdown comboboxes hover
 .virtualizing-list-view > .items > li.selected {
   @include setColors($dark);
-}
-
-// Work item detail save&close button
-.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar {
-  .disabled {
-    &.drop-down-chevron, &.drop-down-save {
-      &.menu-item {
-        @include setColors($dark)
-      }
-    }
-  }
-
-  .drop-down-chevron, .drop-down-save {
-    &.menu-item {
-      @include setColors($blue);
-    }
-  }
 }
 
 // Work item detail dialog background
