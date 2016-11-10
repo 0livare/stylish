@@ -2,6 +2,7 @@
 
 $dark: #1e1e1e;
 $light: #2e2e2e;
+$lighter: #424242;
 $text: #ececec;
 $very-light-grey: rgba(82, 82, 82, 0.31);
 
@@ -219,8 +220,11 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
 }
 
 
-/*****************************************************************/
-/********************** POP UP MENUS ****************************/
+/****************************************************************************************************/
+/***************************************** GLOBALS *************************************************/
+
+/**************************************************/
+/*************** POP UP MENUS ********************/
 
 // At least the context menu in the work view
 ul.menu-popup {
@@ -248,8 +252,46 @@ ul.menu-popup {
   @include setColors($dark);
 }
 
-/******************************************************************/
-/********************** PULL REQUEST PAGE *************************/
+
+/**************************************************/
+/************ IDENTITY PICKER DROPDOWN ***********/
+
+// Selected identity tag
+.identity-picker-resolved-bg {
+  @include setColors($dark);
+}
+
+// Identity dropdown box
+.identity-picker-fixed-position,
+.vc-pullrequest-create-reviewers-container {
+  @include setColors($dark);
+}
+
+// Identity dropdown arrow
+.identity-picker-search-box {
+  @include setColors($light);
+}
+
+// Identify dropdown menu items
+.identity-picker-dropdown {
+  ul.items > li, .search {
+    @include setColors($dark);
+
+    &, &.selected {
+      &:hover {
+        @include setColors($lighter);
+      }
+    }
+  }
+}
+
+// Autocomplete highlight when tagging
+.richtext-autocomplete-highlight {
+  @include setColors($dark);
+}
+
+/****************************************************************************************************/
+/************************************ PULL REQUEST PAGE ********************************************/
 
 .vc-change-summary > *,
 .vc-change-summary .changed-files-summary-header,
@@ -441,24 +483,6 @@ ul.menu-popup {
   }
 }
 
-// PR Reviewer tag
-.identity-picker-resolved-bg {
-  @include setColors($dark);
-}
-// PR Reviewer auto complete dropdown
-.identity-picker-fixed-position,
-.vc-pullrequest-create-reviewers-container {
-  @include setColors($dark);
-}
-// PR Reviewer dropdown arrow
-.identity-picker-search-box {
-  @include setColors($light);
-}
-// Hover over item in PR reviewer dropdown
-.identity-picker-dropdown>ul.items>li:hover,
-.identity-picker-dropdown .search:hover {
-  @include setColors($light);
-}
 
 // Task auto complete list dropdown
 .mention-autocomplete-menu {
@@ -477,8 +501,8 @@ ul.menu-popup {
 }
 
 
-/******************************************************************/
-/*********************** BRANCHES PAGE ***************************/
+/****************************************************************************************************/
+/************************************* BRANCHES PAGE ***********************************************/
 
 .vc-newbranches-view .hub-pivot {
   @include setColors($dark)
@@ -506,8 +530,8 @@ ul.menu-popup {
   }
 }
 
-/******************************************************************/
-/*********************** HISTORY PAGE ***************************/
+/****************************************************************************************************/
+/************************************** HISTORY PAGE ***********************************************/
 
 .vc-filter-button {
   @include setBg($dark);
@@ -585,8 +609,8 @@ ul.menu-popup {
 
 
 
-/******************************************************************/
-/************************* WORK VIEW ******************************/
+/****************************************************************************************************/
+/*************************************** WORK VIEW *************************************************/
 
 // Main PBI Grid
 .grid .grid-row {
@@ -711,7 +735,7 @@ ul.menu-popup {
 
 // Work item detail property dropdown comboboxes hover
 .virtualizing-list-view > .items > li.selected {
-  @include setColors($dark);
+  @include setColors($lighter);
 }
 
 // Work item detail dialog background
@@ -719,8 +743,8 @@ ul.menu-popup {
   @include setBg($dark);
 }
 
-/******************************************************************/
-/******************************************************************/
+/****************************************************************************************************/
+/**************************************** UNSORTED *************************************************/
 
 .dashboard-landing .hub-content,
 .tree-drag-tile.folder > .node-link > .node-content,
@@ -749,8 +773,6 @@ div#header-row {
 .left-hub-content .tree-children {
   color: $blue;
 }
-
-/********/
 
 ::-webkit-scrollbar {
   width: 12px;
