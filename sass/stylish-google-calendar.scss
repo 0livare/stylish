@@ -1,7 +1,7 @@
 @import "mixins";
 
 $dark: #2b2b2b;
-$light: #595959;
+$light: #474747;
 $link: #70a4ff;
 $link-visited: #5090ff;
 $text: white;
@@ -31,7 +31,7 @@ $text: white;
 #weekViewAllDaywk,
 #calmaster,
 #scrolltimedeventswk,
-#calcontent td,
+//#calcontent td,
 #gridcontainer .tg-time-pri,
 #nav > *,
 #nav .dpdiv,
@@ -76,10 +76,23 @@ $text: white;
 }
 
 #calcontent table,
-#calcontent td,
+//#calcontent td,
 .tg-col,
 .tg-row {
   @include br(gray);
+}
+
+// Event response bar
+.ep-rc-div {
+  @include bg($light);
+  @include br($light);
+
+  td {
+    @include bg($light);
+  }
+}
+.ep-ea {
+  @include br($light);
 }
 
 /*===============================*/
