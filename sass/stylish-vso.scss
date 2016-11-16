@@ -21,7 +21,8 @@ $green: #393;
 }
 
 .left-hub-content .node-content .text,
-.node-link > .node-content, .grid-cell a,
+.node-link > .node-content,
+.grid-cell a,
 .watermark,
 .bowtie-icon,
 .selected-item-text,
@@ -361,9 +362,16 @@ ul.menu-popup {
 }
 
 // File contents in summary view
-.vc-change-summary-files .file-container {
-  @include setColors($light);
+.vc-change-summary-files {
+  .file-container {
+    @include setColors($light);
+  }
+
+  .file-cell .file-name {
+    @include fg($text);
+  }
 }
+
 
 .vc-pullrequest-review-view {
   .vc-pullrequest-activity-box,
@@ -372,6 +380,10 @@ ul.menu-popup {
   .vc-pullrequest-activity-box.subdued,
   .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment {
     @include setColors($light);
+  }
+
+  .vc-inline-edit-markdown-preview {
+    @include fg($text);
   }
 }
 
@@ -437,7 +449,11 @@ ul.menu-popup {
     @include setBg($dark);
 
     p {
-      color: $text;
+      @include setColors($dark)
+    }
+
+    a {
+      @include fg($blue);
     }
 
     code, pre {
@@ -672,6 +688,11 @@ ul.menu-popup {
 }
 
 /***** Work Item Detail ******/
+
+// Top transparent bar for dragging the module (gives crosshair mouse)
+.new-workitem-dialog.workitem-dialog.ui-dialog .ui-dialog-titlebar {
+  @include bg(transparent);
+}
 
 // Work item detail main form
 .work-item-form-main .combo.drop .wrap,
