@@ -1,0 +1,18 @@
+@import "mixins";
+
+$text: #e0e0e0;
+$dark: #1e1e1e;
+$light: #424242;
+
+
+body, .highlight {
+  @include colors($text, $dark, $dark);
+}
+
+.page-title, h1, h2, h3, h4, h5, h6 {
+  @include fg($text);
+}
+
+tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th {
+  @include bg($light);
+}
