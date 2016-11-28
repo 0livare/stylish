@@ -190,6 +190,11 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   }
 }
 
+// Highlight the line commented on
+.code-editor-host .commented-text {
+  @include bg(rgba(0, 0, 0, 0.45));
+}
+
 /*****************************************************************/
 /********************* LEFT PANE MENU ***************************/
 
@@ -404,7 +409,9 @@ ul.menu-popup {
 }
 
 // Left file list pane
-.versioncontrol-pullrequests-content {
+.versioncontrol-pullrequests-content,
+.files-grid-container
+{
   .grid {
     @include br($dark);
 
@@ -495,6 +502,13 @@ ul.menu-popup {
 
     &.bowtie-status-failure {
       @include fg($red);
+    }
+
+    &.bowtie-status-warning,
+    &.bowtie-math-minus-circle,
+    &.bowtie-status-waiting-fill
+    {
+      @include fg($orange);
     }
   }
 }
@@ -687,6 +701,21 @@ ul.menu-popup {
   }
 }
 
+// Row highlight after mass edit
+.grid:not(.grid-legacy).grid-blurred
+{
+  .grid-row, .grid-gutter-row {
+    &.grid-gutter-row-selected-blur, &.grid-row-selected-blur {
+      @include setBg($light);
+
+      .grid-context-menu {
+        @include setBg($light);
+      }
+    }
+  }
+}
+
+
 /***** Work Item Detail ******/
 
 // Top transparent bar for dragging the module (gives crosshair mouse)
@@ -763,6 +792,15 @@ ul.menu-popup {
 .workitem-dialog.ui-dialog {
   @include setBg($dark);
 }
+
+
+/******** CHARTS *********/
+.large-chart-container img,
+.small-chart-group-container img
+{
+  -webkit-filter: invert(100%);
+}
+
 
 /****************************************************************************************************/
 /**************************************** UNSORTED *************************************************/
