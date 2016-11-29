@@ -48,14 +48,22 @@ $text: white;
 .dp-cell.dp-dayh,
 .wk-dummyth,
 .tg-col,
-.cgd-col,
-#gb .gb_ve,
-#gb .gb_re,
-#gb .gb_se,
-#gb .gb_ue,
-#gb .gb_wf,
-#gb .gb-we {
+.cgd-col
+{
   @include setBg($dark);
+}
+
+// Top bar that keeps changing for some reason
+#gb {
+  .gb_ve,
+  .gb_re,
+  .gb_se,
+  .gb_ue,
+  .gb_wf,
+  .gb_we,
+  .gb_ye {
+    @include setBg($dark);
+  }
 }
 
 /* A lighter gray column for Today */

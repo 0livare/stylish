@@ -494,22 +494,38 @@ ul.menu-popup {
 }
 
 // Approval checkmarks
-.reviewer-image-with-vote, .vc-pr-reviewer-preview-container {
-  .vote-overlay {
-    &.bowtie-status-success {
-      @include fg($green);
-    }
+.bowtie-math-plus,
+.bowtie-status-success,
+.bowtie-math-plus-light,
+.bowtie-math-plus-heavy,
+.bowtie-status-run
+{
+  @include fg($green);
+}
 
-    &.bowtie-status-failure {
-      @include fg($red);
-    }
+.bowtie-status-warning,
+.bowtie-math-minus-circle,
+.bowtie-status-waiting-fill
+{
+  @include fg($orange);
+}
 
-    &.bowtie-status-warning,
-    &.bowtie-math-minus-circle,
-    &.bowtie-status-waiting-fill
-    {
-      @include fg($orange);
-    }
+.bowtie-edit-delete,
+.bowtie-edit-remove,
+.bowtie-status-error,
+.bowtie-status-failure,
+.bowtie-status-no-fill,
+.bowtie-status-stop
+{
+  @include fg($red);
+}
+
+// Approval options dropdown
+.dropdown-colored-button .dropdown-content {
+  @include setColors($lighter);
+
+  .dropdown-list .dropdown-row:hover {
+    @include setColors($light);
   }
 }
 
