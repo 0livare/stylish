@@ -461,6 +461,10 @@ ul.menu-popup {
 
     a {
       @include fg($blue);
+
+      code {
+        @include fg($blue);
+      }
     }
 
     code, pre {
@@ -653,6 +657,11 @@ ul.menu-popup {
   }
 }
 
+// Comments on a particular commit
+.discussion-thread .comments-container {
+  @include bg($dark);
+  @include br($dark);
+}
 
 
 /****************************************************************************************************/

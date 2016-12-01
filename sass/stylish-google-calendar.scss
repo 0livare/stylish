@@ -61,7 +61,15 @@ $text: white;
   .gb_ue,
   .gb_wf,
   .gb_we,
-  .gb_ye {
+  .gb_ye,
+  .gb_Ce,
+  .gb_Cf,
+  .gb_T,
+  .gb_Bf,
+  .gb_R,
+  .gb_ib,
+  .gb_gd
+  {
     @include setBg($dark);
   }
 }
