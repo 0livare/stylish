@@ -366,6 +366,11 @@ ul.menu-popup {
   }
 }
 
+// Some binary diff fields
+.vc-diff-viewer .diff-message {
+  @include setColors($light);
+}
+
 // File contents in summary view
 .vc-change-summary-files {
   .file-container {
@@ -619,7 +624,9 @@ ul.menu-popup {
 }
 
 // Branch dropdown
-.versioncontrol-git-history-view.git-repositories-view .vc-branches-container .filtered-list-dropdown-menu {
+//.versioncontrol-git-history-view.git-repositories-view .vc-branches-container
+
+.filtered-list-dropdown-menu {
   &:hover {
     @include setBg($light);
   }

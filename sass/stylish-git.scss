@@ -1,0 +1,96 @@
+@import "mixins";
+
+$dark: #1e1e1e;
+$light: #2e2e2e;
+$lighter: #424242;
+$text: #ececec;
+$very-light-grey: rgba(82, 82, 82, 0.31);
+
+$blue: #2196F3;
+$orange: #ff9800;
+$red: #f14e32;
+$green: #393;
+
+@mixin setColors($backColor) {
+  @include colors($text, $backColor, $backColor);
+}
+
+@mixin setBg($backColor) {
+  @include bg($backColor);
+  @include fg($text);
+}
+
+/*******************
+ * MAIN PAGE
+ *******************/
+
+body {
+  @include setColors($dark);
+  background: $dark !important;
+}
+
+#main {
+  @include setColors($light);
+}
+
+h1 {
+  @include fg($text);
+}
+
+/*******************
+ * SIDEBAR
+ *******************/
+
+aside nav ul li a {
+  @include fg($text);
+
+  &:hover {
+    @include fg($red);
+  }
+}
+
+/*******************
+ * CODE BLOCKS
+ *******************/
+pre {
+  @include setColors($dark);
+
+  code {
+    @include bg($dark);
+  }
+
+  &[data-code-language="console"] {
+    code.gp { @include fg($green); }
+    code.go { @include fg($text); }
+  }
+}
+
+p code {
+  @include setColors($dark);
+  padding: 3px 5px;
+}
+
+#flippy-book #book-cover-inside {
+  @include setColors($dark);
+}
+
+
+/*******************
+ * CHAPTERS DROPDOWN PANEL
+ *******************/
+
+.dropdown-panel {
+  @include setColors($lighter);
+
+  a {
+    @include fg($text);
+
+    &:hover {
+      @include fg($red);
+    }
+  }
+}
+
+a.dropdown-trigger.active{
+  @include setColors($lighter);
+}
