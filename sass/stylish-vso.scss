@@ -555,6 +555,11 @@ ul.menu-popup {
   @include setColors($light);
 }
 
+// Branch dropdown invalid selection
+.invalid-selection {
+  @include setColors($lighter);
+}
+
 
 /****************************************************************************************************/
 /************************************* BRANCHES PAGE ***********************************************/
