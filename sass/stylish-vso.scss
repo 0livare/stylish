@@ -7,6 +7,7 @@ $text: #ececec;
 $very-light-grey: rgba(82, 82, 82, 0.31);
 
 $blue: #2196F3;
+$dark-blue: #0069b2;
 $orange: #ff9800;
 $red: #F44336;
 $green: #393;
@@ -135,7 +136,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 
 // Search code box
 #\31 > table.header-table.l1 #searchbox {
-  @include setBg(#0069b2);
+  @include setBg($dark-blue);
 }
 
 
@@ -558,6 +559,11 @@ ul.menu-popup {
 // Branch dropdown invalid selection
 .invalid-selection {
   @include setColors($lighter);
+}
+
+// Activity since last view notification
+.vc-pullrequest-review-view .vc-pullrequest-activity-feed-last-visit {
+  @include setColors($dark-blue);
 }
 
 
