@@ -1,4 +1,5 @@
 @import "mixins";
+@import "compass/css3";
 
 $dark: #1e1e1e;
 $light: #2e2e2e;
@@ -23,7 +24,6 @@ $green: #393;
 
 .left-hub-content .node-content .text,
 .node-link > .node-content,
-.grid-cell a,
 .watermark,
 .bowtie-icon,
 .selected-item-text,
@@ -33,7 +33,6 @@ $green: #393;
 .ui-dialog .ui-dialog-title,
 .query-type .pivot-filter li.selected .text,
 .query-type .pivot-filter li .text,
-.work-item-view legend,
 .ui-tabs .ui-tabs-nav li.ui-tabs-active a,
 .mapping-pane-title,
 .vc-history-basic-filter .selected-filter,
@@ -259,6 +258,11 @@ ul.menu-popup {
   @include setColors($dark);
 }
 
+// All horizontal divider lines
+.divider {
+  display: none !important;
+}
+
 
 /**************************************************/
 /************ IDENTITY PICKER DROPDOWN ***********/
@@ -300,11 +304,35 @@ ul.menu-popup {
 /****************************************************************************************************/
 /************************************ PULL REQUEST PAGE ********************************************/
 
+// Top PR section underneath blue titlebar
+.hub-title {
+  @include setBg($light);
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.vc-pullrequest-review-view {
+  .hub-pivot {
+    @include setColors($light);
+  }
+
+  // PR title textbox
+  .bowtie input[type=text] {
+    @include setColors(tint($light, 5));
+  }
+}
+
+// Overview, files, updates, commits tabs
+.vc-pullrequest-tabs li a:hover {
+  @include fg(shade($text, 30));
+}
+
 .vc-change-summary > *,
 .vc-change-summary .changed-files-summary-header,
-.vc-change-summary-files .files-container,
-.vc-pullrequest-review-view .bowtie input[type=text],
-.vc-discussion-thread-inputtextbox {
+.vc-change-summary-files .files-container
+{
   @include setColors($dark);
 }
 
@@ -388,7 +416,6 @@ ul.menu-popup {
   .vc-pullrequest-activity-box,
   .vc-pullrequest-activity-header,
   .vc-pullrequest-activity-body,
-  .vc-pullrequest-activity-box.subdued,
   .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment {
     @include setColors($light);
   }
@@ -450,7 +477,8 @@ ul.menu-popup {
 .vc-discussion-thread-box,
 .vc-discussion-thread-comment
 {
-  @include setColors($dark);
+  $comment-color: shade($light, 20);
+  @include setColors($comment-color);
 
   .vc-discussion-comment-header {
     .vc-discussion-comment-author {
@@ -462,7 +490,7 @@ ul.menu-popup {
     @include setBg($dark);
 
     p {
-      @include setColors($dark)
+      @include setColors($comment-color)
     }
 
     a {
@@ -566,6 +594,30 @@ ul.menu-popup {
   @include setColors($dark-blue);
 }
 
+// Overview side timeline
+.vc-pullrequest-review-view .vc-pullrequest-activity-feed .vc-pullrequest-activity-box {
+  .timeline-icon {
+    @include bg($dark);
+  }
+
+  .timeline-icon-line {
+    @include br(1px solid $light);
+  }
+
+  .timeline-icon-badge {
+    outline-color: $dark;
+  }
+
+  .timeline-icon-dot {
+    outline: $dark;
+  }
+}
+
+// Bottom created by card
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.subdued {
+  @include bg($dark);
+}
+
 
 /****************************************************************************************************/
 /************************************* BRANCHES PAGE ***********************************************/
@@ -594,6 +646,11 @@ ul.menu-popup {
   &:hover {
     @include setBg($dark);
   }
+}
+
+// Add overview comment text box
+.vc-discussion-thread-inputtextbox {
+  @include bg($light);
 }
 
 /****************************************************************************************************/
@@ -945,14 +1002,6 @@ div#header-row {
 
 .responsive-grid .grid-cell .grid-cell-title {
   border-bottom: 1px solid $text;
-}
-
-.hub-title {
-  @include setBg($dark);
-  margin-left: 0;
-  margin-right: 0;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 .tree-view > ul.tree-children li.selected > a > div.node-content,
