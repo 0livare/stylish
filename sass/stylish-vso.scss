@@ -6,6 +6,7 @@ $light: #2e2e2e;
 $lighter: #424242;
 $text: #ececec;
 $very-light-grey: rgba(82, 82, 82, 0.31);
+$hub-bar-color: tint($dark, 5);
 
 $blue: #2196F3;
 $dark-blue: #0069b2;
@@ -22,14 +23,12 @@ $green: #393;
   @include fg($text);
 }
 
-.left-hub-content .node-content .text,
 .node-link > .node-content,
 .watermark,
 .bowtie-icon,
 .selected-item-text,
 .text-filter-box input,
 .grid-row,
-.ui-widget-content,
 .ui-dialog .ui-dialog-title,
 .query-type .pivot-filter li.selected .text,
 .query-type .pivot-filter li .text,
@@ -78,7 +77,6 @@ a:hover {
   background-color: $light;
 }
 
-.left-hub-content .ui-droppable,
 .workitem-header-bar,
 .text-filter-box,
 .vc-pullrequest-review-view .tabContent-two-pane > .with-background,
@@ -195,36 +193,6 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   @include bg(rgba(0, 0, 0, 0.45));
 }
 
-/*****************************************************************/
-/********************* LEFT PANE MENU ***************************/
-
-// Selected scope on left (sprints, queries, etc.)
-.tree-view.bowtie-tree {
-  &, &.focus {
-    ul.tree-children li {
-      &.selected, &.focus {
-        & > a > div.node-content {
-          @include setColors($light);
-        }
-      }
-    }
-  }
-}
-li.tree-drag-tile.bowtie-tree > a > div.node-content {
-  @include setColors($light);
-}
-.tree-view > ul.tree-children li.node {
-  &.selected, &.focus, &.hover, &.context-menu-active {
-    & > a > div.node-content {
-      @include setColors($light);
-    }
-
-    & > .node-context-menu-container, & > .node-context-menu {
-      @include setColors($light);
-    }
-  }
-}
-
 
 /****************************************************************************************************/
 /***************************************** GLOBALS *************************************************/
@@ -256,11 +224,6 @@ ul.menu-popup {
 // All popup dialogs (New Task Dialog specifically)
 .ui-dialog:not(.ui-dialog-legacy) {
   @include setColors($dark);
-}
-
-// All horizontal divider lines
-.divider {
-  display: none !important;
 }
 
 
@@ -301,26 +264,111 @@ ul.menu-popup {
   @include setColors($dark);
 }
 
+
+/**************************************************/
+/************ SPLITTER LEFT HAND PANEL ***********/
+
+.splitter.toggle-button-enabled.collapsed>.handleBar {
+  @include setColors($lighter);
+}
+
+.left-hub-content {
+  @include bg($hub-bar-color);
+  top: 0;
+
+  .tree-children {
+    @include fg($blue);
+  }
+
+  .node-content .text {
+    @include fg($text);
+  }
+
+  .ui-droppable { @include bg($hub-bar-color); }
+}
+
+
+.hub-splitter.splitter.horizontal > .leftPane {
+  border-right: 0;
+}
+
+li.tree-drag-tile div.node-content,
+.tree-view .tree-children div.node-content {
+  @include bg($hub-bar-color);
+}
+
+// Selected scope on left (sprints, queries, etc.)
+.tree-view.bowtie-tree {
+  &, &.focus {
+    ul.tree-children li {
+      &.selected, &.focus {
+        & > a > div.node-content {
+          @include setColors($dark);
+        }
+      }
+    }
+  }
+}
+li.tree-drag-tile.bowtie-tree > a > div.node-content {
+  @include setColors($hub-bar-color);
+}
+.tree-view > ul.tree-children li.node {
+  &.selected, &.focus, &.hover, &.context-menu-active, &:hover {
+    & > a > div.node-content {
+      @include setColors($dark);
+    }
+
+    & > .node-context-menu-container, & > .node-context-menu {
+      @include setColors($hub-bar-color);
+    }
+  }
+}
+
+//.tree-drag-tile, .tree-view {
+//  .folder, &.folder {
+//    & > .node-link > .node-content {
+//      @include setColors($hub-bar-color);
+//    }
+//  }
+//}
+
+
+
+
+
+/**************************************************/
+/********************* VARIOUS *******************/
+
+// All horizontal divider lines
+.divider {
+  display: none !important;
+}
+
 /****************************************************************************************************/
 /************************************ PULL REQUEST PAGE ********************************************/
 
 // Top PR section underneath blue titlebar
 .hub-title {
-  @include setBg($light);
+  @include setBg($hub-bar-color);
   margin-left: 0;
   margin-right: 0;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.vc-pullrequest-review-view {
-  .hub-pivot {
-    @include setColors($light);
-  }
+.hub-pivot {
+  @include setColors($hub-bar-color);
+}
 
+.vc-pullrequest-review-view {
   // PR title textbox
   .bowtie input[type=text] {
-    @include setColors(tint($light, 5));
+    @include setColors(tint($hub-bar-color, 5));
+  }
+
+  // Complete button
+  .bowtie button.cta, .bowtie button.btn-cta {
+    @include setColors($dark-blue);
   }
 }
 
@@ -615,7 +663,7 @@ ul.menu-popup {
 
 // Bottom created by card
 .vc-pullrequest-review-view .vc-pullrequest-activity-box.subdued {
-  @include bg($dark);
+  @include setColors($dark);
 }
 
 
@@ -902,16 +950,97 @@ ul.menu-popup {
 }
 
 
+/******** AGILE BOARD *********/
+.agile-board .agile-header-container {
+  @include setColors($hub-bar-color);
+}
+
+.agile-board {
+  @include setColors($hub-bar-color);
+
+  .horizontal {
+    .horizontal-table > .row {
+      & > .cell, & > .cell:first-of-type {
+        border: 1px solid $hub-bar-color;
+      }
+
+      &.header > .cell {
+        background-color: $hub-bar-color;
+        border-bottom: 1px solid $hub-bar-color;
+      }
+    }
+
+    & > .agile-content-container {
+      @include bg($dark);
+    }
+  }
+
+  .board-tile .board-tile-content-container {
+    @include setBg($light);
+
+    .board-tile-content {
+      border: 0 !important;
+      @include bg($light);
+    }
+  }
+
+  .cell .member-border-line { @include bg($dark); }
+}
+
+// Point estimate on board tile
+.witRemainingWork { @include fg($text); }
+
+// Asignee name
+.field-container.onTileEditDiv.identity {
+  @include fg($text);
+}
+
+
+/****************************************************************************************************/
+/**************************************** HOME PAGE ************************************************/
+
+// Widget containers
+$widget-color: tint($light, 5);
+
+.widgethost {
+  box-shadow: 0px;
+}
+
+.widget-container .internal-content-host {
+  @include setColors($widget-color);
+
+  .assigned-to-me-title { @include fg($text);}
+  .assigned-to-me-results-container { @include setColors($widget-color); }
+
+  .wit-querygrid-widget-view {
+    @include setColors($widget-color);
+
+    .wit-widget-view-title { @include fg($text); }
+  }
+
+  img:not(.identity-picture) {
+    filter: invert(100%);
+  }
+}
+
+.markdown-widget .markdown-widget-container .rendered-markdown
+{
+  &, & * {
+    @include fg($text);
+  }
+}
+
+.item-list-control ul li a .item-number {
+  @include fg($text);
+}
+
+
 /****************************************************************************************************/
 /**************************************** UNSORTED *************************************************/
 
 .dashboard-landing .hub-content,
-.tree-drag-tile.folder > .node-link > .node-content,
-.tree-view .folder > .node-link > .node-content,
-.hub-content,
 .ui-dialog > * {
-  background-color: $dark !important;
-  color: $text;
+  @include setColors($dark);
 }
 
 .add-panel {
@@ -920,17 +1049,13 @@ ul.menu-popup {
 
 .tags-add-button .tag-box-selectable,
 .tag-box, .tag-delete,
-input, textarea, select,
+input:not(.search-text), textarea, select,
 body[contenteditable] {
   @include setColors($light);
 }
 
 div#header-row {
   background-color: $blue;
-}
-
-.left-hub-content .tree-children {
-  color: $blue;
 }
 
 ::-webkit-scrollbar {
@@ -975,15 +1100,6 @@ div#header-row {
 .header-post11 .header-search {
   background-color: $light;
   border: 1px solid $text;
-}
-
-.left-hub-content {
-  background-color: $dark;
-  top: 0;
-}
-
-.hub-splitter.splitter.horizontal > .leftPane {
-  border-right: 0;
 }
 
 .toolbar {
@@ -1057,22 +1173,6 @@ button, button.ui-state-default, button.ui-button {
 .board-add-card {
   background-color: $light;
   border: solid 1px $blue;
-}
-
-.agile-board .horizontal .horizontal-table > .row > .cell:first-of-type,
-.agile-board .horizontal .horizontal-table > .row > .cell {
-  border-bottom: 1px solid $light;
-  border-left: 1px solid $dark;
-  border-right: 1px solid $light;
-}
-
-.agile-board .horizontal .horizontal-table > .row.header > .cell {
-  background-color: $light;
-  border-bottom: 1px solid $dark;
-}
-
-.agile-board .board-tile .board-tile-content {
-  border: 0;
 }
 
 .versioncontrol-explorer-view .source-path,
