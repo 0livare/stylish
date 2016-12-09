@@ -70,7 +70,6 @@ table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop 
 .ui-tabs .ui-tabs-nav,
 .splitter > .handleBar, .splitter > .handleBar-clone,
 .agile-board .board-tile,
-.board-tile.ui-draggable-dragging,
 .vsts-header .hub-bar .left-section,
 .hub-bar .header-table .right-section,
 a:hover {
@@ -82,7 +81,6 @@ a:hover {
 .vc-pullrequest-review-view .tabContent-two-pane > .with-background,
 .ui-dialog .ui-dialog-titlebar,
 .agile-board .horizontal > .agile-content-container > .content-container-innerDiv-class .horizontal-table,
-.ui-droppable,
 .taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
 .hub-pivot-content,
 .vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
@@ -323,15 +321,6 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
     }
   }
 }
-
-//.tree-drag-tile, .tree-view {
-//  .folder, &.folder {
-//    & > .node-link > .node-content {
-//      @include setColors($hub-bar-color);
-//    }
-//  }
-//}
-
 
 
 
@@ -863,8 +852,8 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
   }
 }
 
-
-/***** Work Item Detail ******/
+/**************************************************/
+/*************** Work Item Detail ****************/
 
 // Top transparent bar for dragging the module (gives crosshair mouse)
 .new-workitem-dialog.workitem-dialog.ui-dialog .ui-dialog-titlebar {
@@ -942,15 +931,19 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
 }
 
 
-/******** CHARTS *********/
-.large-chart-container img,
-.small-chart-group-container img
+/**************************************************/
+/********************* CHARTS ********************/
+.large-chart-container,
+.small-chart-group-container,
+.small-chart-container
 {
-  -webkit-filter: invert(100%);
+  img {
+    -webkit-filter: invert(100%) !important;
+  }
 }
 
-
-/******** AGILE BOARD *********/
+/**************************************************/
+/******************** AGILE BOARD ****************/
 .agile-board .agile-header-container {
   @include setColors($hub-bar-color);
 }
@@ -993,6 +986,42 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
 // Asignee name
 .field-container.onTileEditDiv.identity {
   @include fg($text);
+}
+
+//****** TASK BOARD ********\\
+.tbTile .title {
+  @include fg($text);
+}
+
+.tbTile:hover .card-context-menu {
+  @include bg($light);
+  @include br($light);
+}
+
+// Drop zones on the task board
+.taskboard-cell.ui-droppable {
+  @include bg(tint($hub-bar-color, 5));
+
+  &.dragHover {
+    @include bg($dark);
+  }
+}
+
+.taskboard-cell {
+  background-color: $light;
+  border-bottom: 1px solid $dark;
+  border-left: 1px solid $dark;
+  border-right: 1px solid $dark;
+}
+
+.taskboard-expander {
+  background-color: $dark;
+  border-bottom: 1px solid $dark;
+}
+
+// New Item button
+.board-add-card {
+  @include setColors($light);
 }
 
 
@@ -1156,23 +1185,6 @@ button, button.ui-state-default, button.ui-button {
 
 .filters a {
   color: $blue;
-}
-
-.taskboard-cell {
-  background-color: $light;
-  border-bottom: 1px solid $dark;
-  border-left: 1px solid $dark;
-  border-right: 1px solid $dark;
-}
-
-.taskboard-expander {
-  background-color: $dark;
-  border-bottom: 1px solid $dark;
-}
-
-.board-add-card {
-  background-color: $light;
-  border: solid 1px $blue;
 }
 
 .versioncontrol-explorer-view .source-path,
