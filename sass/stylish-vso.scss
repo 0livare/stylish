@@ -920,11 +920,6 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
   @include setColors($dark);
 }
 
-// Work item detail property dropdown comboboxes hover
-.virtualizing-list-view > .items > li.selected {
-  @include setColors($lighter);
-}
-
 // Work item detail dialog background
 .workitem-dialog.ui-dialog {
   @include setBg($dark);
@@ -1022,6 +1017,20 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
 // New Item button
 .board-add-card {
   @include setColors($light);
+}
+
+// PBI state dropdown
+.combo-drop-popup {
+  @include setColors($hub-bar-color);
+
+  & > .items > li.selected {
+    @include setColors($lighter);
+  }
+}
+
+// State text when dropdown is closed
+.workitem-state-value.onTileEditTextDiv {
+  @include fg($text);
 }
 
 
@@ -1188,7 +1197,6 @@ button, button.ui-state-default, button.ui-button {
 }
 
 .versioncontrol-explorer-view .source-path,
-.combo-drop-popup,
 .chart-hosts-list > .message-block.invalid,
 .query-type .pivot-filter li.selected,
 .tbTile .tbTileContent {
