@@ -225,7 +225,18 @@ ul.menu-popup {
 }
 
 
-/**************************************************/
+::-webkit-scrollbar-thumb {
+  $scrollbar-thumb-color: tint(black, 5);
+  @include bg($scrollbar-thumb-color);
+  -webkit-box-shadow: 0 0 0 $scrollbar-thumb-color !important;
+}
+
+::-webkit-scrollbar-track-piece {
+  @include bg($dark);
+}
+
+
+  /**************************************************/
 /************ IDENTITY PICKER DROPDOWN ***********/
 
 // Selected identity tag
@@ -322,6 +333,13 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
   }
 }
 
+button.popup-menu-trigger {
+  @include bg(transparent);
+
+  &:focus {
+    @include bg($light);
+  }
+}
 
 
 
@@ -924,6 +942,80 @@ li.tree-drag-tile.bowtie-tree > a > div.node-content {
 .workitem-dialog.ui-dialog {
   @include setBg($dark);
 }
+
+//********* PBI detail, history tab **********
+.state {
+  @include bg($light);
+}
+
+.arrow-tail {
+  @include bg($light);
+}
+
+.arrow-head {
+  border-left: 10px solid $light;
+  @include bg($dark);
+}
+
+.workitemcontrol .workitem-history-control {
+
+  #history-splitter {
+    display: none;
+  }
+  .right-history-panel .history-item-viewer {
+
+    .history-item-viewer-header .history-item-viewer-header-container {
+      border-bottom: 1px solid $very-light-grey;
+
+      .history-item-viewer-right .history-item-summary-text {
+        @include fg($text);
+      }
+    }
+
+    .history-item-detail .history-links .link-add .link-text {
+      @include fg(black);
+
+      a {
+        @include fg(black);
+
+        &:hover {
+          @include bg(green);
+        }
+      }
+    }
+  }
+
+
+  .left-history-panel {
+    border-right: 1px solid $light;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .history-item-list {
+      @include br($light);
+
+      .history-group .header {
+        @include setColors($light);
+      }
+
+      .history-item-summary {
+        @include bg($dark);
+        @include br($light);
+
+        &.history-item-selected, &:hover {
+          @include bg($hub-bar-color);
+        }
+
+        .history-item-summary-details .history-item-summary-text {
+          @include fg($text);
+        }
+      }
+    }
+  }
+}
+
 
 
 /**************************************************/
