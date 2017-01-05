@@ -379,6 +379,21 @@ button.popup-menu-trigger {
   }
 }
 
+// Approve button
+.bowtie button {
+  @include bg($lighter);
+  @include br($lighter);
+}
+
+// PR elipsis button
+.vc-pullrequest-review-view button.clear-button {
+  @include bg(transparent);
+
+  &:hover {
+    @include bg($lighter);
+  }
+}
+
 // Overview, files, updates, commits tabs
 .vc-pullrequest-tabs li a:hover {
   @include fg(shade($text, 30));
@@ -1076,13 +1091,21 @@ button.popup-menu-trigger {
 }
 
 //****** TASK BOARD ********\\
-.tbTile .title {
-  @include fg($text);
-}
+.tbTile {
+  .title {
+    @include fg($text);
+  }
+  &:hover .card-context-menu {
+    @include bg($light);
+    @include br($light);
+  }
+  .tbTileContent {
+    @include setColors($light);
+  }
 
-.tbTile:hover .card-context-menu {
-  @include bg($light);
-  @include br($light);
+  &.tile-dimmed .tbTileContent {
+    @include setColors($lighter);
+  }
 }
 
 // Drop zones on the task board
@@ -1290,9 +1313,9 @@ button, button.ui-state-default, button.ui-button {
 
 .versioncontrol-explorer-view .source-path,
 .chart-hosts-list > .message-block.invalid,
-.query-type .pivot-filter li.selected,
-.tbTile .tbTileContent {
-  background-color: $light;
+.query-type .pivot-filter li.selected
+{
+  @include bg($light);
   border: 0;
 }
 
