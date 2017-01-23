@@ -195,6 +195,11 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 /****************************************************************************************************/
 /***************************************** GLOBALS *************************************************/
 
+// User menu (when you click on your picture)
+.vsts-header .sub-menu {
+  @include bg($hub-bar-color);
+}
+
 /**************************************************/
 /*************** POP UP MENUS ********************/
 
@@ -236,7 +241,7 @@ ul.menu-popup {
 }
 
 
-  /**************************************************/
+ /**************************************************/
 /************ IDENTITY PICKER DROPDOWN ***********/
 
 // Selected identity tag
@@ -557,7 +562,7 @@ button.popup-menu-trigger {
   }
 
   .vc-discussion-thread-renderarea {
-    @include setBg($dark);
+    @include setBg($hub-bar-color);
 
     p {
       @include setColors($comment-color)
@@ -573,6 +578,13 @@ button.popup-menu-trigger {
 
     code, pre {
       @include setBg($light);
+    }
+  }
+
+  .vc-discussion-comment-text-area-footer {
+    border: 0;
+    .vc-discussion-comment-instructions-area {
+      @include bg($comment-color);
     }
   }
 }
@@ -1053,6 +1065,7 @@ button.popup-menu-trigger {
 .agile-board {
   @include setColors($hub-bar-color);
 
+  //.agile-board .horizontal .horizontal-table>.row.content
   .horizontal {
     .horizontal-table > .row {
       & > .cell, & > .cell:first-of-type {
@@ -1062,6 +1075,10 @@ button.popup-menu-trigger {
       &.header > .cell {
         background-color: $hub-bar-color;
         border-bottom: 1px solid $hub-bar-color;
+      }
+
+      &.content {
+        @include bg($dark);
       }
     }
 
@@ -1081,6 +1098,12 @@ button.popup-menu-trigger {
 
   .cell .member-border-line { @include bg($dark); }
 }
+
+.card-context-menu {
+  @include setColors($light);
+}
+
+
 
 // Point estimate on board tile
 .witRemainingWork { @include fg($text); }
