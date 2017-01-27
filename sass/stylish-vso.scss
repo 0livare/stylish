@@ -470,6 +470,26 @@ button.popup-menu-trigger {
   }
 }
 
+// Titles in markdown text view
+.monaco-editor.vs {
+  .token.entity.name {
+    &, &.tag {
+      color: #ff7272;
+    }
+  }
+}
+
+// Rendered markdown view
+.rendered-markdown {
+  * {
+    @include fg($text);
+  }
+
+  pre, code {
+    @include setColors($light);
+  }
+}
+
 // Some binary diff fields
 .vc-diff-viewer .diff-message {
   @include setColors($light);
