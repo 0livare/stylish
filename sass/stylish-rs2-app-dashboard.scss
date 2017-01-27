@@ -1,0 +1,92 @@
+@import "mixins";
+@import "compass/css3";
+
+$dark: #1e1e1e;
+$light: #2e2e2e;
+$lighter: #424242;
+$text: #ececec;
+$very-light-grey: rgba(82, 82, 82, 0.31);
+$hub-bar-color: tint($dark, 5);
+
+$blue: #2196F3;
+$dark-blue: rgb(0, 120, 215);
+$orange: #ff9800;
+$red: #F44336;
+$green: #393;
+
+@mixin setColors($backColor) {
+  @include colors($text, $backColor, $backColor);
+}
+
+@mixin setBg($backColor) {
+  @include bg($backColor);
+  @include fg($text);
+}
+
+.wdp-body,
+.dock-panel
+{
+  @include setColors($dark);
+}
+
+.slick-row.even,
+.dock-divider
+{
+  @include setColors($light);
+}
+
+.wdp-nav-workspace a,
+.wdp-nav-workspace a:link,
+.wdp-nav-workspace a:visited
+{
+  @include fg($text);
+}
+
+
+// Nav
+.wdp-nav {
+  $nav-active-color: tint($hub-bar-color, 5);
+
+  @include setColors($hub-bar-color);
+
+  .wdp-nav-workspace {
+    @include setColors($hub-bar-color);
+
+    &:not(.toggleButton):hover {
+      @include setColors($nav-active-color);
+    }
+
+    .wdp-nav-sub-workspace {
+      @include setColors($hub-bar-color);
+
+      &.wdp-active, &:hover {
+        @include setColors($nav-active-color);
+      }
+    }
+
+    a {
+      @include fg($text);
+
+      &:link, &:visited {
+        @include fg(text);
+      }
+    }
+  }
+}
+
+// Globals
+button, .commonButton {
+  @include setColors($light);
+
+  &:disabled {
+    @include bg(gray);
+  }
+}
+
+
+// Header
+.wdp-header {
+  button {
+    @include setColors($dark-blue);
+  }
+}
