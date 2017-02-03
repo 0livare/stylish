@@ -540,6 +540,42 @@ button.popup-menu-trigger {
   }
 }
 
+// PR diff highlights
+$code-added-back-color: rgba(0, 255, 0, 0.3);
+$code-removed-back-color: rgba(255, 0, 0, 0.3);
+$code-modified-highlight-color: rgba(0, 0, 0, 0.3);
+$code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
+.vc-diff-viewer {
+  .code-line {
+    &.added-content,
+    &.added-content-fullrow {
+      @include bg($code-added-back-color);
+    }
+
+    &.deleted-content,
+    &.deleted-content-fullrow {
+      @include bg($code-removed-back-color);
+    }
+
+    .comment {
+      @include bg($code-comment-highlight-color);
+    }
+  }
+
+  span.content-modified {
+    @include bg($code-modified-highlight-color);
+  }
+}
+.diff-line-count-container {
+  &.file-lines-added {
+    @include bg($code-modified-highlight-color);
+  }
+  &.file-lines-deleted {
+    @include bg($code-removed-back-color);
+  }
+}
+
+
 // Some binary diff fields
 .vc-diff-viewer .diff-message {
   @include setColors($light);
