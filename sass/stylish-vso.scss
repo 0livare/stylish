@@ -9,7 +9,7 @@ $very-light-grey: rgba(82, 82, 82, 0.31);
 $hub-bar-color: tint($dark, 5);
 
 $blue: #2196F3;
-$dark-blue: #0069b2;
+$dark-blue: #106ebe; //#0069b2;
 $orange: #ff9800;
 $red: #F44336;
 $green: #393;
@@ -57,7 +57,9 @@ a,
 .vc-history-list .results-container .history-result a,
 .vc-history-list .results-container .history-result a:link,
 .vc-history-list .results-container .history-result a:visited,
-table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text {
+table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text,
+.upsell-heading
+{
   color: $text !important;
 }
 
@@ -105,6 +107,11 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 
 .vsts-header .hub-bar {
   @include setBg($light);
+}
+
+// VS logo in top left corner
+.vsts-header .l1-project-selector.menu-bar.icon-only>.menu-item-container>.menu-item {
+  @include bg($blue);
 }
 
 // Top Home, Code, Work menubar
@@ -345,6 +352,49 @@ button.popup-menu-trigger {
     @include bg($light);
   }
 }
+
+// Right border (it's actually a handle)
+.splitter {
+  & >.handleBar, 
+  & >.handleBar-clone {
+    @include br($hub-bar-color);
+  }
+}
+
+// Recycle bin at the bottom of splitter left panel
+.recycle-bin {
+  @include br($hub-bar-color);
+}
+
+/**************************************************/
+/******* PROJECT OVERVIEW PAGE RIGHT PANE ********/
+
+.project-overview-page .right-pane {
+  @include setColors($light);
+
+  .members-title-div .title { @include fg($text); }
+  
+  .metrics-section {
+    .individual-metric, 
+    .individual-bar-metric,
+    .header
+    {
+      @include fg($text);
+    }
+  }
+}
+
+// Activity length dropdown
+.ms-Dropdown {
+  @include bg($light);
+
+  .ms-Dropdown-caretDown { @include fg($text); }
+  .activity-panel .ms-Dropdown-title  {
+    @include fg($text);
+    border-radius: 2px;
+  }
+}
+
 
 
 
@@ -703,7 +753,7 @@ button.popup-menu-trigger {
   }
 
   .timeline-icon-line {
-    @include br(1px solid $light);
+    border: 1px solid $light;
   }
 
   .timeline-icon-badge {
@@ -990,7 +1040,12 @@ button.popup-menu-trigger {
   @include setBg($dark);
 }
 
-//********* PBI detail, history tab **********
+// Work item detail link highlight
+.la-item:hover, .la-item.la-item-focus {
+    background: #333232;
+}
+
+/********* PBI detail, history tab **********/
 .state {
   @include bg($light);
 }
@@ -1120,7 +1175,7 @@ button.popup-menu-trigger {
 }
 
 .card-context-menu {
-  @include setColors($light);
+  @include fg($text);
 }
 
 
@@ -1133,7 +1188,7 @@ button.popup-menu-trigger {
   @include fg($text);
 }
 
-//****** TASK BOARD ********\\
+/****** TASK BOARD ********/
 .tbTile {
   .title {
     @include fg($text);
