@@ -207,10 +207,20 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   @include bg($hub-bar-color);
 }
 
+// All scrollbars
+::-webkit-scrollbar-thumb {
+  $scrollbar-thumb-color: tint(black, 5);
+  @include bg($scrollbar-thumb-color);
+  -webkit-box-shadow: 0 0 0 $scrollbar-thumb-color !important;
+}
+::-webkit-scrollbar-track-piece {
+  @include bg($dark);
+}
+
 /**************************************************/
 /*************** POP UP MENUS ********************/
 
-// At least the context menu in the work view
+// Specifically (at least) the context menu in the work view
 ul.menu-popup {
   @include br($light);
 
@@ -237,14 +247,24 @@ ul.menu-popup {
 }
 
 
-::-webkit-scrollbar-thumb {
-  $scrollbar-thumb-color: tint(black, 5);
-  @include bg($scrollbar-thumb-color);
-  -webkit-box-shadow: 0 0 0 $scrollbar-thumb-color !important;
-}
+/**************************************************/
+/*************** POP UP TOOLBAR MENUS ********************/
 
-::-webkit-scrollbar-track-piece {
-  @include bg($dark);
+// Specifically (at least) the "New" item menu in the work > queries view
+.toolbar .menu {
+  @include setColors($dark);
+
+  &.sub-menu {
+    &, & > .menu-item-container {
+      & > .menu-item {
+        @include setColors($dark);
+
+        &.hover {
+          @include setColors($light);
+        }
+      }
+    }
+  }
 }
 
 
