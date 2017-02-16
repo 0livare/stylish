@@ -1,0 +1,20 @@
+{
+  "name": "stylish",
+  "version": "1.0.0",
+  "description": "Dark themes for userstyles.org",
+  "main": "sass/",
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/stylish-vso.scss css/stylish-vso.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zposten/stylish.git"
+  },
+  "author": "Zach Posten",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zposten/stylish/issues"
+  },
+  "homepage": "https://github.com/zposten/stylish#readme"
+}
