@@ -1,0 +1,21 @@
+$darker: #1e1e1e;
+$dark: tint($darker, 5);
+$light: #2e2e2e;
+$lighter: #424242;
+$text: #ececec;
+$very-light-grey: rgba(82, 82, 82, 0.31);
+
+$blue: #2196F3;
+$dark-blue: #106ebe; //#0069b2;
+$orange: #ff9800;
+$red: #F44336;
+$green: #393;
+
+@mixin setColors($backColor) {
+  @include colors($text, $backColor, $backColor);
+}
+
+@mixin setBg($backColor) {
+  @include bg($backColor);
+  @include fg($text);
+}
