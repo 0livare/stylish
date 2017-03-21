@@ -1,26 +1,6 @@
 @import "mixins";
+@import "colors";
 
-$dark: #1e1e1e;
-$light: #2e2e2e;
-$lighter: #424242;
-$text: #ececec;
-$very-light-grey: rgba(82, 82, 82, 0.31);
-$hub-bar-color: tint($dark, 5);
-
-$blue: #2196F3;
-$dark-blue: #106ebe; //#0069b2;
-$orange: #ff9800;
-$red: #F44336;
-$green: #393;
-
-@mixin setColors($backColor) {
-  @include colors($text, $backColor, $backColor);
-}
-
-@mixin setBg($backColor) {
-  @include bg($backColor);
-  @include fg($text);
-}
 
 .node-link > .node-content,
 .watermark,
@@ -58,7 +38,7 @@ a,
 .vc-history-list .results-container .history-result a:visited,
 table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text,
 .upsell-heading,
-.bowtie p, 
+.bowtie p,
 .bowtie-fabric p
 {
   color: $text !important;
@@ -88,7 +68,7 @@ a:hover {
 .hub-pivot-content,
 .vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
 .vc-pullrequest-create-panel {
-  @include bg($dark);
+  @include bg($darker);
 }
 
 /*****************************************************************/
@@ -96,7 +76,7 @@ a:hover {
 
 // Main page content (the color shown when the page is initially loading)
 .content-section {
-  @include setBg($dark);
+  @include setBg($darker);
 }
 
 // Second level title bar loading color
@@ -154,7 +134,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   & > .menu-item,
   & > .menu-item-container > .menu-item {
     &.focus, &.hover {
-      @include setColors($dark);
+      @include setColors($darker);
     }
   }
 }
@@ -164,7 +144,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   @include setBg($light);
 
   &:hover, &.menu-opened {
-    @include setBg($dark);
+    @include setBg($darker);
   }
 }
 
@@ -177,7 +157,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 
 // Upper left section selector
 .vsts-header .l1-project-selector.menu-bar .sub-menu {
-  @include setColors($dark);
+  @include setColors($darker);
 
   li:hover {
     @include setBg($light);
@@ -186,7 +166,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 
 .bowtie-menus .menu.sub-menu {
   .menu-item, .menu-item-container > .menu-item {
-    @include setColors($dark);
+    @include setColors($darker);
 
     &.hover {
       @include setColors($light);
@@ -205,7 +185,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
 
 // User menu (when you click on your picture)
 .vsts-header .sub-menu {
-  @include bg($hub-bar-color);
+  @include bg($dark);
 }
 
 // All scrollbars
@@ -215,7 +195,7 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   -webkit-box-shadow: 0 0 0 $scrollbar-thumb-color !important;
 }
 ::-webkit-scrollbar-track-piece {
-  @include bg($dark);
+  @include bg($darker);
 }
 
 /**************************************************/
@@ -232,7 +212,7 @@ ul.menu-popup {
       @include setColors($light);
 
       &.hover, &.focus, &:hover, &:focus {
-        background-color: $dark !important;
+        background-color: $darker !important;
       }
 
       .drop {
@@ -244,7 +224,7 @@ ul.menu-popup {
 
 // All popup dialogs (New Task Dialog specifically)
 .ui-dialog:not(.ui-dialog-legacy) {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 
@@ -253,12 +233,12 @@ ul.menu-popup {
 
 // Specifically (at least) the "New" item menu in the work > queries view
 .toolbar .menu {
-  @include setColors($dark);
+  @include setColors($darker);
 
   &.sub-menu {
     &, & > .menu-item-container {
       & > .menu-item {
-        @include setColors($dark);
+        @include setColors($darker);
 
         &.hover {
           @include setColors($light);
@@ -274,13 +254,13 @@ ul.menu-popup {
 
 // Selected identity tag
 .identity-picker-resolved-bg {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 // Identity dropdown box
 .identity-picker-fixed-position,
 .vc-pullrequest-create-reviewers-container {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 // Identity dropdown arrow
@@ -291,7 +271,7 @@ ul.menu-popup {
 // Identify dropdown menu items
 .identity-picker-dropdown {
   ul.items > li, .search {
-    @include setColors($dark);
+    @include setColors($darker);
 
     &, &.selected {
       &:hover {
@@ -303,7 +283,7 @@ ul.menu-popup {
 
 // Autocomplete highlight when tagging
 .richtext-autocomplete-highlight {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 
@@ -315,7 +295,7 @@ ul.menu-popup {
 }
 
 .left-hub-content {
-  @include bg($hub-bar-color);
+  @include bg($dark);
   top: 0;
 
   .tree-children {
@@ -326,7 +306,7 @@ ul.menu-popup {
     @include fg($text);
   }
 
-  .ui-droppable { @include bg($hub-bar-color); }
+  .ui-droppable { @include bg($dark); }
 }
 
 
@@ -336,7 +316,7 @@ ul.menu-popup {
 
 li.tree-drag-tile div.node-content,
 .tree-view .tree-children div.node-content {
-  @include bg($hub-bar-color);
+  @include bg($dark);
 }
 
 // Selected scope on left (sprints, queries, etc.)
@@ -345,23 +325,23 @@ li.tree-drag-tile div.node-content,
     ul.tree-children li {
       &.selected, &.focus {
         & > a > div.node-content {
-          @include setColors($dark);
+          @include setColors($darker);
         }
       }
     }
   }
 }
 li.tree-drag-tile.bowtie-tree > a > div.node-content {
-  @include setColors($hub-bar-color);
+  @include setColors($dark);
 }
 .tree-view > ul.tree-children li.node {
   &.selected, &.focus, &.hover, &.context-menu-active, &:hover {
     & > a > div.node-content {
-      @include setColors($dark);
+      @include setColors($darker);
     }
 
     & > .node-context-menu-container, & > .node-context-menu {
-      @include setColors($hub-bar-color);
+      @include setColors($dark);
     }
   }
 }
@@ -376,15 +356,15 @@ button.popup-menu-trigger {
 
 // Right border (it's actually a handle)
 .splitter {
-  & >.handleBar, 
+  & >.handleBar,
   & >.handleBar-clone {
-    @include br($hub-bar-color);
+    @include br($dark);
   }
 }
 
 // Recycle bin at the bottom of splitter left panel
 .recycle-bin {
-  @include br($hub-bar-color);
+  @include br($dark);
 }
 
 /**************************************************/
@@ -394,9 +374,9 @@ button.popup-menu-trigger {
   @include setColors($light);
 
   .members-title-div .title { @include fg($text); }
-  
+
   .metrics-section {
-    .individual-metric, 
+    .individual-metric,
     .individual-bar-metric,
     .header
     {
@@ -432,7 +412,7 @@ button.popup-menu-trigger {
 
 // Top PR section underneath blue titlebar
 .hub-title {
-  @include setBg($hub-bar-color);
+  @include setBg($dark);
   margin-left: 0;
   margin-right: 0;
   padding-left: 20px;
@@ -440,13 +420,13 @@ button.popup-menu-trigger {
 }
 
 .hub-pivot {
-  @include setColors($hub-bar-color);
+  @include setColors($dark);
 }
 
 .vc-pullrequest-review-view {
   // PR title textbox
   .bowtie input[type=text] {
-    @include setColors(tint($hub-bar-color, 5));
+    @include setColors(tint($dark, 5));
   }
 
   // Complete button
@@ -479,7 +459,7 @@ button.popup-menu-trigger {
 .vc-change-summary .changed-files-summary-header,
 .vc-change-summary-files .files-container
 {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 .vc-pullrequest-review-view .bowtie textarea {
@@ -490,7 +470,7 @@ button.popup-menu-trigger {
 .vc-history-list .results-container .group-header,
 .vc-pullrequest-review-view .pullrequest-commits-content .group-results,
 .vc-pullrequest-review-view .pullrequest-updates-content .group-results {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 .vc-history-list .results-container .history-result {
@@ -503,14 +483,14 @@ button.popup-menu-trigger {
 
 // Pull request updates
 .vc-pullrequest-review-view .pullrequest-updates-content {
-  @include bg($dark);
+  @include bg($darker);
 }
 
 // File header in file specific view
 .vc-pullrequest-file-bar,
 .vc-pullrequest-review-view .centerPane-no-full-page-scroll .vc-pullrequest-details-compare .diff-viewer-container,
 .file-contents-container {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 // File contents in specific file view
@@ -543,9 +523,16 @@ button.popup-menu-trigger {
 
 // Titles in markdown text view
 .monaco-editor.vs {
-  .token.entity.name {
-    &, &.tag {
-      color: #ff7272;
+  .token {
+    .entity.name {
+      &, &.tag {
+        color: #ff7272;
+      }
+    }
+    .support {
+      .property-value, .type.json {
+        color: #1de6fa;
+      }
     }
   }
 }
@@ -624,11 +611,14 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
   .vc-inline-edit-markdown-preview {
     @include fg($text);
+    code {
+      @include bg($darker);
+    }
   }
 }
 
 .vc-pullrequest-review-view .vc-pullrequest-activity-feed {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 .vc-change-summary-files .file-cell .file-name-link {
@@ -648,17 +638,17 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 .files-grid-container
 {
   .grid {
-    @include br($dark);
+    @include br($darker);
 
     .grid-canvas {
-      @include setColors($dark);
+      @include setColors($darker);
     }
   }
 }
 
 // List of pull requests
 .vc-pullrequest-results-row {
-  background-color: $dark;
+  background-color: $darker;
   color: $text;
   border-bottom: 1px solid rgba(64, 64, 64, 0.7); // very light gray
 
@@ -689,7 +679,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   }
 
   .vc-discussion-thread-renderarea {
-    @include setBg($hub-bar-color);
+    @include setBg($comment-color);
 
     p {
       @include setColors($comment-color)
@@ -716,7 +706,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   }
 }
 .vc-change-summary {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 
@@ -727,7 +717,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
 // Pull request completed box
 .callout {
-  @include setBg($dark);
+  @include setBg($darker);
   @include br($red);
 
   &.completed {
@@ -737,7 +727,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
 // Main PR container that is beneath everything else
 .vc-pullrequest-review-view .files-main-viewer-container {
-  @include setBg($dark);
+  @include setBg($darker);
 }
 
 // Approval checkmarks
@@ -762,7 +752,8 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 .bowtie-status-error,
 .bowtie-status-failure,
 .bowtie-status-no-fill,
-.bowtie-status-stop
+.bowtie-status-stop,
+.vc-pullrequest-merge-policy-status-item>i.bowtie-math-multiply
 {
   @include fg($red);
 }
@@ -780,7 +771,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 // Task auto complete list dropdown
 .mention-autocomplete-menu {
   &, & li.ui-state-focus {
-    @include setColors($dark);
+    @include setColors($darker);
   }
 }
 // Footer of auto complete list
@@ -806,7 +797,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 // Overview side timeline
 .vc-pullrequest-review-view .vc-pullrequest-activity-feed .vc-pullrequest-activity-box {
   .timeline-icon {
-    @include bg($dark);
+    @include bg($darker);
   }
 
   .timeline-icon-line {
@@ -814,25 +805,72 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   }
 
   .timeline-icon-badge {
-    outline-color: $dark;
+    outline-color: $darker;
   }
 
   .timeline-icon-dot {
-    outline: $dark;
+    outline: $darker;
   }
 }
 
 // Bottom created by card
 .vc-pullrequest-review-view .vc-pullrequest-activity-box.subdued {
-  @include setColors($dark);
+  @include setColors($darker);
 }
+
+// PR filter comments dropdown
+.ms-Dropdown {
+  @include text();
+}
+.ms-Dropdown-title {
+  @include setColors($light);
+}
+
+// PBI tag in description
+.mention-widget-workitem {
+  @include bg($darker);
+  padding: 5px;
+
+  &:hover {
+    @include bg($dark);
+  }
+
+  .mention-widget-workitem-title {
+    @include text();
+  }
+}
+
+// "Build failed" text (probably "Build passed" too)
+.vc-pullrequest-merge-policy-status-item a {
+  &, &:link, &:visited {
+    @include text();
+  }
+}
+
+// PR Reviewers on left
+.vc-pullrequest-review-view {
+  .vc-pullrequest-reviewers-list .ms-DetailsRow,
+  .vc-pullrequest-reviewer-row {
+
+    &, & .ms-FocusZone {
+      @include bg($light);
+      @include text();
+
+      &:hover {
+        @include bg($dark);
+      }
+    }
+  }
+}
+
+
 
 
 /****************************************************************************************************/
 /************************************* BRANCHES PAGE ***********************************************/
 
 .vc-newbranches-view .hub-pivot {
-  @include setColors($dark)
+  @include setColors($darker)
 }
 
 .vc-branches-list-row {
@@ -853,7 +891,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 .vc-ellipsis-menu > .action-icon > .bowtie-icon,
 .vc-column.vc-ellipsis-menu {
   &:hover {
-    @include setBg($dark);
+    @include setBg($darker);
   }
 }
 
@@ -866,7 +904,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 /************************************** HISTORY PAGE ***********************************************/
 
 .vc-filter-button {
-  @include setBg($dark);
+  @include setBg($darker);
 }
 
 // Filter text boxes
@@ -924,11 +962,11 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 // Selected branch
 .filtered-list-popup .filtered-list-control.vc-git-selector {
   .filtered-list-tab-content .filtered-list > li.current-item {
-    @include setBg($dark);
+    @include setBg($darker);
   }
 
   .toolbar .menu-item.hover {
-    @include setBg($dark);
+    @include setBg($darker);
   }
 
   // All branch list
@@ -936,15 +974,15 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
     @include fg($text);
 
     &.new-selection {
-      @include setBg($dark);
+      @include setBg($darker);
     }
   }
 }
 
 // Comments on a particular commit
 .discussion-thread .comments-container {
-  @include bg($dark);
-  @include br($dark);
+  @include bg($darker);
+  @include br($darker);
 }
 
 
@@ -972,13 +1010,13 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   }
 
   .grid-gutter-row-normal {
-    background-color: $dark;
+    background-color: $darker;
   }
 }
 
 // PBI Info view
 .work-item-form-main-core {
-  @include setColors($dark);
+  @include setColors($darker);
 
   .combo div.wrap > input[type=text] {
     @include bg($light);
@@ -995,7 +1033,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   border: none !important;
 
   &:hover {
-    @include setBg($dark);
+    @include setBg($darker);
   }
 }
 
@@ -1070,7 +1108,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   .disabled {
     &.drop-down-chevron, &.drop-down-save {
       &.menu-item {
-        @include setColors($dark)
+        @include setColors($darker)
       }
     }
   }
@@ -1089,12 +1127,12 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
 // Work item detail Details, Planning, Time, Link, and Attachment SELECTED button
 .witform-layout .work-item-form-tab.selected-tab {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 // Work item detail dialog background
 .workitem-dialog.ui-dialog {
-  @include setBg($dark);
+  @include setBg($darker);
 }
 
 // Work item detail link highlight
@@ -1113,7 +1151,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
 .arrow-head {
   border-left: 10px solid $light;
-  @include bg($dark);
+  @include bg($darker);
 }
 
 .workitemcontrol .workitem-history-control {
@@ -1160,11 +1198,11 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
       }
 
       .history-item-summary {
-        @include bg($dark);
+        @include bg($darker);
         @include br($light);
 
         &.history-item-selected, &:hover {
-          @include bg($hub-bar-color);
+          @include bg($dark);
         }
 
         .history-item-summary-details .history-item-summary-text {
@@ -1173,6 +1211,10 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
       }
     }
   }
+}
+
+.right-history-panel .content-section {
+  @include fg($darker);
 }
 
 
@@ -1191,31 +1233,31 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 /**************************************************/
 /******************** AGILE BOARD ****************/
 .agile-board .agile-header-container {
-  @include setColors($hub-bar-color);
+  @include setColors($dark);
 }
 
 .agile-board {
-  @include setColors($hub-bar-color);
+  @include setColors($dark);
 
   //.agile-board .horizontal .horizontal-table>.row.content
   .horizontal {
     .horizontal-table > .row {
       & > .cell, & > .cell:first-of-type {
-        border: 1px solid $hub-bar-color;
+        border: 1px solid $dark;
       }
 
       &.header > .cell {
-        background-color: $hub-bar-color;
-        border-bottom: 1px solid $hub-bar-color;
+        background-color: $dark;
+        border-bottom: 1px solid $dark;
       }
 
       &.content {
-        @include bg($dark);
+        @include bg($darker);
       }
     }
 
     & > .agile-content-container {
-      @include bg($dark);
+      @include bg($darker);
     }
   }
 
@@ -1228,7 +1270,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
     }
   }
 
-  .cell .member-border-line { @include bg($dark); }
+  .cell .member-border-line { @include bg($darker); }
 }
 
 .card-context-menu {
@@ -1265,23 +1307,23 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
 // Drop zones on the task board
 .taskboard-cell.ui-droppable {
-  @include bg(tint($hub-bar-color, 5));
+  @include bg(tint($dark, 5));
 
   &.dragHover {
-    @include bg($dark);
+    @include bg($darker);
   }
 }
 
 .taskboard-cell {
   background-color: $light;
-  border-bottom: 1px solid $dark;
-  border-left: 1px solid $dark;
-  border-right: 1px solid $dark;
+  border-bottom: 1px solid $darker;
+  border-left: 1px solid $darker;
+  border-right: 1px solid $darker;
 }
 
 .taskboard-expander {
-  background-color: $dark;
-  border-bottom: 1px solid $dark;
+  background-color: $darker;
+  border-bottom: 1px solid $darker;
 }
 
 // New Item button
@@ -1291,7 +1333,7 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 
 // PBI state dropdown
 .combo-drop-popup {
-  @include setColors($hub-bar-color);
+  @include setColors($dark);
 
   & > .items > li.selected {
     @include setColors($lighter);
@@ -1348,7 +1390,7 @@ $widget-color: tint($light, 5);
 
 .dashboard-landing .hub-content,
 .ui-dialog > * {
-  @include setColors($dark);
+  @include setColors($darker);
 }
 
 .add-panel {
@@ -1475,7 +1517,7 @@ button, button.ui-state-default, button.ui-button {
 }
 
 body[contenteditable] td {
-  color: $dark;
+  color: $darker;
 }
 
 .witform-layout-header-color {
@@ -1499,7 +1541,7 @@ body[contenteditable] td {
 
 .ui-dialog,
 .ui-dialog-buttonpane {
-  background-color: $dark;
+  background-color: $darker;
   border: 0;
 }
 
