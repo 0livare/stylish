@@ -1,4 +1,4 @@
-@import "mixins";
+@import "util/mixins";
 
 $dark: #2b2b2b;
 $light: #474747;
@@ -187,4 +187,3 @@ $text: white;
     @include setFg();
   }
 }
-
