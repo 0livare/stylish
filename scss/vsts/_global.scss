@@ -1,0 +1,226 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+// User menu (when you click on your picture)
+.vsts-header .sub-menu {
+  @include bg($dark);
+}
+
+// All scrollbars
+::-webkit-scrollbar-thumb {
+  $scrollbar-thumb-color: tint(black, 5);
+  @include bg($scrollbar-thumb-color);
+  -webkit-box-shadow: 0 0 0 $scrollbar-thumb-color !important;
+}
+::-webkit-scrollbar-track-piece {
+  @include bg($darker);
+}
+
+/**************************************************/
+/*************** POP UP MENUS ********************/
+
+// Specifically (at least) the context menu in the work view
+ul.menu-popup {
+  @include br($light);
+
+  .menu.sub-menu {
+    @include setColors($light);
+
+    .menu-item, .menu-item-container {
+      @include setColors($light);
+
+      &.hover, &.focus, &:hover, &:focus {
+        background-color: $darker !important;
+      }
+
+      .drop {
+        color: $text;
+      }
+    }
+  }
+}
+
+// All popup dialogs (New Task Dialog specifically)
+.ui-dialog:not(.ui-dialog-legacy) {
+  @include setColors($darker);
+}
+
+
+/**************************************************/
+/*************** POP UP TOOLBAR MENUS ********************/
+
+// Specifically (at least) the "New" item menu in the work > queries view
+.toolbar .menu {
+  @include setColors($darker);
+
+  &.sub-menu {
+    &, & > .menu-item-container {
+      & > .menu-item {
+        @include setColors($darker);
+
+        &.hover {
+          @include setColors($light);
+        }
+      }
+    }
+  }
+}
+
+
+ /**************************************************/
+/************ IDENTITY PICKER DROPDOWN ***********/
+
+// Selected identity tag
+.identity-picker-resolved-bg {
+  @include setColors($darker);
+}
+
+// Identity dropdown box
+.identity-picker-fixed-position,
+.vc-pullrequest-create-reviewers-container {
+  @include setColors($darker);
+}
+
+// Identity dropdown arrow
+.identity-picker-search-box {
+  @include setColors($light);
+}
+
+// Identify dropdown menu items
+.identity-picker-dropdown {
+  ul.items > li, .search {
+    @include setColors($darker);
+
+    &, &.selected {
+      &:hover {
+        @include setColors($lighter);
+      }
+    }
+  }
+}
+
+// Autocomplete highlight when tagging
+.richtext-autocomplete-highlight {
+  @include setColors($darker);
+}
+
+
+/**************************************************/
+/************ SPLITTER LEFT HAND PANEL ***********/
+
+.splitter.toggle-button-enabled.collapsed>.handleBar {
+  @include setColors($lighter);
+}
+
+.left-hub-content {
+  @include bg($dark);
+  top: 0;
+
+  .tree-children {
+    @include fg($blue);
+  }
+
+  .node-content .text {
+    @include fg($text);
+  }
+
+  .ui-droppable { @include bg($dark); }
+}
+
+
+.hub-splitter.splitter.horizontal > .leftPane {
+  border-right: 0;
+}
+
+li.tree-drag-tile div.node-content,
+.tree-view .tree-children div.node-content {
+  @include bg($dark);
+}
+
+// Selected scope on left (sprints, queries, etc.)
+.tree-view.bowtie-tree {
+  &, &.focus {
+    ul.tree-children li {
+      &.selected, &.focus {
+        & > a > div.node-content {
+          @include setColors($darker);
+        }
+      }
+    }
+  }
+}
+li.tree-drag-tile.bowtie-tree > a > div.node-content {
+  @include setColors($dark);
+}
+.tree-view > ul.tree-children li.node {
+  &.selected, &.focus, &.hover, &.context-menu-active, &:hover {
+    & > a > div.node-content {
+      @include setColors($darker);
+    }
+
+    & > .node-context-menu-container, & > .node-context-menu {
+      @include setColors($dark);
+    }
+  }
+}
+
+button.popup-menu-trigger {
+  @include bg(transparent);
+
+  &:focus {
+    @include bg($light);
+  }
+}
+
+// Right border (it's actually a handle)
+.splitter {
+  & >.handleBar,
+  & >.handleBar-clone {
+    @include br($dark);
+  }
+}
+
+// Recycle bin at the bottom of splitter left panel
+.recycle-bin {
+  @include br($dark);
+}
+
+/**************************************************/
+/******* PROJECT OVERVIEW PAGE RIGHT PANE ********/
+
+.project-overview-page .right-pane {
+  @include setColors($light);
+
+  .members-title-div .title { @include fg($text); }
+
+  .metrics-section {
+    .individual-metric,
+    .individual-bar-metric,
+    .header
+    {
+      @include fg($text);
+    }
+  }
+}
+
+// Activity length dropdown
+.ms-Dropdown {
+  @include bg($light);
+
+  .ms-Dropdown-caretDown { @include fg($text); }
+  .activity-panel .ms-Dropdown-title  {
+    @include fg($text);
+    border-radius: 2px;
+  }
+}
+
+
+
+
+/**************************************************/
+/********************* VARIOUS *******************/
+
+// All horizontal divider lines
+.divider {
+  display: none !important;
+}

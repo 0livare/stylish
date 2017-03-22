@@ -1,0 +1,230 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+// Main PBI Grid
+.grid .grid-row {
+  &.grid-row-selected,
+  &.grid-row-hover,
+  &.grid-row-current {
+    @include bg($light);
+
+    .grid-context-menu {
+      @include bg($light);
+    }
+  }
+}
+
+.grid-gutter {
+  .grid-gutter-row-current,
+  .grid-gutter-row-selected,
+  .grid-row-hover {
+    background-color: $light !important;
+  }
+
+  .grid-gutter-row-normal {
+    background-color: $darker;
+  }
+}
+
+// PBI Info view
+.work-item-form-main-core {
+  @include setColors($darker);
+
+  .combo div.wrap > input[type=text] {
+    @include bg($light);
+    @include br($light);
+
+    &:hover, &:focus {
+      @include bg($light);
+    }
+  }
+}
+
+.work-item-form-tab {
+  background-color: $light !important;
+  border: none !important;
+
+  &:hover {
+    @include setBg($darker);
+  }
+}
+
+// New, create query, column options button row hover
+.toolbar .menu-bar > .menu-item ~ .menu-item,
+.toolbar .menu-bar > .menu-item-container > .menu-item ~ .menu-item,
+.workitemcontrol .menu-bar > .menu-item ~ .menu-item,
+.workitemcontrol .menu-bar > .menu-item-container > .menu-item ~ .menu-item,
+.toolbar .menu-bar > .menu-item {
+  &.hover, &:hover {
+    @include setBg($light);
+  }
+}
+
+// Row highlight after mass edit
+.grid:not(.grid-legacy).grid-blurred
+{
+  .grid-row, .grid-gutter-row {
+    &.grid-gutter-row-selected-blur, &.grid-row-selected-blur {
+      @include setBg($light);
+
+      .grid-context-menu {
+        @include setBg($light);
+      }
+    }
+  }
+}
+
+/**************************************************/
+/*************** Work Item Detail ****************/
+
+// Top transparent bar for dragging the module (gives crosshair mouse)
+.new-workitem-dialog.workitem-dialog.ui-dialog .ui-dialog-titlebar {
+  @include bg(transparent);
+}
+
+// Work item detail main form
+.work-item-form-main .combo.drop .wrap,
+.form-grid .combo.emptyBorder,
+.richeditor-container {
+  @include br($light);
+}
+
+// Work item detail combo boxes
+.witform-layout .combo > div.wrap.disabled,
+.combo > div.wrap,
+.work-item-form-coreContent .combo {
+  @include setColors($light);
+}
+
+// Copy title button
+.work-item-form-main .work-item-form-main-header .work-item-form-headerContent {
+  .work-item-form-title.copy-hover ~ .copy-workitem-title-container,
+  .copy-workitem-title-container {
+    @include setBg($light);
+  }
+}
+
+// Work item detail titles and underlines
+.form-grid .tfs-collapsible-header {
+  @include fg($text);
+  border-bottom: 1px solid $very-light-grey;
+}
+
+// Work item detail save, follow, and details buttons
+.work-item-form-main .work-item-form-main-header .work-item-form-toolbar-container .toolbar  {
+  .menu-item {
+    @include setColors($light);
+  }
+
+  // Save and close button - Blue when active, dark when disabled
+  .disabled {
+    &.drop-down-chevron, &.drop-down-save {
+      &.menu-item {
+        @include setColors($darker)
+      }
+    }
+  }
+  .drop-down-chevron, .drop-down-save {
+    &.menu-item {
+      @include setColors($blue);
+    }
+  }
+}
+
+// Work item detail Details, Planning, Time, Link, and Attachment buttons
+.witform-layout .work-item-form-tabs > ul {
+  border-left: 2px solid $very-light-grey;
+  border-top: 1px solid $very-light-grey;
+}
+
+// Work item detail Details, Planning, Time, Link, and Attachment SELECTED button
+.witform-layout .work-item-form-tab.selected-tab {
+  @include setColors($darker);
+}
+
+// Work item detail dialog background
+.workitem-dialog.ui-dialog {
+  @include setBg($darker);
+}
+
+// Work item detail link highlight
+.la-item:hover, .la-item.la-item-focus {
+    background: #333232;
+}
+
+/********* PBI detail, history tab **********/
+.state {
+  @include bg($light);
+}
+
+.arrow-tail {
+  @include bg($light);
+}
+
+.arrow-head {
+  border-left: 10px solid $light;
+  @include bg($darker);
+}
+
+.workitemcontrol .workitem-history-control {
+
+  #history-splitter {
+    display: none;
+  }
+  .right-history-panel .history-item-viewer {
+
+    .history-item-viewer-header .history-item-viewer-header-container {
+      border-bottom: 1px solid $very-light-grey;
+
+      .history-item-viewer-right .history-item-summary-text {
+        @include fg($text);
+      }
+    }
+
+    .history-item-detail .history-links .link-add .link-text {
+      @include fg(black);
+
+      a {
+        @include fg(black);
+
+        &:hover {
+          @include bg(green);
+        }
+      }
+    }
+  }
+
+
+  .left-history-panel {
+    border-right: 1px solid $light;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .history-item-list {
+      @include br($light);
+
+      .history-group .header {
+        @include setColors($light);
+      }
+
+      .history-item-summary {
+        @include bg($darker);
+        @include br($light);
+
+        &.history-item-selected, &:hover {
+          @include bg($dark);
+        }
+
+        .history-item-summary-details .history-item-summary-text {
+          @include fg($text);
+        }
+      }
+    }
+  }
+}
+
+.right-history-panel .content-section {
+  @include fg($darker);
+}

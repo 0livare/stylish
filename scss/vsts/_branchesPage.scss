@@ -1,0 +1,33 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+.vc-newbranches-view .hub-pivot {
+  @include setColors($darker)
+}
+
+.vc-branches-list-row {
+  &:hover {
+    @include setColors($light);
+  }
+
+  .vc-branch-name--emphasized {
+    @include fg($text);
+  }
+}
+
+// Page title
+.vc-newbranches-title {
+  color: $text;
+}
+
+.vc-ellipsis-menu > .action-icon > .bowtie-icon,
+.vc-column.vc-ellipsis-menu {
+  &:hover {
+    @include setBg($darker);
+  }
+}
+
+// Add overview comment text box
+.vc-discussion-thread-inputtextbox {
+  @include bg($light);
+}

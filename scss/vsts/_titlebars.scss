@@ -1,0 +1,107 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+// Main page content (the color shown when the page is initially loading)
+.content-section {
+  @include setBg($darker);
+}
+
+// Second level title bar loading color
+table.\12 .header-td, #\31 > table.header-table.l2 {
+  &, tbody > tr > td {
+    @include setBg($light);
+  }
+}
+
+.vsts-header .hub-bar {
+  @include setBg($light);
+}
+
+// VS logo in top left corner
+.vsts-header .l1-project-selector.menu-bar.icon-only>.menu-item-container>.menu-item {
+  @include bg($blue);
+}
+
+// Top Home, Code, Work menubar
+.hub-selector .menu.sub-menu {
+  @include setColors($light);
+
+  & > .menu-item-container > .menu-item,
+  .menu-item.second-level-menu {
+    background-color: $light !important;
+    color: $text;
+
+    &.hover {
+      background-color: $light !important;
+    }
+
+    .icon, .drop {
+      color: $text;
+    }
+  }
+  .menu-item.menu-item-separator {
+    background-color: $light !important;
+  }
+}
+
+// Search code box
+#\31 > table.header-table.l1 #searchbox {
+  @include setBg($dark-blue);
+}
+
+
+// Little triangle at the bottom of the top menubar item
+.vsts-header .hub-selector .hubs-menubar.menu-bar > .menu-item.selected::after,
+.vsts-header .hub-selector .hubs-menubar.menu-bar > .menu-item-container > .menu-item.selected::after {
+  border-bottom: 6px solid $light !important;
+}
+
+// Second level title bar
+.vsts-header .hub-list .l2-menubar {
+  & > .menu-item,
+  & > .menu-item-container > .menu-item {
+    &.focus, &.hover {
+      @include setColors($darker);
+    }
+  }
+}
+
+// Repo selector button and list
+.filtered-list-dropdown-menu.vc-git-selector-menu {
+  @include setBg($light);
+
+  &:hover, &.menu-opened {
+    @include setBg($darker);
+  }
+}
+
+// Current repo link
+.path-explorer-container .repo-name {
+  &:hover {
+    @include setBg($light);
+  }
+}
+
+// Upper left section selector
+.vsts-header .l1-project-selector.menu-bar .sub-menu {
+  @include setColors($darker);
+
+  li:hover {
+    @include setBg($light);
+  }
+}
+
+.bowtie-menus .menu.sub-menu {
+  .menu-item, .menu-item-container > .menu-item {
+    @include setColors($darker);
+
+    &.hover {
+      @include setColors($light);
+    }
+  }
+}
+
+// Highlight the line commented on
+.code-editor-host .commented-text {
+  @include bg(rgba(0, 0, 0, 0.45));
+}

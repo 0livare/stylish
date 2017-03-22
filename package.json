@@ -4,8 +4,9 @@
   "description": "Dark themes for userstyles.org",
   "main": "sass/",
   "scripts": {
-    "build-css": "node-sass --include-path scss scss/stylish-vso.scss css/stylish-vso.css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    "build-css": "node-sass --include-path scss scss/vsts.scss css/vsts.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "start": "npm run watch-css"
   },
   "repository": {
     "type": "git",

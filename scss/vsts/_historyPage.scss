@@ -1,0 +1,84 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+.vc-filter-button {
+  @include setBg($darker);
+}
+
+// Filter text boxes
+.vc-filter-control .combo.input-text-box {
+  @include br($light);
+
+  input::-webkit-input-placeholder {
+    color: $text;
+  }
+}
+
+.vc-history-detailsList.ms-DetailsList .ms-List-cell:hover {
+  @include setColors($light);
+}
+
+// Commit history hover color
+.vc-history-detailsList.ms-DetailsList .ms-List-cell,
+.ms-DetailsRow-fields,
+.vc-history-detailsList.ms-DetailsList .ms-List-cell {
+  & :hover {
+    @include setColors($light);
+  }
+}
+
+// Pull request number column text
+.vc-history-detailsList .ms-List-cell a {
+  &.stat-badge .stat-text,
+  &:link.stat-badge .stat-text,
+  &:visited.stat-badge .stat-text {
+    color: $text
+  }
+}
+
+// Branch dropdown
+//.versioncontrol-git-history-view.git-repositories-view .vc-branches-container
+
+.filtered-list-dropdown-menu {
+  &:hover {
+    @include setBg($light);
+  }
+
+  &.menu-opened {
+    @include setBg($light);
+  }
+}
+
+// Branch popup menu
+.filtered-list-popup .filtered-list-control {
+  &.vc-git-version-selector-control,
+  &.vc-git-repository-selector-control {
+    @include setColors($light);
+  }
+}
+
+// Selected branch
+.filtered-list-popup .filtered-list-control.vc-git-selector {
+  .filtered-list-tab-content .filtered-list > li.current-item {
+    @include setBg($darker);
+  }
+
+  .toolbar .menu-item.hover {
+    @include setBg($darker);
+  }
+
+  // All branch list
+  .filtered-list > li {
+    @include fg($text);
+
+    &.new-selection {
+      @include setBg($darker);
+    }
+  }
+}
+
+// Comments on a particular commit
+.discussion-thread .comments-container {
+  @include bg($darker);
+  @include br($darker);
+}

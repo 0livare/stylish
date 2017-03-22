@@ -1,0 +1,240 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+
+.node-link > .node-content,
+.watermark,
+.bowtie-icon,
+.selected-item-text,
+.text-filter-box input,
+.grid-row,
+.ui-dialog .ui-dialog-title,
+.query-type .pivot-filter li.selected .text,
+.query-type .pivot-filter li .text,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active a,
+.mapping-pane-title,
+.vc-history-basic-filter .selected-filter,
+.grid-header,
+label,
+legend,
+.board-tile .assignedTo,
+.tbPivotItem .witTitle,
+th .witState,
+.pivot-filter .title,
+.hub-title-right, .hub-title-right-secondary,
+.views a,
+.rendered-markdown,
+.rendered-markdown h2,
+.agile-board .member.header,
+.tbTile .clickableTitle,
+.parentTbTile .witState,
+.tbTile .witTitle,
+.field-container.assignedTo,
+.tbTile .witAssignedTo,
+table[aria-label="Second-level navigation"] .menu-item .text,
+a,
+.vc-history-list .results-container .history-result a,
+.vc-history-list .results-container .history-result a:link,
+.vc-history-list .results-container .history-result a:visited,
+table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text,
+.upsell-heading,
+.bowtie p,
+.bowtie-fabric p
+{
+  @include text();
+}
+
+.splitter.horizontal > .handleBar,
+.menu-item.toggle-on,
+.combo > div.wrap > input.invalid,
+.combo.invalid > div.wrap > input,
+.menu-item.toggle-on,
+.vc-history-list .results-container .history-result .result-details .change-link-container .more-comment-link,
+.ui-tabs .ui-tabs-nav,
+.splitter > .handleBar, .splitter > .handleBar-clone,
+.agile-board .board-tile,
+.vsts-header .hub-bar .left-section,
+.hub-bar .header-table .right-section,
+a:hover {
+  @include bg($light);
+}
+
+.workitem-header-bar,
+.text-filter-box,
+.vc-pullrequest-review-view .tabContent-two-pane > .with-background,
+.ui-dialog .ui-dialog-titlebar,
+.agile-board .horizontal > .agile-content-container > .content-container-innerDiv-class .horizontal-table,
+.taskboard-content-row .taskboard-expander, .taskboard-content-row .taskboard-parent,
+.hub-pivot-content,
+.vc-pullrequest-review-view .tabContent-two-pane > .centerPane-static,
+.vc-pullrequest-create-panel {
+  @include bg($darker);
+}
+
+
+/*********************************************************************/
+
+
+
+.dashboard-landing .hub-content,
+.ui-dialog > * {
+  @include setColors($darker);
+}
+
+.add-panel {
+  background-color: $light;
+}
+
+.tags-add-button .tag-box-selectable,
+.tag-box, .tag-delete,
+input:not(.search-text), textarea, select,
+body[contenteditable] {
+  @include setColors($light);
+}
+
+div#header-row {
+  background-color: $blue;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 60px rgba(50, 50, 50, 0.7);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(200, 200, 200, 1);
+}
+
+.work-item-form-main-header {
+  border-left-color: #2E2E2E;
+}
+
+.work-item-form-id a {
+  color: $text;
+}
+
+.work-item-form-main-core, .witform-layout {
+  border: none;
+  padding-top: 0 !important;
+}
+
+.witform-layout-content-container {
+  margin-top: 10px;
+}
+
+.control .wrap {
+  border: 1px solid #aaa;
+}
+
+.header-post11 #navWrapper,
+.header-post11 #navWrapper * {
+  background-color: $light !important;
+}
+
+.header-post11 .header-search {
+  background-color: $light;
+  border: 1px solid $text;
+}
+
+.toolbar {
+  border-bottom: 1px solid $text;
+  border-top: 0;
+  color: $text;
+}
+
+.source-explorer-tree.with-favorites .repository-node {
+  border-top: 0;
+}
+
+.query-folder-tree .folder.top-separator {
+  border: 0;
+}
+
+.responsive-grid .grid-cell .grid-cell-title {
+  border-bottom: 1px solid $text;
+}
+
+.tree-view > ul.tree-children li.selected > a > div.node-content,
+.tree-view.focus > ul.tree-children li.selected > a > div.node-content,
+li.tree-drag-tile > a > div.node-content,
+.sidebar-search .search-input-wrapper {
+  background-color: $light;
+  border: 1px solid $light;
+}
+
+.bowtie-folder {
+  color: $orange !important;
+}
+
+.bowtie-git {
+  color: $red !important;;
+}
+
+.filtered-list-popup {
+  background-color: $text;
+}
+
+button, button.ui-state-default, button.ui-button {
+  @include setBg($light);
+  border: 0;
+}
+
+.tag-container {
+  border: 1px solid $light;
+}
+
+.combo, .mru-identity-picker {
+  background: $light;
+  border: 1px solid $light;
+}
+
+.filters a {
+  color: $blue;
+}
+
+.versioncontrol-explorer-view .source-path,
+.chart-hosts-list > .message-block.invalid,
+.query-type .pivot-filter li.selected
+{
+  @include bg($light);
+  border: 0;
+}
+
+body[contenteditable] td {
+  color: $darker;
+}
+
+.witform-layout-header-color {
+  padding-left: 0 !important;
+}
+
+.query-type,
+.query-editor .toolbar.work-item-list-toolbar,
+.vc-changes-list-filter .advanced-filter input,
+.vc-changes-list-filter .advanced-filter .combo {
+  border-bottom: 1px solid $text;
+}
+
+.textbox, .input-text {
+  border: 0;
+}
+
+.query-editor .filters {
+  padding-bottom: 10px;
+}
+
+.ui-dialog,
+.ui-dialog-buttonpane {
+  background-color: $darker;
+  border: 0;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+  @include setBg($light);
+  border: 0;
+}

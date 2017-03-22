@@ -1,0 +1,115 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+.agile-board .agile-header-container {
+  @include setColors($dark);
+}
+
+.agile-board {
+  @include setColors($dark);
+
+  //.agile-board .horizontal .horizontal-table>.row.content
+  .horizontal {
+    .horizontal-table > .row {
+      & > .cell, & > .cell:first-of-type {
+        border: 1px solid $dark;
+      }
+
+      &.header > .cell {
+        background-color: $dark;
+        border-bottom: 1px solid $dark;
+      }
+
+      &.content {
+        @include bg($darker);
+      }
+    }
+
+    & > .agile-content-container {
+      @include bg($darker);
+    }
+  }
+
+  .board-tile .board-tile-content-container {
+    @include setBg($light);
+
+    .board-tile-content {
+      border: 0 !important;
+      @include bg($light);
+    }
+  }
+
+  .cell .member-border-line { @include bg($darker); }
+}
+
+.card-context-menu {
+  @include fg($text);
+}
+
+
+
+// Point estimate on board tile
+.witRemainingWork { @include fg($text); }
+
+// Asignee name
+.field-container.onTileEditDiv.identity {
+  @include fg($text);
+}
+
+/****** TASK BOARD ********/
+.tbTile {
+  .title {
+    @include fg($text);
+  }
+  &:hover .card-context-menu {
+    @include bg($light);
+    @include br($light);
+  }
+  .tbTileContent {
+    @include setColors($light);
+  }
+
+  &.tile-dimmed .tbTileContent {
+    @include setColors($lighter);
+  }
+}
+
+// Drop zones on the task board
+.taskboard-cell.ui-droppable {
+  @include bg(tint($dark, 5));
+
+  &.dragHover {
+    @include bg($darker);
+  }
+}
+
+.taskboard-cell {
+  background-color: $light;
+  border-bottom: 1px solid $darker;
+  border-left: 1px solid $darker;
+  border-right: 1px solid $darker;
+}
+
+.taskboard-expander {
+  background-color: $darker;
+  border-bottom: 1px solid $darker;
+}
+
+// New Item button
+.board-add-card {
+  @include setColors($light);
+}
+
+// PBI state dropdown
+.combo-drop-popup {
+  @include setColors($dark);
+
+  & > .items > li.selected {
+    @include setColors($lighter);
+  }
+}
+
+// State text when dropdown is closed
+.workitem-state-value.onTileEditTextDiv {
+  @include fg($text);
+}
