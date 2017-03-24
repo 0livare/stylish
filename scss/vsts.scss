@@ -1,3 +1,6 @@
+// This is first so that it gets overridden
+@import "vsts/unsorted";
+
 @import "vsts/global";
 @import "vsts/titlebars";
 
@@ -10,5 +13,3 @@
 @import "vsts/charts";
 
 @import "vsts/homePage";
-
-@import "vsts/unsorted";

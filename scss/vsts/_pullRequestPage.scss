@@ -93,12 +93,12 @@
     color: $text; // was black
 
     &.tag {
-      color: #d67e7e;
+      color: $code-tag;
     }
     // was maroon
 
     &.attribute.name.xml {
-      color: #d15eff !important; // was red
+      color: $code-name !important; // was red
     }
 
     &.keyword,
@@ -107,10 +107,18 @@
     &.delimiter.xml,
     &.string.html,
     &.attribute.value.xml {
-      color: #59d3f9 !important; // was blue
+      color: $code-keyword !important; // was blue
     }
   }
 }
+
+// NEW file contents in specific file view
+.mtk1 { @include text(); } // plain text
+.mtk5 { @include fg($code-keyword); } // json strings
+.mtk6 { @include fg($code-keyword); } // keywords
+.mtk7 { @include fg($code-comment); } // json integers
+.mtk8 { @include fg($code-comment); } // comments
+.mtk20 {@include fg($code-tag); } // strings
 
 // Titles in markdown text view
 .monaco-editor.vs {

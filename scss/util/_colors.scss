@@ -11,6 +11,12 @@ $orange: #ff9800;
 $red: #F44336;
 $green: #393;
 
+
+$code-keyword: #59d3f9; // blue
+$code-name: #d15eff; // purple
+$code-tag: #ff7d7d; // red
+$code-comment: #7ed67e; // green
+
 @mixin setColors($backColor) {
   @include colors($text, $backColor, $backColor);
 }
