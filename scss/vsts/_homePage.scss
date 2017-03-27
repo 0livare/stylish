@@ -4,10 +4,6 @@
 // Widget containers
 $widget-color: tint($light, 5);
 
-.widgethost {
-  box-shadow: 0px;
-}
-
 .widget-container .internal-content-host {
   @include setColors($widget-color);
 

@@ -167,12 +167,10 @@
 }
 
 .workitemcontrol .workitem-history-control {
-
   #history-splitter {
     display: none;
   }
   .right-history-panel .history-item-viewer {
-
     .history-item-viewer-header .history-item-viewer-header-container {
       border-bottom: 1px solid $very-light-grey;
 
@@ -193,7 +191,6 @@
       }
     }
   }
-
 
   .left-history-panel {
     border-right: 1px solid $light;
@@ -223,6 +220,42 @@
       }
     }
   }
+
+  .history-revision-list .history-item-list {
+    border: 0 !important;
+
+    .history-item-selected {
+      @include bg($light);
+    }
+    .history-group .header {
+      @include bg($lighter);
+      @include br($darker);
+    }
+    .history-item-summary {
+      @include br($very-light-grey);
+
+      &:hover {
+        @include bg($dark);
+      }
+
+      .history-item-summary-details .history-item-summary-text {
+        @include text();
+      }
+    }
+  }
+
+  .history-details-panel .history-item-viewer .history-item-detail {
+    .fields { @include text(); }
+    
+    .fields .field-values .field-new-value,
+    .html-fields .html-field .html-field-new-value-container,
+    .history-links .link-add .link-text
+    {
+      @include bg($green);
+    }
+  }
+
+  .history-section { @include text(); }
 }
 
 .right-history-panel .content-section {
