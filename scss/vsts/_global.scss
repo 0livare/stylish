@@ -224,3 +224,18 @@ button.popup-menu-trigger {
 .divider {
   display: none !important;
 }
+
+// Message bar at top
+$msg-bar-color: rgba(0, 45, 80, 1);
+.notification-area-container {
+  @include setColors($msg-bar-color);
+
+  .ms-MessageBar {
+    @include setColors($msg-bar-color);
+    opacity: 50%;
+
+    .ms-MessageBar-actionables>.ms-MessageBar-dismissal {
+      @include bg($msg-bar-color);
+    }
+  }
+}
