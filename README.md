@@ -11,9 +11,9 @@ $ npm start
 ```
 
 ## Package.json
-Using [node-sass](https://github.com/sass/node-sass) for compilation and [nodemon](https://github.com/remy/nodemon) for file watching.  The advantage of this over just using the `-w` flag for `node-sass` is that nodemon will compile the files initially and then begin watching the directory, instead of just watching for new changes.  Oh and it has pretty colors too.
+Using [`node-sass`](https://github.com/sass/node-sass) for compilation and [`nodemon`](https://github.com/remy/nodemon) for file watching.  The advantage of `nodemon` over just using the `-w` flag for `node-sass` is that `nodemon` will compile the files initially and then begin watching the directory, instead of just watching for new changes.  Oh and it has pretty colors too.
 
-An alternative watch script (in package.json) could be:
+An alternative watch script (in package.json) without using `nodemon` could be:
 ```
 "watch": "node-sass -w scss -o css",
 ```

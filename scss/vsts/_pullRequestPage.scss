@@ -119,6 +119,7 @@
 .mtk7 { @include fg($code-comment); } // json integers
 .mtk8 { @include fg($code-comment); } // comments
 .mtk20 {@include fg($code-tag); } // strings
+.mtk23 {@include fg($code-name); } // code block
 
 // Titles in markdown text view
 .monaco-editor.vs {
