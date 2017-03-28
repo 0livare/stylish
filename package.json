@@ -4,9 +4,9 @@
   "description": "Dark themes for userstyles.org",
   "main": "sass/",
   "scripts": {
-    "build-css": "node-sass --include-path scss scss/vsts.scss css/vsts.css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
-    "start": "npm run watch-css"
+    "build": "node-sass scss -o css",
+    "watch": "nodemon -e scss -x \"npm run build\"",
+    "start": "npm run watch"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/zposten/stylish/issues"
   },
-  "homepage": "https://github.com/zposten/stylish#readme"
+  "homepage": "https://github.com/zposten/stylish#readme",
+  "dependencies": {
+    "node-sass": "^4.5.1",
+    "nodemon": "^1.11.0"
+  }
 }
