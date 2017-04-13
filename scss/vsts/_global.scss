@@ -239,3 +239,9 @@ $msg-bar-color: rgba(0, 45, 80, 1);
     }
   }
 }
+
+// Generic buttons
+.bowtie button {
+  @include bg($lighter);
+  @include br($lighter);
+}

@@ -27,10 +27,29 @@
 }
 
 // Approve button
-.bowtie button {
-  @include bg($lighter);
-  @include br($lighter);
+#pull-request-vote-button {
+  @include bg($dark-blue);
 }
+#pull-request-vote-button-menubutton {
+  @include bg($dark-blue);
+  border-left-color: $dark;
+}
+
+// Approve button flyout
+.ms-Callout {
+  @include br($very-light-grey);
+
+  .ms-ContextualMenu-item {
+    button:hover {
+      @include bg($dark);
+    }
+  }
+
+  .ms-ContextualMenu-divider {
+    @include bg($very-light-grey);
+  }
+}
+
 
 // PR elipsis button
 .vc-pullrequest-review-view button.clear-button {
@@ -173,6 +192,10 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   span.content-modified {
     @include bg($code-modified-highlight-color);
   }
+
+  span.content-original {
+    @include bg($code-removed-back-color);
+  }
 }
 .diff-line-count-container {
   &.file-lines-added {
@@ -228,7 +251,8 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 .vc-pullrequest-title-input,
 .vc-pullrequest-description-input,
 .identity-picker-input,
-.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input
+.vc-pullrequest-view-details-relatedartifacts-addartifactbox.textbox-input,
+.hljs
 {
   @include setColors($light);
 }
@@ -424,7 +448,6 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 // PBI tag in description
 .mention-widget-workitem {
   @include bg($darker);
-  padding: 5px;
 
   &:hover {
     @include bg($dark);
