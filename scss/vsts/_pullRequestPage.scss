@@ -1,6 +1,11 @@
 @import "../util/mixins";
 @import "../util/colors";
 
+$code-added-back-color: rgba(0, 255, 0, 0.3);
+$code-removed-back-color: rgba(255, 0, 0, 0.3);
+$code-modified-highlight-color: rgba(0, 0, 0, 0.3);
+$code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
+
 // Top PR section underneath blue titlebar
 .hub-title {
   @include setBg($dark);
@@ -25,6 +30,7 @@
     @include setColors($dark-blue);
   }
 }
+
 
 // Approve button
 #pull-request-vote-button {
@@ -59,6 +65,9 @@
     @include bg($lighter);
   }
 }
+
+// Author name
+.ms-Fabric { @include text(); }
 
 // Overview, files, updates, commits tabs
 .vc-pullrequest-tabs li a:hover {
@@ -103,42 +112,30 @@
   @include setColors($darker);
 }
 
-// File contents in specific file view
+// File background in specific file view
 .lines-content.monaco-editor-background,
 .monaco-editor-background {
   @include setColors($light);
-  // Pieces of code in editor
-  .view-lines .token {
-    color: $text; // was black
-
-    &.tag {
-      color: $code-tag;
-    }
-    // was maroon
-
-    &.attribute.name.xml {
-      color: $code-name !important; // was red
-    }
-
-    &.keyword,
-    &.keyword.control,
-    &.attribute.value.html,
-    &.delimiter.xml,
-    &.string.html,
-    &.attribute.value.xml {
-      color: $code-keyword !important; // was blue
-    }
-  }
 }
 
-// NEW file contents in specific file view
+// File contents in specific file view
 .mtk1 { @include text(); } // plain text
 .mtk5 { @include fg($code-keyword); } // json strings
-.mtk6 { @include fg($code-keyword); } // keywords
+.mtk4, .mtk6 { @include fg($code-keyword); } // keywords/properties
 .mtk7 { @include fg($code-comment); } // json integers
 .mtk8 { @include fg($code-comment); } // comments
+.mtk14{ @include fg($code-tag); } // html/xml tags
 .mtk20 {@include fg($code-tag); } // strings
 .mtk23 {@include fg($code-name); } // code block
+
+// Specific file view deletions and insertions
+.code-editor-host .monaco-editor {
+  .line-insert { @include bg($code-added-back-color); }
+  .line-delete { @include bg($code-removed-back-color); }
+  .char-insert { @include bg($code-modified-highlight-color); }
+  .char-delete { @include bg($code-modified-highlight-color); }
+}
+
 
 // Titles in markdown text view
 .monaco-editor.vs {
@@ -168,10 +165,6 @@
 }
 
 // PR diff highlights
-$code-added-back-color: rgba(0, 255, 0, 0.3);
-$code-removed-back-color: rgba(255, 0, 0, 0.3);
-$code-modified-highlight-color: rgba(0, 0, 0, 0.3);
-$code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 .vc-diff-viewer {
   .code-line {
     &.added-content,
@@ -221,6 +214,11 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   .file-cell .file-name {
     @include fg($text);
   }
+}
+
+// File names for file snippets from comments
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-pullrequest-activity-header .file-link .file-name {
+  @include text();
 }
 
 
@@ -326,6 +324,15 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 }
 .vc-change-summary {
   @include setColors($darker);
+}
+
+// Pushed update text in PR timeline
+.vc-history-detailsList {
+  .ms-List-cell a {
+    &, &:link, &:visited { @include text(); }
+  }
+  .avatar-badge .author .badge-text-style { @include text(); }
+  .ms-DetailsRow-cell .inline { @include text(); }
 }
 
 

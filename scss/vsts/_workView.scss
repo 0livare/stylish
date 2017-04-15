@@ -49,14 +49,16 @@
   }
 }
 
-// New, create query, column options button row hover
+// New, create query, column options button row
 .toolbar .menu-bar > .menu-item ~ .menu-item,
 .toolbar .menu-bar > .menu-item-container > .menu-item ~ .menu-item,
 .workitemcontrol .menu-bar > .menu-item ~ .menu-item,
 .workitemcontrol .menu-bar > .menu-item-container > .menu-item ~ .menu-item,
 .toolbar .menu-bar > .menu-item {
+  @include text();
+
   &.hover, &:hover {
-    @include setBg($light);
+    @include fg($blue);
   }
 }
 
@@ -149,7 +151,19 @@
 
 // Work item detail link highlight
 .la-item:hover, .la-item.la-item-focus {
-    background: #333232;
+  background: #333232;
+}
+
+// Comments at the bottom of detail tab
+.discussion-messages-messagecontent {
+  @include text();
+}
+
+// Work item links in right column
+.la-primary-data a {
+  &, &:visited {
+    @include text();
+  }
 }
 
 /********* PBI detail, history tab **********/
@@ -246,7 +260,7 @@
 
   .history-details-panel .history-item-viewer .history-item-detail {
     .fields { @include text(); }
-    
+
     .fields .field-values .field-new-value,
     .html-fields .html-field .html-field-new-value-container,
     .history-links .link-add .link-text
@@ -260,4 +274,12 @@
 
 .right-history-panel .content-section {
   @include fg($darker);
+}
+
+
+// History step summary underneath name
+.fullscreen-container, .workitemcontrol .workitem-history-control {
+  .history-details-panel .history-item-viewer .history-item-viewer-header .history-item-viewer-header-container .history-item-viewer-right .history-item-summary-text {
+    @include text();
+  }
 }

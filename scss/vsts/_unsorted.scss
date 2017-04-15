@@ -4,7 +4,6 @@
 
 .node-link > .node-content,
 .watermark,
-.bowtie-icon,
 .selected-item-text,
 .text-filter-box input,
 .grid-row,
@@ -22,7 +21,6 @@ legend,
 th .witState,
 .pivot-filter .title,
 .hub-title-right, .hub-title-right-secondary,
-.views a,
 .rendered-markdown,
 .rendered-markdown h2,
 .agile-board .member.header,
@@ -32,16 +30,19 @@ th .witState,
 .field-container.assignedTo,
 .tbTile .witAssignedTo,
 table[aria-label="Second-level navigation"] .menu-item .text,
-a,
 .vc-history-list .results-container .history-result a,
 .vc-history-list .results-container .history-result a:link,
 .vc-history-list .results-container .history-result a:visited,
 table[aria-label="Second-level navigation"] .menu-item .bowtie-clone-to-desktop .text,
 .upsell-heading,
 .bowtie p,
-.bowtie-fabric p
+.bowtie-fabric p,
 {
   @include text();
+}
+
+.botwie-icon {
+  color: $text;
 }
 
 .splitter.horizontal > .handleBar,

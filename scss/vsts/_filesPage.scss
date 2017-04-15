@@ -1,0 +1,11 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+
+.vc-branches-container, // Branch dropdown
+.path-explorer *, // The current directory path
+.grid:not(.grid-legacy) a:link, // Files list
+.grid:not(.grid-legacy) a:visited // Files list
+{
+  @include text();
+}
