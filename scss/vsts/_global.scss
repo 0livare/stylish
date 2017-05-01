@@ -239,6 +239,16 @@ $msg-bar-color: rgba(0, 45, 80, 1);
     }
   }
 }
+.message-area-control.info-message {
+  @include setColors($msg-bar-color);
+  a {
+    color: $blue;
+
+    &:hover {
+      @include bg($msg-bar-color);
+    }
+  }
+}
 
 .global-message-section.message-level-info {
   @include bg($msg-bar-color);
@@ -249,4 +259,10 @@ $msg-bar-color: rgba(0, 45, 80, 1);
 .bowtie button {
   @include bg($lighter);
   @include br($lighter);
+}
+
+
+// Data links
+.ra-primary-data a, .ra-primary-data a:visited {
+  @include text();
 }

@@ -113,3 +113,9 @@
 .workitem-state-value.onTileEditTextDiv {
   @include fg($text);
 }
+
+
+/****** PBI BOARD ********/
+.id-title-container .title .clickable-title-link {
+  @include text();
+}
