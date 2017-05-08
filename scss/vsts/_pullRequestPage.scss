@@ -70,8 +70,12 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 .ms-Fabric { @include text(); }
 
 // Overview, files, updates, commits tabs
+$tab-text-color: shade($text, 30);
 .vc-pullrequest-tabs li a:hover {
-  @include fg(shade($text, 30));
+  @include fg($tab-text-color);
+}
+.pivot-view a:visited, .pivot-view a:active {
+  @include fg($tab-text-color);
 }
 
 .vc-change-summary > *,
@@ -494,4 +498,24 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 // Pull request completion dialog
 .ms-Dialog-main {
   @include setBg($darker);
+}
+
+
+// Pull request update dropdown
+.vc-iteration-selector-row {
+  // Update number badge
+  .badge {
+    @include bg($darker);
+  }
+  // Update date
+  .date {
+    @include text();
+  }
+}
+
+// Hover color change on each row of updates dropdown
+.vc-pullrequest-review .ms-Callout-container .ms-Callout.ms-Dropdown-callout .ms-Callout-main>div .ms-Dropdown-items .ms-Dropdown-item {
+  &:hover {
+    @include setColors($dark);
+  }
 }

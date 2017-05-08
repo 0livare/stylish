@@ -1,33 +1,12 @@
 @import "../util/mixins";
 @import "../util/colors";
 
-// Widget containers
-$widget-color: tint($light, 5);
-
-.widget-container .internal-content-host {
-  @include setColors($widget-color);
-
-  .assigned-to-me-title { @include fg($text);}
-  .assigned-to-me-results-container { @include setColors($widget-color); }
-
-  .wit-querygrid-widget-view {
-    @include setColors($widget-color);
-
-    .wit-widget-view-title { @include fg($text); }
-  }
-
-  img:not(.identity-picture) {
-    filter: invert(100%);
-  }
+// CI upsell closable box
+.upsell-section {
+  @include setColors($light);
 }
 
-.markdown-widget .markdown-widget-container .rendered-markdown
-{
-  &, & * {
-    @include fg($text);
-  }
-}
-
-.item-list-control ul li a .item-number {
-  @include fg($text);
-}
+// README viewer
+.rendered-readme-toolbar { @include setColors($light); }
+.readme-toolbar-message { @include text(); }
+.readme-content { @include br($light); }
