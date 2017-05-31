@@ -66,6 +66,10 @@ ul.menu-popup {
   }
 }
 
+.toolbar .menu-bar .menu-item, .workitemcontrol .menu-bar {
+  &.hover, &:focus { @include setBg($lighter); }
+}
+
 
  /**************************************************/
 /************ IDENTITY PICKER DROPDOWN ***********/
@@ -102,6 +106,24 @@ ul.menu-popup {
 // Autocomplete highlight when tagging
 .richtext-autocomplete-highlight {
   @include setColors($darker);
+}
+
+/**************************************************/
+/************ BUTTONS ***********/
+
+
+button, button.ui-state-default, button.ui-button {
+  @include setBg($light);
+  border: 0;
+}
+
+// Disabled
+button[disabled] {
+  &, &:hover, &:focus {
+    &:not(.ms-ContextualMenu-link) {
+      @include disabled();
+    }
+  }
 }
 
 
@@ -266,3 +288,7 @@ $msg-bar-color: rgba(0, 45, 80, 1);
 .ra-primary-data a, .ra-primary-data a:visited {
   @include text();
 }
+
+
+// Username search box
+.identity-search-control { @include setColors($light); }

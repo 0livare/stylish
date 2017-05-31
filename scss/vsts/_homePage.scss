@@ -2,9 +2,8 @@
 @import "../util/colors";
 
 // CI upsell closable box
-.upsell-section {
-  @include setColors($light);
-}
+.upsell-section { @include setColors($light); }
+.upsell-section .ms-svg-illustration { filter: invert(100%); }
 
 // README viewer
 .rendered-readme-toolbar { @include setColors($light); }

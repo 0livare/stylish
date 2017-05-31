@@ -179,11 +179,6 @@ li.tree-drag-tile > a > div.node-content,
   background-color: $text;
 }
 
-button, button.ui-state-default, button.ui-button {
-  @include setBg($light);
-  border: 0;
-}
-
 .tag-container {
   border: 1px solid $light;
 }

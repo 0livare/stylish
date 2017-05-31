@@ -9,3 +9,9 @@
 {
   @include text();
 }
+
+// Commit hash column in file table
+.vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow a {
+  // Not !important so that the background can be overridden on row hover
+  background-color: darker;
+}

@@ -114,6 +114,11 @@
   @include fg($text);
 }
 
+// Entire table background that shows as white gridlines
+.taskboard .taskboardTableBodyScrollContainer #taskboard-table-body {
+  @include bg($dark);
+}
+
 
 /****** PBI BOARD ********/
 .id-title-container .title .clickable-title-link {

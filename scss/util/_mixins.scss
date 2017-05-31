@@ -15,6 +15,11 @@
   border-color: $color!important;
 }
 
+@mixin disabled() {
+  @include bg($disabled);
+  @include br($disabled);
+  @include fg($disabled-text);
+}
 
 @mixin colors($frontColor, $backColor, $borderColor) {
   @include fg($frontColor);

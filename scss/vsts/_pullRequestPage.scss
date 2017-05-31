@@ -216,7 +216,26 @@ $tab-text-color: shade($text, 30);
   }
 
   .file-cell .file-name {
-    @include fg($text);
+    @include text();
+  }
+}
+
+// File names in left hand file list in "Files" view
+.vc-file-name-cell .file-name {
+  @include text();
+}
+
+// Hover and selected rows in left hand file list in "Files" view
+.tree .tree-row {
+  &:hover, &[aria-selected="true"] {
+    @include setColors($light);
+  }
+}
+
+// Hover in right hand of splitter view in "Files" view
+.vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow {
+  &:hover {
+    @include setColors($light);
   }
 }
 
@@ -224,7 +243,6 @@ $tab-text-color: shade($text, 30);
 .vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-pullrequest-activity-header .file-link .file-name {
   @include text();
 }
-
 
 .vc-pullrequest-review-view {
   .vc-pullrequest-activity-box,
@@ -286,13 +304,20 @@ $tab-text-color: shade($text, 30);
       @include fg($blue);
     }
   }
+
+  // The comment count at the far right of the pull request row
+  a {
+    &, &:link, *:visited {
+      @include text();
+    }
+  }
 }
 
 // Pull request comments
+$comment-color: shade($light, 20);
 .vc-discussion-thread-box,
 .vc-discussion-thread-comment
 {
-  $comment-color: shade($light, 20);
   @include setColors($comment-color);
 
   .vc-discussion-comment-header {
@@ -518,4 +543,21 @@ $tab-text-color: shade($text, 30);
   &:hover {
     @include setColors($dark);
   }
+}
+
+// Divider on overview page
+.vc-pullrequest-review-view .vc-pullrequest-activity-feed-divider {
+  @include br($very-light-grey);
+}
+
+// Dividers on PR list page
+.vc-pullRequest-list-section {
+  .ms-List-cell, .vc-pullrequests-list-head {
+    @include br($very-light-grey);
+  }
+}
+
+// The "Markdown supported" bar below all PR comments
+.root_92c5d170, .markdown-statusbar {
+  @include setColors($comment-color);
 }
