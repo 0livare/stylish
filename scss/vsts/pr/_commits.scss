@@ -1,0 +1,17 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+// Pull request commits
+.vc-history-list .results-container .group-header,
+.vc-pullrequest-review-view .pullrequest-commits-content .group-results,
+.vc-pullrequest-review-view .pullrequest-updates-content .group-results {
+  @include setColors($darker);
+}
+
+.vc-history-list .results-container .history-result {
+  @include br($very-light-grey);
+
+  &:hover {
+    @include bg($light);
+  }
+}

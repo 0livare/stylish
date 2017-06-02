@@ -1,0 +1,6 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+.ms-DetailsRow:hover {
+  @include bg($light);
+}

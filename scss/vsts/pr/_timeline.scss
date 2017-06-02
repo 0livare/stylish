@@ -1,0 +1,165 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+// Pull request updates
+.vc-pullrequest-review-view .pullrequest-updates-content {
+  @include bg($darker);
+}
+
+
+
+// Titles in markdown text view
+.monaco-editor.vs {
+  .token {
+    .entity.name {
+      &, &.tag {
+        color: #ff7272;
+      }
+    }
+    .support {
+      .property-value, .type.json {
+        color: #1de6fa;
+      }
+    }
+  }
+}
+
+// Rendered markdown view
+.rendered-markdown {
+  * {
+    @include fg($text);
+  }
+
+  pre, code {
+    @include setColors($light);
+  }
+}
+
+// File names for file snippets from comments
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-pullrequest-activity-header .file-link .file-name {
+  @include text();
+}
+
+.vc-pullrequest-review-view {
+  .vc-pullrequest-activity-box,
+  .vc-pullrequest-activity-header,
+  .vc-pullrequest-activity-body,
+  .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment {
+    @include setColors($light);
+  }
+
+  .vc-inline-edit-markdown-preview {
+    @include fg($text);
+    code {
+      @include bg($darker);
+    }
+  }
+}
+
+
+// File names for file snippets from comments
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-pullrequest-activity-header .file-link .file-name {
+  @include text();
+}
+
+.vc-pullrequest-review-view {
+  .vc-pullrequest-activity-box,
+  .vc-pullrequest-activity-header,
+  .vc-pullrequest-activity-body,
+  .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment {
+    @include setColors($light);
+  }
+
+  .vc-inline-edit-markdown-preview {
+    @include fg($text);
+    code {
+      @include bg($darker);
+    }
+  }
+}
+
+.vc-pullrequest-review-view .vc-pullrequest-activity-feed {
+  @include setColors($darker);
+}
+
+.vc-change-summary-files .file-cell .file-name-link {
+  color: $text;
+}
+
+
+
+// Pull request comments
+$comment-color: shade($light, 20);
+.vc-discussion-thread-box,
+.vc-discussion-thread-comment
+{
+  @include setColors($comment-color);
+
+  .vc-discussion-comment-header {
+    .vc-discussion-comment-author {
+      @include fg($text);
+    }
+  }
+
+  .vc-discussion-thread-renderarea {
+    @include setBg($comment-color);
+
+    p {
+      @include setColors($comment-color)
+    }
+
+    a {
+      @include fg($blue);
+
+      code {
+        @include fg($blue);
+      }
+    }
+
+    code, pre {
+      @include setBg($light);
+    }
+  }
+
+  .vc-discussion-comment-text-area-footer {
+    border: 0;
+    .vc-discussion-comment-instructions-area {
+      @include bg($comment-color);
+    }
+  }
+}
+.vc-change-summary {
+  @include setColors($darker);
+}
+
+// Markdown preview code while writing comment
+.simple-inline-edit .vc-inline-edit-markdown-preview code {
+  @include bg($light);
+}
+
+// Pushed update text in PR timeline
+.vc-history-detailsList {
+  .ms-List-cell a {
+    &, &:link, &:visited { @include text(); }
+  }
+  .avatar-badge .author .badge-text-style { @include text(); }
+  .ms-DetailsRow-cell .inline { @include text(); }
+}
+
+// Space between line numbers next to comment
+.vc-diff-viewer .text-diff-container .diff-lines .discussion-filler {
+  @include setBg($light);
+}
+
+
+
+// Bottom created by card
+.vc-pullrequest-review-view .vc-pullrequest-activity-box.subdued {
+  @include setColors($darker);
+}
+
+
+// The "Markdown supported" bar below all PR comments
+.root_92c5d170, .markdown-statusbar {
+  @include setColors($comment-color);
+}

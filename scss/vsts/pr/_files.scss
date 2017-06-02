@@ -1,0 +1,135 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+$code-added-back-color: rgba(0, 255, 0, 0.3);
+$code-removed-back-color: rgba(255, 0, 0, 0.3);
+$code-modified-highlight-color: rgba(0, 0, 0, 0.3);
+$code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
+
+
+
+/**************************************/
+/******** FILE SPECIFIC VIEW *********/
+
+// File header
+.vc-pullrequest-file-bar,
+.vc-pullrequest-review-view .centerPane-no-full-page-scroll .vc-pullrequest-details-compare .diff-viewer-container,
+.file-contents-container {
+  @include setColors($darker);
+}
+
+// File background
+.lines-content.monaco-editor-background,
+.monaco-editor-background {
+  @include setColors($light);
+}
+
+// File contents
+.mtk1 { @include text(); } // plain text
+.mtk5 { @include fg($code-keyword); } // json strings
+.mtk4, .mtk6 { @include fg($code-keyword); } // keywords/properties
+.mtk7 { @include fg($code-comment); } // json integers
+.mtk8 { @include fg($code-comment); } // comments
+.mtk14{ @include fg($code-tag); } // html/xml tags
+.mtk20 {@include fg($code-tag); } // strings
+.mtk23 {@include fg($code-name); } // code block
+
+// Deletions and insertions
+.code-editor-host .monaco-editor {
+  .line-insert { @include bg($code-added-back-color); }
+  .line-delete { @include bg($code-removed-back-color); }
+  .char-insert { @include bg($code-modified-highlight-color); }
+  .char-delete { @include bg($code-modified-highlight-color); }
+}
+
+
+
+/**************************************/
+/************ DIFFS ******************/
+
+// PR diff highlights
+.vc-diff-viewer {
+  .code-line {
+    &.added-content,
+    &.added-content-fullrow {
+      @include bg($code-added-back-color);
+    }
+
+    &.deleted-content,
+    &.deleted-content-fullrow {
+      @include bg($code-removed-back-color);
+    }
+
+    .comment {
+      @include bg($code-comment-highlight-color);
+    }
+  }
+
+  span.content-modified {
+    @include bg($code-modified-highlight-color);
+  }
+
+  span.content-original {
+    @include bg($code-removed-back-color);
+  }
+}
+.diff-line-count-container {
+  &.file-lines-added {
+    @include bg($code-modified-highlight-color);
+  }
+  &.file-lines-deleted {
+    @include bg($code-removed-back-color);
+  }
+}
+
+// Some binary diff fields
+.vc-diff-viewer .diff-message {
+  @include setColors($light);
+}
+
+// File contents in summary view
+.vc-change-summary-files {
+  .file-container {
+    @include setColors($light);
+  }
+
+  .file-cell .file-name {
+    @include text();
+  }
+}
+
+
+/****************************************/
+/******** LEFT HAND FILES LIST *********/
+
+// File names
+.vc-file-name-cell .file-name {
+  @include text();
+}
+
+// Hover and selected rows
+.tree .tree-row {
+  &:hover, &[aria-selected="true"] {
+    @include setColors($light);
+  }
+}
+
+// Hover in right hand of splitter view
+.vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow {
+  &:hover {
+    @include setColors($light);
+  }
+}
+
+// Left file list pane
+.versioncontrol-pullrequests-content,
+.files-grid-container
+{
+  .grid {
+    @include br($darker);
+
+    .grid-canvas {
+      @include setColors($darker);
+    }
+  }
+}

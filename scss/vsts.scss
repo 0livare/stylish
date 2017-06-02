@@ -7,7 +7,11 @@
 @import "vsts/workView";
 @import "vsts/agileBoard";
 
-@import "vsts/pullRequestPage";
+@import "vsts/pr/timeline";
+@import "vsts/pr/overview";
+@import "vsts/pr/files";
+@import "vsts/pr/commits";
+
 @import "vsts/branchesPage";
 @import "vsts/historyPage";
 @import "vsts/filesPage";
@@ -15,3 +19,4 @@
 
 @import "vsts/dashboard";
 @import "vsts/homePage";
+@import "vsts/buildPage";
