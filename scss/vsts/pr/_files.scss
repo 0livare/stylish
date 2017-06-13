@@ -11,6 +11,11 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 /**************************************/
 /******** FILE SPECIFIC VIEW *********/
 
+// Background of all files
+.monaco-discussion-container, .monaco-editor .overflow-guard {
+  @include bg($light);
+}
+
 // File header
 .vc-pullrequest-file-bar,
 .vc-pullrequest-review-view .centerPane-no-full-page-scroll .vc-pullrequest-details-compare .diff-viewer-container,
@@ -102,8 +107,8 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 /****************************************/
 /******** LEFT HAND FILES LIST *********/
 
-// File names
-.vc-file-name-cell .file-name {
+// File name in file tree
+.vc-tree-cell .file-name {
   @include text();
 }
 

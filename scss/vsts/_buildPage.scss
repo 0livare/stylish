@@ -4,3 +4,7 @@
 .ms-DetailsRow:hover {
   @include bg($light);
 }
+
+.build-status-text.inprogress {
+  @include text();
+}

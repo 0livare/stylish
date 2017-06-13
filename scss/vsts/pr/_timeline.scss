@@ -1,6 +1,8 @@
 @import "../../util/mixins";
 @import "../../util/colors";
 
+$comment-color: shade($light, 20);
+
 // Pull request updates
 .vc-pullrequest-review-view .pullrequest-updates-content {
   @include bg($darker);
@@ -25,13 +27,13 @@
 }
 
 // Rendered markdown view
-.rendered-markdown {
-  * {
-    @include fg($text);
-  }
-
+.rendered-markdown, .discussion-renderedcontent {
   pre, code {
     @include setColors($light);
+  }
+
+  .mention-preview-person {
+    @include bg($comment-color);
   }
 }
 
@@ -89,7 +91,6 @@
 
 
 // Pull request comments
-$comment-color: shade($light, 20);
 .vc-discussion-thread-box,
 .vc-discussion-thread-comment
 {
@@ -162,4 +163,9 @@ $comment-color: shade($light, 20);
 // The "Markdown supported" bar below all PR comments
 .root_92c5d170, .markdown-statusbar {
   @include setColors($comment-color);
+
+  .ms-MessageBar-content {
+    @include setColors($comment-color);
+    margin: 0;
+  }
 }
