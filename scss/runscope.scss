@@ -1,0 +1,20 @@
+@import "util/mixins";
+@import "util/colors";
+
+// Top titlebar
+.dashboard-header {
+  @include setColors($darker);
+}
+
+html, #content, .container-fluid, main-content, .stream-container {
+  @include setColors($dark);
+}
+
+// Cards
+.tc-gs {
+  @include setColors($lighter);
+}
+
+.tl-layout > * {
+  @include setColors($dark);
+}
