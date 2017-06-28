@@ -45,6 +45,14 @@ ul.menu-popup {
   @include setColors($darker);
 }
 
+// shadow around popups instead of white glow
+.ui-widget-overlay {
+  background: #000;
+}
+.ui-dialog.ui-dialog-legacy{
+  box-shadow: #000 0 0 15px !important;
+}
+
 
 /**************************************************/
 /*************** POP UP TOOLBAR MENUS ********************/

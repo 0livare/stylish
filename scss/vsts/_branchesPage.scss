@@ -31,3 +31,11 @@
 .vc-discussion-thread-inputtextbox {
   @include bg($light);
 }
+
+
+// Branch text
+.refs-name-cell .vc-ref-name-margin,
+.vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow .ms-DetailsRow-cell,
+{
+  @include text();
+}

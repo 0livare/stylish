@@ -82,3 +82,15 @@
   @include bg($darker);
   @include br($darker);
 }
+
+
+.branch-updates-tab-root .ms-List-cell .history-result .avatar-card .card-details .first-line .primarylink-text {
+  @include text();
+}
+.branch-updates-tab-root {
+  .group-header,
+  .ms-List-cell .history-result
+  {
+    @include br($very-light-grey);
+  }
+}

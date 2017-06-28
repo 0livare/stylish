@@ -13,6 +13,11 @@
   padding-right: 20px;
 }
 
+// Little space to the left and right of .hub-title
+.splitter.no-split.horizontal > .rightPane {
+  @include setBg($dark);
+}
+
 .hub-pivot {
   @include setColors($dark);
 }
