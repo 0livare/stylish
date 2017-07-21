@@ -168,4 +168,8 @@ $comment-color: shade($light, 20);
     @include setColors($comment-color);
     margin: 0;
   }
+
+  .ms-MessageBar {
+    @include bg($comment-color);
+  }
 }

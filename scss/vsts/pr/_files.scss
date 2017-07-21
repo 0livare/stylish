@@ -87,6 +87,11 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
   }
 }
 
+// Markdown comment text
+.discussion-renderedcontent {
+  @include text();
+}
+
 // Some binary diff fields
 .vc-diff-viewer .diff-message {
   @include setColors($light);

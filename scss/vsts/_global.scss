@@ -245,6 +245,16 @@ button.popup-menu-trigger {
 }
 
 
+/**************************************************/
+/********************* CALLOUTS ******************/
+$callout-color: tint($dark, 10);
+
+.ms-Callout-main, .ms-Callout-beak {
+  @include bg($callout-color);
+  @include br($very-light-grey);
+}
+
+
 
 
 /**************************************************/

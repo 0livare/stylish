@@ -10,11 +10,70 @@ html, #content, .container-fluid, main-content, .stream-container {
   @include setColors($dark);
 }
 
+.left-nav, .switcher {
+  @include bg($light);
+
+  .nav-pills > .active > a {
+    &, &:hover {
+      @include setColors($darker);
+    }
+  }
+}
+
+#stream_update_notifier {
+  @include bg($lighter);
+  @include br($orange);
+  @include fg($orange);
+}
+
 // Cards
 .tc-gs {
   @include setColors($lighter);
 }
 
+.dashboard-card-hover {
+  @include setColors($light);
+}
+
 .tl-layout > * {
   @include setColors($dark);
 }
+
+.walkthrough-body {
+  @include bg($light);
+}
+
+// Request bubbles
+.message-wrapper {
+  @include bg($light);
+  border-top: 1px solid $light !important;
+  border-right: 1px solid $light !important;
+  border-bottom: 1px solid $light !important;
+}
+
+#stream_load_more {
+  @include setColors($light);
+}
+
+
+// Code formatting
+.formattedJson {
+  .k     { @include fg($text); }
+  .kvov  { @include fg(shade($text, 15)); }
+  .n     { @include fg($blue); }
+  .bl    { @include fg($blue); }
+  .e     { filter: invert(100%); } // dropdown arrow
+  .blockInner { border-left: 1px dotted $very-light-grey; }
+
+  a:link { @include fg($green); }
+}
+
+.hljs, pre, code, pre code {
+  @include setColors($lighter);
+}
+
+.hljs-keyword { @include fg($blue); }
+.hljs-string  { @include fg($red); }
+.hljs-title   { @include fg($dark-blue); }
+
+*[class^="hl-code-"] { @include fg(black); }
