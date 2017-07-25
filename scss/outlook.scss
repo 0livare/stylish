@@ -1,0 +1,16 @@
+body, div[role="document"] {
+  filter: invert(100%);
+}
+
+._n_X, ._n_Y {
+    background: white;
+}
+
+#primaryHeaderView {
+  background: white;
+  filter: invert(100%);
+}
+
+img {
+  filter: invert(100%);
+}
