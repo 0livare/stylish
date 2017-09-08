@@ -173,3 +173,29 @@ $comment-color: shade($light, 20);
     @include bg($comment-color);
   }
 }
+
+// Newly pushed commits
+.vc-history-detailsList {
+  .ms-DetailsRow-fields {
+    @include setColors($light);
+  }
+  .ms-DetailsRow {
+    @include br($light);
+  }
+}
+
+
+// Checkboxes on complete pull request dialog
+#checkbox-850, #checkbox-851, #checkbox-852 {
+  @include bg($darker);
+
+  .ms-Checkbox-text {
+    @include text();
+  }
+}
+
+.monaco-editor {
+  .margin {
+    @include bg($light);
+  }
+}

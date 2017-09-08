@@ -129,7 +129,7 @@ button, button.ui-state-default, button.ui-button {
 button[disabled] {
   &, &:hover, &:focus {
     &:not(.ms-ContextualMenu-link) {
-      @include disabled();
+      @include disabled(gray, 'disabled text');
     }
   }
 }
