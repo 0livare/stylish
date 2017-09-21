@@ -128,7 +128,7 @@ button, button.ui-state-default, button.ui-button {
 // Disabled
 button[disabled] {
   &, &:hover, &:focus {
-    &:not(.ms-ContextualMenu-link) {
+    &:not(.ms-ContextualMenu-link):not(.ms-Checkbox) {
       @include disabled(gray, 'disabled text');
     }
   }

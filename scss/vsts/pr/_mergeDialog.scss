@@ -1,0 +1,15 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+.vc-complete-merge-dialog {
+  button.ms-Checkbox {
+    @include bg($darker);
+
+    .ms-Checkbox-text { @include text(); }
+    
+    &.is-disabled {
+      .ms-Checkbox-text { @include fg($grey); }
+    }
+
+  }
+}

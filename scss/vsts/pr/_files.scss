@@ -30,14 +30,16 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 }
 
 // File contents
-.mtk1 { @include text(); } // plain text
-.mtk5 { @include fg($code-keyword); } // json strings
-.mtk4, .mtk6 { @include fg($code-keyword); } // keywords/properties
-.mtk7 { @include fg($code-comment); } // json integers
-.mtk8 { @include fg($code-comment); } // comments
-.mtk14{ @include fg($code-tag); } // html/xml tags
-.mtk20 {@include fg($code-tag); } // strings
-.mtk23 {@include fg($code-name); } // code block
+.mtk1  { @include text(); } // plain text
+.mtk5  { @include fg($code-keyword); } // json strings
+.mtk4  { @include fg($code-keyword); } // keywords/properties
+.mtk6  { @include fg($code-keyword); } // property values and open/close chevrons '<', '>'
+.mtk7  { @include fg($code-comment); } // json integers
+.mtk8  { @include fg($code-comment); } // comments
+.mtk14 { @include fg($code-tag); }     // html/xml tags
+.mtk17 { @include fg($code-tag); }     // html/xml tags
+.mtk20 { @include fg($code-tag); }     // strings
+.mtk23 { @include fg($code-name); }    // code block
 
 // Deletions and insertions
 .code-editor-host .monaco-editor {
