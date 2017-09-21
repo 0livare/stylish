@@ -20,7 +20,6 @@
 
 // Commit history hover color
 .vc-history-detailsList.ms-DetailsList .ms-List-cell,
-.ms-DetailsRow-fields,
 .vc-history-detailsList.ms-DetailsList .ms-List-cell {
   & :hover {
     @include setColors($light);

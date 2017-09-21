@@ -255,6 +255,50 @@ $callout-color: tint($dark, 10);
 }
 
 
+/*******************************************************/
+/********************* DETAILS LIST *******************/
+
+// These are table looking lists throughout VSTS
+.vss-DetailsList.ms-DetailsList, div[role="grid"] {
+  // .ms-DetailsHeader {
+  //   @include bg($very-light-grey);
+  //   min-height: 0;
+  // }
+
+  .ms-DetailsHeader-cell {
+    @include bg($dark);
+
+    .ms-DetailsHeader-cellName {
+      @include text();
+    }
+  }
+
+  .ms-List-cell, .ms-DetailsRow {
+    @include bg($light);
+
+    a {
+      @include text();
+    }
+
+    &:hover, .ms-DetailsRow-cell:hover  {
+      @include bg($darker);
+    }
+
+  }
+}
+
+// .vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow .actions-column-wrapper:hover {
+//   @include bg(blue);
+// }
+//
+// .vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow .actions-column-wrapper .original-content:hover {
+//   @include bg(orange);
+// }
+//
+// .vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow a:hover {
+//   @include bg(purple);
+// }
+
 
 
 /**************************************************/

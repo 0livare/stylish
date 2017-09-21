@@ -16,8 +16,3 @@
   //background-color: $darker;
   color: $text;
 }
-
-
-.vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow a {
-  @include text();
-}
