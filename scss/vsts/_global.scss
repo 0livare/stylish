@@ -287,6 +287,21 @@ $callout-color: tint($dark, 10);
   }
 }
 
+
+/*******************************************************/
+/********* Referenced pull request numbers ************/
+// e.g. ""!14843" which renders: PR 14843: Fix(message sender): Only send changed values to the UI
+
+.mention-widget-item {
+  @include bg($dark);
+
+  .mention-widget-title {
+    @include text();
+  }
+}
+
+
+
 // .vss-DetailsList.ms-DetailsList .ms-List-cell .ms-DetailsRow .actions-column-wrapper:hover {
 //   @include bg(blue);
 // }
