@@ -68,7 +68,7 @@ $comment-color: shade($light, 20);
   .vc-pullrequest-activity-box,
   .vc-pullrequest-activity-header,
   .vc-pullrequest-activity-body,
-  .discussion-input .vc-pullrequest-activity-header .vc-discussion-thread-comment {
+  .discussion-input .vc-pullrequest-activity-header {
     @include setColors($light);
   }
 
@@ -88,7 +88,8 @@ $comment-color: shade($light, 20);
   color: $text;
 }
 
-
+// .vc-pullrequest-review-view .vc-pullrequest-activity-box.overview-comment
+// .vc-discussion-thread-box .vc-discussion-thread-comment .vc-discussion-thread-status-area
 
 // Pull request comments
 .vc-discussion-thread-box,
@@ -127,6 +128,11 @@ $comment-color: shade($light, 20);
     .vc-discussion-comment-instructions-area {
       @include bg($comment-color);
     }
+  }
+
+  .vc-discussion-thread-status-area {
+    @include setColors($comment-color);
+    .ms-Button-flexContainer { padding: 3px; }
   }
 }
 .vc-change-summary {
@@ -197,5 +203,13 @@ $comment-color: shade($light, 20);
 .monaco-editor {
   .margin {
     @include bg($light);
+  }
+}
+
+
+.hljs- {
+  &string, &title, &parent, &tag,
+  &value, &rule, &name, &attribute {
+    @include fg($code-tag);
   }
 }
