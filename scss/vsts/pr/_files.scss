@@ -57,6 +57,8 @@ $code-comment-highlight-color: rgba(0, 0, 0, 0.5);//rgba(42, 243, 232, 0.2);
 // PR diff highlights
 .vc-diff-viewer {
   .code-line {
+    @include text();
+
     &.added-content,
     &.added-content-fullrow {
       @include bg($code-added-back-color);
