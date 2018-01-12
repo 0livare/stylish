@@ -1,0 +1,6 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+.mention-preview-person {
+  @include bg($darker);
+}

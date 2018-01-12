@@ -4,7 +4,11 @@
 @import "vsts/global";
 @import "vsts/titlebars";
 
-@import "vsts/workView";
+@import "vsts/pbi/detailsTab";
+@import "vsts/pbi/detailsDiscussionSection";
+@import "vsts/pbi/historyTab";
+@import "vsts/pbi/attachmentsTab";
+
 @import "vsts/agileBoard";
 
 @import "vsts/pr/timeline";

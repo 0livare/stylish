@@ -1,0 +1,6 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+.attachment-grid .attachments-grid-file-name a {
+  @include text();
+}

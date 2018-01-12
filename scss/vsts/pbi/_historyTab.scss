@@ -1,0 +1,119 @@
+@import "../../util/mixins";
+@import "../../util/colors";
+
+.state {
+  @include bg($light);
+}
+
+.arrow-tail {
+  @include bg($light);
+}
+
+.arrow-head {
+  border-left: 10px solid $light;
+  @include bg($darker);
+}
+
+.workitemcontrol .workitem-history-control {
+  #history-splitter {
+    display: none;
+  }
+  .right-history-panel .history-item-viewer {
+    .history-item-viewer-header .history-item-viewer-header-container {
+      border-bottom: 1px solid $very-light-grey;
+
+      .history-item-viewer-right .history-item-summary-text {
+        @include fg($text);
+      }
+    }
+
+    .history-item-detail .history-links .link-add .link-text {
+      @include fg(black);
+
+      a {
+        @include fg(black);
+
+        &:hover {
+          @include bg(green);
+        }
+      }
+    }
+  }
+
+  .left-history-panel {
+    border-right: 1px solid $light;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .history-item-list {
+      @include br($light);
+
+      .history-group .header {
+        @include setColors($light);
+      }
+
+      .history-item-summary {
+        @include bg($darker);
+        @include br($light);
+
+        &.history-item-selected, &:hover {
+          @include bg($dark);
+        }
+
+        .history-item-summary-details .history-item-summary-text {
+          @include fg($text);
+        }
+      }
+    }
+  }
+
+  .history-revision-list .history-item-list {
+    border: 0 !important;
+
+    .history-item-selected {
+      @include bg($light);
+    }
+    .history-group .header {
+      @include bg($lighter);
+      @include br($darker);
+    }
+    .history-item-summary {
+      @include br($very-light-grey);
+
+      &:hover {
+        @include bg($dark);
+      }
+
+      .history-item-summary-details .history-item-summary-text {
+        @include text();
+      }
+    }
+  }
+
+  .history-details-panel .history-item-viewer .history-item-detail {
+    .fields { @include text(); }
+
+    .fields .field-values .field-new-value,
+    .html-fields .html-field .html-field-new-value-container,
+    .history-links .link-add .link-text
+    {
+      @include bg($green);
+    }
+  }
+
+  .history-section { @include text(); }
+}
+
+.right-history-panel .content-section {
+  @include fg($darker);
+}
+
+
+// History step summary underneath name
+.fullscreen-container, .workitemcontrol .workitem-history-control {
+  .history-details-panel .history-item-viewer .history-item-viewer-header .history-item-viewer-header-container .history-item-viewer-right .history-item-summary-text {
+    @include text();
+  }
+}

@@ -8,3 +8,14 @@
 .build-status-text.inprogress {
   @include text();
 }
+
+
+.hub-splitter.splitter.horizontal > .leftPane {
+    @include bg($dark);
+}
+
+.ms-List-cell {
+    @include bg($dark);
+
+    &:hover { @include bg($darker); }
+}
