@@ -1,0 +1,28 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+.main_44eae792 {
+  @include bg($dark);
+
+  .ms-Panel-headerText { @include text(); }
+}
+
+.vss-HubBreadcrumb .vss-HubBreadcrumb--item .vss-HubBreadcrumb--itemContainer {
+  &:hover, &:active {
+    @include bg($lighter);
+  }
+}
+
+.vss-HubBreadcrumb--itemContainer {
+  .ms-Breadcrumb-item {
+    @include text();
+
+    & > .ms-TooltipHost {
+      @include text();
+    }
+  }
+}
+
+.vss-HubBreadcrumb .vss-HubBreadcrumb--item .vss-HubBreadcrumb--item-leftIcon {
+  @include text();
+}
