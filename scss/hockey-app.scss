@@ -1,0 +1,106 @@
+@import "util/mixins";
+@import "util/colors";
+
+html,
+body,
+.content,
+.container-fluid,
+.btn-toolbar,
+div.row.toolbar,                   // Top tool bar
+ul.nav.nav-scope span.divider,     // Dividers on top tool bar
+ul.nav.account span.divider,       // Dividers on top tool bar
+.navbar,                           // Top nav bar
+footer.navbar,                     // Footer
+footer.navbar div.nav-more,        // Footer
+.clearfix,                         // Small space above footer
+.well,                             // App store badge icon
+{
+    @include setColors($dark);
+}
+
+
+// Tab bar navigation
+ul.nav.nav-tabs {
+    @include setColors($lighter);
+}
+.nav-title { @include text(); }
+
+// Overview titles
+.editable-click, 
+a.editable-click, 
+a.editable-click:hover,
+.inline-edit 
+{
+    @include text();
+}
+
+
+// Main crash table
+table {
+    @include bg($dark);
+
+    &.table-bordered {
+        border: 0;
+        tr th {
+            @include setColors($lighter);
+
+            a { @include text(); }
+        }
+    }
+
+    td.clickable a {
+        &.primary, 
+        &.secondary 
+        {
+            @include text();
+        }
+    }
+
+    tr.table-footer {
+        &, &:hover {
+            td, th {
+                @include bg($dark);
+            }
+        }
+    }
+}
+
+.table-striped tbody {
+    tr:nth-child(odd)  td { @include setColors($dark);   }
+    tr:nth-child(even) td { @include setColors($darker); }
+}
+
+
+// Crash reasons toggle
+.crash-reasons-stats .stat-box-container .stat-box .stat-box-well {
+    @include setColors($dark);
+    &.active { @include setColors($darker); }
+}
+
+// Crash reasons graph
+.stat-details-box-container .stat-details-container.insights-container {
+    @include setColors($dark);
+}
+
+// Overview crash reasons inline charts
+.insights-stats .insights-well {
+    @include setColors($dark);
+    &.active, &:hover {
+        @include setColors($darker);
+    }
+}
+
+// Overview graphs
+.insights-stats .inner {
+    @include setColors($dark);
+}
+
+// Various buttons
+.btn,
+ul.nav.nav-pills li a
+{ @include setColors($darker); }
+
+// Raw text output
+.inner-container.with-pills pre {
+    @include setColors($dark);
+}
