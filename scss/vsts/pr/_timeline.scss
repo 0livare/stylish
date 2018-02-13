@@ -37,6 +37,11 @@ $comment-color: shade($light, 20);
   }
 }
 
+// Tables in the rendered markdown
+.discussion-renderedcontent tr:nth-child(even) {
+  @include bg($dark);
+}
+
 // File names for file snippets from comments
 .vc-pullrequest-review-view .vc-pullrequest-activity-box.inline-comment .vc-pullrequest-activity-header .file-link .file-name {
   @include text();

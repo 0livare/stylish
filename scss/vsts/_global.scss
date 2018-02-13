@@ -53,7 +53,6 @@ ul.menu-popup {
   box-shadow: #000 0 0 15px !important;
 }
 
-
 /**************************************************/
 /*************** POP UP TOOLBAR MENUS ********************/
 
@@ -254,6 +253,10 @@ $callout-color: tint($dark, 10);
   @include br($very-light-grey);
 }
 
+// Popup callout (at least) in device details when hovering
+// over a link
+.beakCurtain_94b2203b { @include bg($dark); }
+.content_0bdf51b0     { @include text(); }
 
 /*******************************************************/
 /********************* DETAILS LIST *******************/
@@ -369,3 +372,9 @@ $msg-bar-color: rgba(0, 45, 80, 1);
 
 // Username search box
 .identity-search-control { @include setColors($light); }
+
+// PBI/Task/Bug numbers in upper right hand corner of details view
+// I'm assuming, this also affects other things
+.body-font {
+  @include text();
+}
