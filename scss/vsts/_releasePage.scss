@@ -1,0 +1,29 @@
+@import "../util/mixins";
+@import "../util/colors";
+
+.release-logs-header {
+  @include bg($dark);
+}
+.monaco-editor .scroll-decoration {
+  box-shadow: $dark 0 6px 6px -6px inset;
+}
+.environment-definition-tile-name-label{
+  @include text();
+}
+.environment-definition-grid .grid-row-current .environment-definition-tile-content, .environment-definition-grid .environment-definition-tile-content:hover{
+  @include bg($dark);
+}
+.environment-definition-tile-content {
+  @include bg(tint($light, 2));
+}
+.task-group-header-label{
+  @include bg($light);
+}
+.task-group-header-label:hover{
+  @include bg($dark);
+}
+
+// Titles
+.releases-explorer-view h2 {
+  @include text();
+}

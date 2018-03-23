@@ -119,6 +119,11 @@
   @include bg($dark);
 }
 
+// Additional fields on the task board aren't set to the font color
+.field-container.additional-field .field-inner-element {
+    @include text();
+}
+
 
 /****** PBI BOARD ********/
 .id-title-container .title .clickable-title-link {
