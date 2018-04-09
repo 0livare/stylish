@@ -56,7 +56,13 @@ table.\12 .header-td, #\31 > table.header-table.l2 {
   border-bottom: 6px solid $light !important;
 }
 
-// Second level title bar
+.horizontal-layout .region-header .header-bottom, // Second level title bar 
+.hub-external.legacy-shim // Second level title bar -- loading (this prevents a flash of white)
+{
+  @include setColors($dark);
+}
+
+
 .vsts-header .hub-list .l2-menubar {
   & > .menu-item,
   & > .menu-item-container > .menu-item {
